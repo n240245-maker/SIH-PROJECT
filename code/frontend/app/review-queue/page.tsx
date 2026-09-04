@@ -27,6 +27,12 @@ export default function ReviewQueuePage() {
   const [alertType, setAlertType] = useState(""); const [duplicate, setDuplicate] = useState("");
   const [compliance, setCompliance] = useState(""); const [overdue, setOverdue] = useState("");
   const [overSanction, setOverSanction] = useState(""); const [reviewStatus, setReviewStatus] = useState("");
+  useEffect(() => {
+    const requestedAlert = new URLSearchParams(window.location.search).get("alert_type");
+    if (!requestedAlert) return;
+    const timer = window.setTimeout(() => setAlertType(requestedAlert), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
   useEffect(() => { const timer = window.setTimeout(() => { setDebounced(search); setPage(1); }, 300); return () => window.clearTimeout(timer); }, [search]);
   const filters = { page, page_size: 25, search: debounced, attention_level: attention, review_need: reviewNeed,
     band, lifecycle, sector, sub_sector: subSector, alert_type: alertType, duplicate: duplicate || undefined,

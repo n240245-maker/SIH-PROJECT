@@ -117,6 +117,30 @@ ALERT_ACTIONS = {
     "OPERATIONAL_TREND_DEVIATION": "Use as surrounding context; do not treat it as direct evidence against this work.",
 }
 
+ALERT_CATEGORIES = {
+    "OBSERVED_OVER_SANCTION": "Financial",
+    "FUND_PROGRESS_REVIEW": "Progress",
+    "OBSERVED_OVERDUE": "Schedule",
+    "PAYMENT_IRREGULARITY": "Payments",
+    "COMPLIANCE_REVIEW": "Compliance",
+    "DETERMINISTIC_NON_COMPLIANCE": "Compliance",
+    "DUPLICATE_REVIEW_CANDIDATE": "Duplicate Review",
+}
+
+ALERT_DISPLAY_ORDER = {
+    "DETERMINISTIC_NON_COMPLIANCE": 0,
+    "COMPLIANCE_REVIEW": 1,
+    "OBSERVED_OVER_SANCTION": 2,
+    "OBSERVED_OVERDUE": 3,
+    "PAYMENT_IRREGULARITY": 4,
+    "DUPLICATE_REVIEW_CANDIDATE": 5,
+    "FUND_PROGRESS_REVIEW": 6,
+    "COST_OVERRUN_EARLY_WARNING": 10,
+    "STATISTICAL_ANOMALY": 11,
+    "PEER_DEVIATION": 12,
+    "OPERATIONAL_TREND_DEVIATION": 13,
+}
+
 ACTIONABLE_ALERT_TYPES = frozenset({
     "COMPLIANCE_REVIEW",
     "DETERMINISTIC_NON_COMPLIANCE",
@@ -154,6 +178,12 @@ REVIEW_NOTE = (
 
 def is_actionable_alert(alert_type: Any) -> bool:
     return str(alert_type or "") in ACTIONABLE_ALERT_TYPES
+
+
+def alert_category(alert_type: Any) -> str:
+    """Group frozen alerts for presentation without changing their semantics."""
+
+    return ALERT_CATEGORIES.get(str(alert_type or ""), "Analytical Signals")
 
 
 def requires_review_from_alerts(alerts: list[dict[str, Any]]) -> bool:
@@ -468,6 +498,7 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
             "key_facts": key_facts,
             "why_attention": why,
             "officer_verification": ALERT_ACTIONS.get(alert_type, "Verify the linked source evidence."),
+            "display_order": ALERT_DISPLAY_ORDER.get(alert_type, 99),
             "technical_reference": {
                 "alert_type": alert_type,
                 "evidence_code": alert.get("evidence_code"),
@@ -476,6 +507,13 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
                 "original_summary": alert.get("alert_summary"),
             },
         })
+
+    warning_signals.sort(
+        key=lambda item: (
+            int(item["display_order"]),
+            str(item["title"]),
+        )
+    )
 
     highlights: dict[str, dict[str, str]] = {}
     if observed_over_sanction:
@@ -591,6 +629,75 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
         document_entry("completed_work_photograph", "Completed-work photograph", None, DOCUMENT_RULES["completed_work_photograph"]),
         document_entry("asset_register", "Asset register", "asset_record_count_as_of", DOCUMENT_RULES["asset_register"]),
         document_entry("audit", "Audit record", "audit_recorded_as_of"),
+    ]
+
+    applicable_readiness = [
+        item for item in readiness_entries
+        if item["status_code"] not in {"EXPECTED_AFTER_COMPLETION", "NOT_APPLICABLE"}
+    ]
+    available_readiness = [
+        item for item in applicable_readiness
+        if item["status_code"] not in {"NOT_RECORDED_AS_OF_SNAPSHOT", "INSUFFICIENT_DATA"}
+    ]
+    availability_ratio = (
+        len(available_readiness) / len(applicable_readiness)
+        if applicable_readiness else 1.0
+    )
+    evidence_availability = (
+        "Good" if availability_ratio >= 0.75
+        else "Moderate" if availability_ratio >= 0.5
+        else "Limited"
+    )
+    compliance_results = {str(rule.get("result") or "") for rule in compliance_rules}
+    duplicate_candidates = (detail.get("duplicates") or {}).get("review_candidates") or []
+    completion_review = any(
+        item["state"] in {"review", "strong_issue"} for item in readiness_entries
+    )
+    completion_recorded = any(
+        item["key"] == "completion" and item["status_code"] == "RECORDED"
+        for item in readiness_entries
+    )
+    monitoring_health = [
+        {
+            "dimension": "Finance",
+            "status": exceedance_severity["label"],
+            "state": exceedance_severity["state"],
+        },
+        {
+            "dimension": "Physical Progress",
+            "status": "Requires Review" if "FUND_PROGRESS_REVIEW" in alert_types else "Recorded" if physical is not None else "Not recorded",
+            "state": "review" if "FUND_PROGRESS_REVIEW" in alert_types else "pass" if physical is not None else "context",
+        },
+        {
+            "dimension": "Schedule",
+            "status": "Observed overdue" if "OBSERVED_OVERDUE" in alert_types else "Normal",
+            "state": "strong_issue" if "OBSERVED_OVERDUE" in alert_types else "pass",
+        },
+        {
+            "dimension": "Payments",
+            "status": "Requires Review" if "PAYMENT_IRREGULARITY" in alert_types else "Recorded" if _number(profile.get("released_payment_count_as_of")) else "Not recorded",
+            "state": "review" if "PAYMENT_IRREGULARITY" in alert_types else "pass" if _number(profile.get("released_payment_count_as_of")) else "context",
+        },
+        {
+            "dimension": "Compliance",
+            "status": "Non-Compliant" if "NON_COMPLIANT" in compliance_results else "Requires Review" if "REVIEW" in compliance_results else "Normal",
+            "state": "strong_issue" if "NON_COMPLIANT" in compliance_results else "review" if "REVIEW" in compliance_results else "pass",
+        },
+        {
+            "dimension": "Duplicate Review",
+            "status": "Candidate" if duplicate_candidates else "Normal",
+            "state": "review" if duplicate_candidates else "pass",
+        },
+        {
+            "dimension": "Completion Records",
+            "status": "Requires Review" if completion_review else "Recorded" if completion_recorded else "Expected after completion" if lifecycle != "COMPLETION" else "Not recorded",
+            "state": "review" if completion_review else "pass" if completion_recorded else "not_applicable" if lifecycle != "COMPLETION" else "context",
+        },
+        {
+            "dimension": "Evidence Availability",
+            "status": evidence_availability,
+            "state": "pass" if evidence_availability == "Good" else "context" if evidence_availability == "Moderate" else "insufficient",
+        },
     ]
 
     timeline_events: list[dict[str, Any]] = []
@@ -762,8 +869,10 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
         "highlighted_fields": highlights,
         "warning_signals": warning_signals,
         "financial": {
+            "estimated_cost_inr": profile.get("technical_estimate_amount_inr"),
             "sanctioned_amount_inr": sanction,
             "released_payments_inr": released,
+            "recorded_expenditure_inr": profile.get("cumulative_expenditure_inr_as_of") or profile.get("final_expenditure_inr_as_of"),
             "released_minus_sanction_inr": difference,
             "percentage_above_sanction": above_pct,
             "physical_progress_pct": physical,
@@ -772,6 +881,13 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
             "released_exceeds_visible_sanction": observed_over_sanction,
             "persistent_gap": persistent_gap,
             "exceedance_display_severity": exceedance_severity,
+            "health_interpretation": (
+                "Financial utilization is substantially ahead of reported physical progress."
+                if gap is not None and gap > 15
+                else "Financial and physical progress require reconciliation."
+                if "FUND_PROGRESS_REVIEW" in alert_types
+                else "No current governed financial-utilization issue is visible."
+            ),
         },
         "payment_chronology": {
             "authorization_before_request": "PAYMENT_AUTH_BEFORE_REQUEST" in payment_codes,
@@ -790,6 +906,15 @@ def build_work_presentation(detail: dict[str, Any]) -> dict[str, Any]:
             "entries": readiness_entries,
         },
         "peer_comparisons": peer_comparisons,
+        "monitoring_health": monitoring_health,
+        "evidence_availability_rule": {
+            "label": evidence_availability,
+            "available_count": len(available_readiness),
+            "applicable_count": len(applicable_readiness),
+            "good_threshold": 0.75,
+            "moderate_threshold": 0.5,
+            "note": "Expected-after-completion and not-applicable records are excluded from the denominator.",
+        },
         "trend": trend_presentation,
         "case_assessment": case_assessment,
         "compliance_counts": compliance_counts,

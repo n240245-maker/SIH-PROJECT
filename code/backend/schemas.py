@@ -24,6 +24,19 @@ class ReviewStatus(StrEnum):
     FALSE_POSITIVE = "FALSE_POSITIVE"
 
 
+class FollowUpAction(StrEnum):
+    REQUEST_CLARIFICATION = "REQUEST_CLARIFICATION"
+    REQUEST_SUPPORTING_DOCUMENTS = "REQUEST_SUPPORTING_DOCUMENTS"
+    FINANCIAL_RECONCILIATION_REQUIRED = "FINANCIAL_RECONCILIATION_REQUIRED"
+    REQUEST_UPDATED_PROGRESS_REPORT = "REQUEST_UPDATED_PROGRESS_REPORT"
+    SCHEDULE_FIELD_VERIFICATION = "SCHEDULE_FIELD_VERIFICATION"
+    DUPLICATE_WORK_COMPARISON_REQUIRED = "DUPLICATE_WORK_COMPARISON_REQUIRED"
+    REVIEW_REVISED_SANCTION = "REVIEW_REVISED_SANCTION"
+    ESCALATE_FOR_DETAILED_REVIEW = "ESCALATE_FOR_DETAILED_REVIEW"
+    NO_FURTHER_ACTION = "NO_FURTHER_ACTION"
+    CLOSE_AFTER_VERIFICATION = "CLOSE_AFTER_VERIFICATION"
+
+
 class ExplainRequest(BaseModel):
     use_llm: bool = False
 
@@ -32,12 +45,14 @@ class ReviewCreate(BaseModel):
     actor_role: Role
     actor_label: str = Field(min_length=2, max_length=120)
     status: ReviewStatus
+    follow_up_action: FollowUpAction
+    scope_label: str | None = Field(default=None, max_length=240)
     note: str = Field(min_length=2, max_length=2000)
 
-    @field_validator("actor_label", "note")
+    @field_validator("actor_label", "note", "scope_label")
     @classmethod
-    def strip_text(cls, value: str) -> str:
-        return value.strip()
+    def strip_text(cls, value: str | None) -> str | None:
+        return value.strip() if value is not None else None
 
 
 class HealthResponse(BaseModel):
@@ -62,6 +77,8 @@ class ReviewResponse(BaseModel):
     actor_role: Role
     actor_label: str
     status: ReviewStatus
+    follow_up_action: FollowUpAction | None = None
+    scope_label: str | None = None
     note: str
     created_at: str
 

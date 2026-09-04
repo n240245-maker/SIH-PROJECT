@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BarChart3, ClipboardCheck, LayoutDashboard, Landmark, ShieldCheck } from "lucide-react";
+import { BarChart3, BellRing, ClipboardCheck, LayoutDashboard, Landmark, ShieldCheck } from "lucide-react";
 import { ScopeSelector } from "./scope-selector";
 
 const links = [
   { href: "/", label: "Overview", icon: LayoutDashboard },
   { href: "/review-queue", label: "Review queue", icon: ClipboardCheck },
+  { href: "/alerts", label: "Alert center", icon: BellRing },
   { href: "/trends", label: "Trends & hotspots", icon: BarChart3 },
   { href: "/methodology", label: "Methodology", icon: ShieldCheck },
 ];

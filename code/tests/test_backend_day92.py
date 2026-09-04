@@ -108,6 +108,23 @@ def test_friendly_warning_peer_trend_and_case_assessment(client: TestClient) -> 
     assert assessment["financial_and_payment"]["sanctioned_amount_inr"] == 974_000
     assert assessment["verification_steps"]
     assert "wrongdoing" in assessment["review_note"]
+    assert [row["dimension"] for row in detail["presentation"]["monitoring_health"]] == [
+        "Finance", "Physical Progress", "Schedule", "Payments", "Compliance",
+        "Duplicate Review", "Completion Records", "Evidence Availability",
+    ]
+    availability = detail["presentation"]["evidence_availability_rule"]
+    assert availability["available_count"] <= availability["applicable_count"]
+    assert "excluded" in availability["note"]
+
+
+def test_alert_center_summary_preserves_actionable_semantics(client: TestClient) -> None:
+    body = client.get("/api/v1/alerts", params={"limit": 1}).json()
+    assert body["returned"] == 1
+    assert body["summary"]
+    by_type = {row["alert_type"]: row for row in body["summary"]}
+    assert by_type["OBSERVED_OVER_SANCTION"]["category"] == "Financial"
+    assert by_type["OBSERVED_OVER_SANCTION"]["actionable"] is True
+    assert by_type["STATISTICAL_ANOMALY"]["status"] == "Analytical context"
 
 
 def test_review_priority_is_bit_for_bit_unchanged(client: TestClient) -> None:

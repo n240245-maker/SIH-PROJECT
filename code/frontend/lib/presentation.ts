@@ -83,6 +83,29 @@ export const DOCUMENT_STATE_LABELS: Record<string, string> = {
   FUTURE_DATED: "Future-dated / not yet visible as of snapshot",
 };
 
+export const FOLLOW_UP_ACTION_LABELS: Record<string, string> = {
+  REQUEST_CLARIFICATION: "Request Clarification",
+  REQUEST_SUPPORTING_DOCUMENTS: "Request Supporting Documents",
+  FINANCIAL_RECONCILIATION_REQUIRED: "Financial Reconciliation Required",
+  REQUEST_UPDATED_PROGRESS_REPORT: "Request Updated Progress Report",
+  SCHEDULE_FIELD_VERIFICATION: "Schedule / Field Verification",
+  DUPLICATE_WORK_COMPARISON_REQUIRED: "Duplicate Work Comparison Required",
+  REVIEW_REVISED_SANCTION: "Review Revised Sanction",
+  ESCALATE_FOR_DETAILED_REVIEW: "Escalate for Detailed Review",
+  NO_FURTHER_ACTION: "No Further Action",
+  CLOSE_AFTER_VERIFICATION: "Close After Verification",
+};
+
+export type ReadinessGroup = "Recorded" | "Requires Review" | "Not Recorded" | "Not Applicable";
+
+export function readinessGroup(value: unknown): ReadinessGroup {
+  const status = String(value ?? "");
+  if (status === "RECORDED") return "Recorded";
+  if (["REQUIRES_REVIEW", "NON_COMPLIANT"].includes(status)) return "Requires Review";
+  if (["EXPECTED_AFTER_COMPLETION", "NOT_APPLICABLE", "NOT_YET_APPLICABLE"].includes(status)) return "Not Applicable";
+  return "Not Recorded";
+}
+
 export const MODEL_STATUS_LABELS: Record<string, string> = {
   PROTOTYPE_WEAK_DISCRIMINATION: "Model reliability: Limited", NOT_APPLICABLE: "Not applicable", UNAVAILABLE: "Unavailable",
 };
@@ -137,12 +160,23 @@ export function formatFact(value: unknown, kind: unknown): string {
   if (kind === "currency" && Number.isFinite(numeric)) return inr.format(numeric);
   if (kind === "percent" && Number.isFinite(numeric)) return `${number.format(numeric)}%`;
   if (kind === "percentage_points" && Number.isFinite(numeric)) return `${number.format(numeric)} percentage points`;
+  if (kind === "score" && Number.isFinite(numeric)) return number.format(numeric);
   if (kind === "days" && Number.isFinite(numeric)) return `${number.format(Math.round(numeric))} days`;
   if (kind === "date") {
     const date = new Date(`${String(value).slice(0, 10)}T00:00:00Z`);
     return Number.isNaN(date.valueOf()) ? String(value) : new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(date);
   }
   return String(value);
+}
+
+export function formatCompactInr(value: unknown): string {
+  const numeric = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(numeric)) return "Not available";
+  const compact = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 2 });
+  const absolute = Math.abs(numeric);
+  if (absolute >= 10_000_000) return `₹${compact.format(numeric / 10_000_000)} crore`;
+  if (absolute >= 100_000) return `₹${compact.format(numeric / 100_000)} lakh`;
+  return inr.format(numeric);
 }
 
 export function attentionLabel(value: unknown): string {

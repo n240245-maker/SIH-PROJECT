@@ -3,16 +3,19 @@ import test from "node:test";
 
 import {
   PEER_METRICS,
+  FOLLOW_UP_ACTION_LABELS,
   attentionLabel,
   complianceState,
   contributionSum,
   documentStateLabel,
   familyLabel,
   formatFact,
+  formatCompactInr,
   formatMetric,
   humanizeNarrative,
   metricLabel,
   peerObservedValue,
+  readinessGroup,
 } from "./presentation.ts";
 
 test("all served peer metrics have friendly metadata", () => {
@@ -53,6 +56,23 @@ test("friendly fact formatting avoids false precision", () => {
   assert.equal(formatFact(37.56, "percentage_points"), "37.6 percentage points");
   assert.equal(formatFact(143.878865979, "percent"), "143.9%");
   assert.equal(formatFact("2025-06-24", "date"), "24 June 2025");
+  assert.equal(formatFact(94.201658, "score"), "94.2");
+  assert.equal(formatCompactInr(637000), "₹6.37 lakh");
+  assert.equal(formatCompactInr(925000), "₹9.25 lakh");
+});
+
+test("Indian money summaries use readable lakh and crore units", () => {
+  assert.equal(formatCompactInr(637000), "₹6.37 lakh");
+  assert.equal(formatCompactInr(12_500_000), "₹1.25 crore");
+});
+
+test("readiness and corrective actions remain controlled mappings", () => {
+  assert.equal(readinessGroup("RECORDED"), "Recorded");
+  assert.equal(readinessGroup("NON_COMPLIANT"), "Requires Review");
+  assert.equal(readinessGroup("EXPECTED_AFTER_COMPLETION"), "Not Applicable");
+  assert.equal(readinessGroup("INSUFFICIENT_DATA"), "Not Recorded");
+  assert.equal(FOLLOW_UP_ACTION_LABELS.REVIEW_REVISED_SANCTION, "Review Revised Sanction");
+  assert.equal(Object.keys(FOLLOW_UP_ACTION_LABELS).length, 10);
 });
 
 test("mocked grounded explanation fields use officer-facing evidence language", () => {

@@ -14,6 +14,14 @@ const scopeOptionsSchema = z.object({ roles: z.array(z.enum(["MOSPI", "STATE", "
   states: z.array(z.string()), districts: z.array(z.object({ state_name: z.string(), district: z.string() })),
   mps: z.array(z.object({ mp_id: z.string(), mp_name: z.string(), state_name: z.string().nullish(), constituency: z.string().nullish() })) });
 const pageSchema = z.object({ items: z.array(looseRecord), page: z.number(), page_size: z.number(), total: z.number(), total_pages: z.number() });
+const alertsSchema = z.object({
+  items: z.array(looseRecord),
+  summary: z.array(z.object({
+    alert_type: z.string(), category: z.string(), label: z.string(), work_count: z.number(),
+    alert_count: z.number(), status: z.string(), actionable: z.boolean(), short_explanation: z.string(),
+  })),
+  total: z.number(), returned: z.number(), limit: z.number(),
+});
 const workSchema = z.object({ profile: looseRecord, priority: looseRecord, contributions: z.array(looseRecord),
   contribution_sum: z.number(), alerts: z.array(looseRecord), anomaly: looseRecord,
   peer_benchmark: looseRecord, duplicates: looseRecord, payments: looseRecord,
@@ -59,6 +67,7 @@ export const api = {
     return request<{ items: Record<string, unknown>[]; total: number; returned: number }>(`/api/v1/trends?${params}`, z.object({ items: z.array(looseRecord), total: z.number(), returned: z.number(), limit: z.number() }));
   },
   hotspots: (scope: Scope) => request<{ items: Record<string, unknown>[]; total: number }>(`/api/v1/hotspots?${scopeParams(scope)}`, z.object({ items: z.array(looseRecord), total: z.number(), returned: z.number(), limit: z.number() })),
+  alerts: (scope: Scope) => request(`/api/v1/alerts?${scopeParams(scope)}&limit=1`, alertsSchema),
   explain: (workId: string, useLlm: boolean) => request<Record<string, unknown>>(`/api/v1/works/${encodeURIComponent(workId)}/explain`, looseRecord, { method: "POST", body: JSON.stringify({ use_llm: useLlm }) }),
   addReview: (workId: string, payload: Record<string, string>) => request<Record<string, unknown>>(`/api/v1/works/${encodeURIComponent(workId)}/reviews`, looseRecord, { method: "POST", body: JSON.stringify(payload) }),
 };

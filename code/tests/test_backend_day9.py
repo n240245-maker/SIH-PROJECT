@@ -104,9 +104,12 @@ def test_reviews_are_append_only_and_audited(client: TestClient, tmp_path: Path)
     app.dependency_overrides[get_reviews] = lambda: repository
     try:
         payload = {"actor_role": "MOSPI", "actor_label": "Demo review desk",
-                   "status": "IN_REVIEW", "note": "Verify source documents."}
+                   "status": "IN_REVIEW", "follow_up_action": "REQUEST_SUPPORTING_DOCUMENTS",
+                   "scope_label": "MOSPI · National", "note": "Verify source documents."}
         created = client.post("/api/v1/works/W-001937/reviews", json=payload)
         assert created.status_code == 201
+        assert created.json()["follow_up_action"] == "REQUEST_SUPPORTING_DOCUMENTS"
+        assert created.json()["scope_label"] == "MOSPI · National"
         listed = client.get("/api/v1/works/W-001937/reviews")
         assert listed.status_code == 200 and len(listed.json()) == 1
         assert repository.reviews_path.read_text(encoding="utf-8").count("\n") == 1
@@ -117,7 +120,8 @@ def test_reviews_are_append_only_and_audited(client: TestClient, tmp_path: Path)
 
 def test_review_validation_and_ground_truth_isolation(client: TestClient) -> None:
     invalid = client.post("/api/v1/works/W-001937/reviews", json={
-        "actor_role": "MOSPI", "actor_label": "x", "status": "DECIDED", "note": "x"})
+        "actor_role": "MOSPI", "actor_label": "x", "status": "DECIDED",
+        "follow_up_action": "INVENTED_ACTION", "note": "x"})
     assert invalid.status_code == 422
     openapi = client.get("/openapi.json").text.casefold()
     assert "ground_truth" not in openapi

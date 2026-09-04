@@ -12,9 +12,11 @@ from backend.repositories import ApplicationArtifactRepository, ReviewRepository
 from backend.schemas import Role
 from backend.serialization import json_safe
 from backend.presentation import (
+    ALERT_ACTIONS,
     ALERT_LABELS,
     ATTENTION_LEVEL_LABELS,
     attention_level_from_band,
+    alert_category,
     build_work_presentation,
     is_actionable_alert,
 )
@@ -326,8 +328,26 @@ class ApplicationService:
         if lifecycle:
             frame = frame.loc[frame["lifecycle_stage"].eq(lifecycle)]
         frame = frame.loc[frame["alert_strength_0_100"].ge(minimum_strength)]
+        summary = []
+        for current_type, group in frame.groupby("alert_type", sort=True):
+            current = str(current_type)
+            actionable = is_actionable_alert(current)
+            summary.append({
+                "alert_type": current,
+                "category": alert_category(current),
+                "label": ALERT_LABELS.get(current, current.replace("_", " ").title()),
+                "work_count": int(group["work_id"].astype(str).nunique()),
+                "alert_count": int(len(group)),
+                "status": "Requires Review" if actionable else "Analytical context",
+                "actionable": actionable,
+                "short_explanation": ALERT_ACTIONS.get(
+                    current,
+                    "Use as analytical context and verify the underlying source evidence.",
+                ),
+            })
+        summary.sort(key=lambda item: (item["category"], item["label"]))
         frame = frame.sort_values(["alert_strength_0_100", "work_id", "alert_id"],
                                   ascending=[False, True, True], kind="stable")
         total = len(frame)
         return {"items": json_safe(frame.head(limit).to_dict(orient="records")),
-                "total": total, "returned": min(total, limit), "limit": limit}
+                "summary": summary, "total": total, "returned": min(total, limit), "limit": limit}

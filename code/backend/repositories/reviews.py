@@ -48,7 +48,10 @@ class ReviewRepository:
             "audit_id": str(uuid.uuid4()), "event_type": "REVIEW_STATUS_RECORDED",
             "work_id": work_id, "review_id": review["review_id"],
             "actor_role": review["actor_role"], "actor_label": review["actor_label"],
-            "status": review["status"], "created_at": now,
+            "status": review["status"],
+            "follow_up_action": review["follow_up_action"],
+            "scope_label": review.get("scope_label"),
+            "created_at": now,
         }
         with self._lock:
             self.runtime_dir.mkdir(parents=True, exist_ok=True)
@@ -57,4 +60,3 @@ class ReviewRepository:
             with self.audit_path.open("a", encoding="utf-8", newline="\n") as stream:
                 stream.write(json.dumps(audit, ensure_ascii=False) + "\n")
         return review
-
