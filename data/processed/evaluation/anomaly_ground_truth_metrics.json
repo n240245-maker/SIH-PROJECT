@@ -1,0 +1,71 @@
+{
+  "artifact_type": "evaluation-only synthetic-label diagnostic",
+  "ranking_strategy": "Rank by within-stage anomaly percentile descending; lifecycle-normalized percentiles are compared overall with work_id as deterministic tie-breaker.",
+  "evaluation_label": "has_injected_anomaly = injected_anomaly_count > 0",
+  "score_used": "within_stage_anomaly_percentile_0_100",
+  "features_or_hyperparameters_changed_after_evaluation": false,
+  "disclaimers": [
+    "Ground truth was never used for feature selection, preprocessing, model training, tuning, or production ranking.",
+    "Metrics measure same-synthetic-snapshot diagnostic alignment only.",
+    "Metrics are not production generalization estimates.",
+    "Metrics are not validated fraud-detection accuracy.",
+    "Evaluation labels represent injected synthetic anomalies."
+  ],
+  "overall": {
+    "row_count": 3000,
+    "positive_count": 358,
+    "negative_count": 2642,
+    "roc_auc": 0.7145704963651204,
+    "average_precision": 0.37639279284657357,
+    "metric_status": "calculated"
+  },
+  "by_lifecycle_stage": {
+    "COMPLETION": {
+      "row_count": 1929,
+      "positive_count": 241,
+      "negative_count": 1688,
+      "roc_auc": 0.6738658040156535,
+      "average_precision": 0.3772454565239559,
+      "metric_status": "calculated"
+    },
+    "EXECUTION": {
+      "row_count": 801,
+      "positive_count": 109,
+      "negative_count": 692,
+      "roc_auc": 0.8248528397942408,
+      "average_precision": 0.5291508288458574,
+      "metric_status": "calculated"
+    },
+    "PRE_SANCTION": {
+      "row_count": 270,
+      "positive_count": 8,
+      "negative_count": 262,
+      "roc_auc": 0.5520038167938931,
+      "average_precision": 0.04370055650679208,
+      "metric_status": "calculated"
+    }
+  },
+  "ranking_diagnostics": {
+    "top_1_percent": {
+      "fraction": 0.01,
+      "selected_row_count": 30,
+      "selected_positive_count": 25,
+      "precision": 0.8333333333333334,
+      "recall": 0.06983240223463687
+    },
+    "top_5_percent": {
+      "fraction": 0.05,
+      "selected_row_count": 150,
+      "selected_positive_count": 81,
+      "precision": 0.54,
+      "recall": 0.22625698324022347
+    },
+    "top_10_percent": {
+      "fraction": 0.1,
+      "selected_row_count": 300,
+      "selected_positive_count": 132,
+      "precision": 0.44,
+      "recall": 0.3687150837988827
+    }
+  }
+}

@@ -1,0 +1,557 @@
+{
+  "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+  "implemented_rule_count": 8,
+  "unimplemented_candidate_count": 9,
+  "rules": [
+    {
+      "rule_id": "MPLADS-3.2.4-SANCTION-45D",
+      "title": "Recommendation response within 45 days",
+      "category": "SANCTION",
+      "description": "Checks the recorded recommendation-to-sanction interval.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.4; 3.2.6",
+      "guideline_page": 19,
+      "guideline_printed_page": "7",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P019"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=19",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "features.recommendation_date",
+        "features.sanction_date_as_of"
+      ],
+      "evaluation_logic": "PASS for 0-45 calendar days; REVIEW otherwise because model-code exclusion periods are unavailable.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "Timing needs review; excluded model-code periods are unavailable.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_sanction_response_all_results"
+    },
+    {
+      "rule_id": "MPLADS-3.2.9-MIN-SANCTION",
+      "title": "Normal minimum sanctioned amount",
+      "category": "SANCTION",
+      "description": "Checks the guideline's normal INR 2.5 lakh minimum.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "INFO",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.9",
+      "guideline_page": 20,
+      "guideline_printed_page": "8",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P020"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=20",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "features.sanctioned_amount_inr"
+      ],
+      "evaluation_logic": "PASS at or above INR 250,000; REVIEW below because the clause allows a reasoned public-benefit exception.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "A sub-minimum sanction requires the recorded exception reason.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_minimum_sanction_all_results"
+    },
+    {
+      "rule_id": "MPLADS-3.2.12-COMPLETION-LIMIT",
+      "title": "General one-year completion limit",
+      "category": "SANCTION",
+      "description": "Checks the recorded sanction-to-expected-completion plan.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.12",
+      "guideline_page": 20,
+      "guideline_printed_page": "8",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P020"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=20",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "features.sanction_date_as_of",
+        "features.expected_completion_date"
+      ],
+      "evaluation_logic": "PASS for a 0-365 day sanction-to-plan interval; REVIEW otherwise because exceptional-case justification is unavailable.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "A longer plan requires the exceptional-case justification.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_completion_limit_all_results"
+    },
+    {
+      "rule_id": "MPLADS-3.2.17-PUBLIC-USE",
+      "title": "Public use after completion",
+      "category": "COMPLETION",
+      "description": "Checks for visible public-use evidence for completed assets.",
+      "lifecycle_applicability": [
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.17",
+      "guideline_page": 21,
+      "guideline_printed_page": "9",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P021"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=21",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "assets.completion_date",
+        "assets.public_use_date"
+      ],
+      "evaluation_logic": "PASS when every completed asset has public-use evidence by AS_OF_DATE; REVIEW otherwise because the clause states no numeric grace period.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "Public-use evidence is not visible for every completed asset.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_public_use_all_results"
+    },
+    {
+      "rule_id": "MPLADS-4.5.3-COMPLETION-PHOTO",
+      "title": "Completed-work photograph in register",
+      "category": "COMPLETION",
+      "description": "Checks for a photograph reference on completed-work records.",
+      "lifecycle_applicability": [
+        "COMPLETION"
+      ],
+      "severity": "INFO",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 4 - MONITORING",
+      "guideline_clause": "4.5.3",
+      "guideline_page": 26,
+      "guideline_printed_page": "14",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P026"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=26",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "assets.completion_date",
+        "assets.completion_photo_reference"
+      ],
+      "evaluation_logic": "PASS when every completed record has a photo reference; NON_COMPLIANT when an available completed record explicitly lacks it.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "A completed-work photo reference is absent.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_completion_photo_all_results"
+    },
+    {
+      "rule_id": "MPLADS-11.3-ASSET-HANDOVER",
+      "title": "Completed asset handover",
+      "category": "ASSET",
+      "description": "Checks for visible transfer to the User Agency.",
+      "lifecycle_applicability": [
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 11 - ACCOUNTING PROCEDURE",
+      "guideline_clause": "11.3",
+      "guideline_page": 51,
+      "guideline_printed_page": "39",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P051"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=51",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "assets.completion_date",
+        "assets.handover_date"
+      ],
+      "evaluation_logic": "PASS when every completed asset has handover evidence by AS_OF_DATE; REVIEW otherwise because no numeric delay is specified.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "Handover evidence is not visible for every completed asset.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_asset_handover_all_results"
+    },
+    {
+      "rule_id": "MPLADS-4.5.8-ASSET-REGISTER",
+      "title": "Transferred asset register entry",
+      "category": "ASSET",
+      "description": "Checks register status after an as-of-visible handover.",
+      "lifecycle_applicability": [
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 4 / CHAPTER 11",
+      "guideline_clause": "4.5.8; 11.3",
+      "guideline_page": 26,
+      "guideline_printed_page": "14; 39",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P026",
+        "MPLADS-2023-P051"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=26",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "assets.completion_date",
+        "assets.handover_date",
+        "assets.asset_register_entry"
+      ],
+      "evaluation_logic": "NOT_APPLICABLE before visible handover; PASS for Yes; REVIEW for Pending/unknown; NON_COMPLIANT for an explicit No after handover.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "A transferred asset has a pending or unrecognized register status.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_asset_register_all_results"
+    },
+    {
+      "rule_id": "MPLADS-11.2-COMPLETION-UC",
+      "title": "Utilization Certificate on completion",
+      "category": "UTILIZATION_CERTIFICATE",
+      "description": "Checks for visible submitted-certificate evidence after completion.",
+      "lifecycle_applicability": [
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 11 - ACCOUNTING PROCEDURE",
+      "guideline_clause": "11.2",
+      "guideline_page": 51,
+      "guideline_printed_page": "39",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P051"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=51",
+      "required_fields": [
+        "features.lifecycle_stage",
+        "assets.completion_date",
+        "assets.utilization_certificate_status",
+        "assets.utilization_certificate_date"
+      ],
+      "evaluation_logic": "PASS when every completed asset has a Submitted certificate dated by AS_OF_DATE; REVIEW otherwise because 'quickly' is not a numeric deadline.",
+      "result_semantics": {
+        "PASS": "Available as-of evidence satisfies the encoded condition.",
+        "REVIEW": "Utilization-certificate evidence is not visible for every completed asset.",
+        "NON_COMPLIANT": "Available source fields directly contradict an explicit requirement without needing contextual interpretation.",
+        "NOT_APPLICABLE": "The rule is outside the work lifecycle or its stated due point has not occurred by the controlled snapshot.",
+        "INSUFFICIENT_DATA": "A required source value is absent, so no compliance conclusion is made."
+      },
+      "implemented_status": "IMPLEMENTED",
+      "unimplemented_reason": null,
+      "test_coverage_identifier": "test_rule_completion_uc_all_results"
+    },
+    {
+      "rule_id": "CANDIDATE-3.2.3-FULL-ESTIMATE-CONSENT",
+      "title": "Full estimate consent and allocation",
+      "category": "SANCTION",
+      "description": "Potential check when an estimate exceeds the MP-indicated amount.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.3",
+      "guideline_page": 19,
+      "guideline_printed_page": "7",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P019"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=19",
+      "required_fields": [
+        "technical_estimate_amount_inr",
+        "recommended_amount_inr",
+        "mp_full_estimate_consent",
+        "allocated_full_estimate_amount"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "MP consent and allocation evidence are not present.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-3.2.7-O_AND_M-UNDERTAKING",
+      "title": "Pre-sanction operation and maintenance undertaking",
+      "category": "SANCTION",
+      "description": "Potential check for the User Agency's written undertaking.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.7",
+      "guideline_page": 19,
+      "guideline_printed_page": "7",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P019"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=19",
+      "required_fields": [
+        "operation_maintenance_undertaking_reference"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "The written undertaking is not represented in source data.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-3.2.8-STATUTORY-CLEARANCES",
+      "title": "Pre-sanction statutory and regulatory clearances",
+      "category": "SANCTION",
+      "description": "Potential check that applicable clearances preceded sanction.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.8",
+      "guideline_page": 20,
+      "guideline_printed_page": "8",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P020"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=20",
+      "required_fields": [
+        "required_clearances",
+        "clearance_dates",
+        "sanction_date"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "Applicable clearance types and dated documents are absent.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-3.2.13-OPEN-BIDDING",
+      "title": "Open and transparent vendor selection",
+      "category": "EXECUTION",
+      "description": "Potential check of the work-level procurement process.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 3 - IMPLEMENTATION",
+      "guideline_clause": "3.2.13",
+      "guideline_page": 20,
+      "guideline_printed_page": "8",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P020"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=20",
+      "required_fields": [
+        "tender_reference",
+        "bid_publication",
+        "bid_evaluation"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "Tender and bid-process documents are absent.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-4.5.2-DISTRICT-INSPECTION",
+      "title": "Annual district inspection coverage",
+      "category": "AUDIT",
+      "description": "Potential annual check of the district's 10 percent inspection duty.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 4 - MONITORING",
+      "guideline_clause": "4.5.2",
+      "guideline_page": 26,
+      "guideline_printed_page": "14",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P026"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=26",
+      "required_fields": [
+        "district_year_work_universe",
+        "district_inspection_register"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "No district-year inspection register or denominator exists.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-4.6.2-AGENCY-INSPECTION",
+      "title": "Implementing Agency inspection coverage",
+      "category": "AUDIT",
+      "description": "Potential check that the Implementing Agency inspected every work.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 4 - MONITORING",
+      "guideline_clause": "4.6.2",
+      "guideline_page": 27,
+      "guideline_printed_page": "15",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P027"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=27",
+      "required_fields": [
+        "implementing_agency_site_visit_register"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "Work-site visit and inspection-register evidence is absent.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-5.1.1-DURABLE-PUBLIC-ASSET",
+      "title": "Durable public asset and unrestricted access",
+      "category": "ELIGIBILITY",
+      "description": "Potential eligibility check for durable public-good assets.",
+      "lifecycle_applicability": [
+        "PRE_SANCTION",
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 5 - PERMISSIBLE WORKS",
+      "guideline_clause": "5.1.1; 5.1.2",
+      "guideline_page": 28,
+      "guideline_printed_page": "16",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P028"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=28",
+      "required_fields": [
+        "land_ownership",
+        "institution_control",
+        "access_restrictions"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "Descriptions and broad asset types cannot establish land ownership, institutional control, durability, or unrestricted access.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-11.4.1-PAYMENT-UC",
+      "title": "Utilization Certificate for each vendor payment",
+      "category": "UTILIZATION_CERTIFICATE",
+      "description": "Potential payment-level certificate linkage check.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 11 - ACCOUNTING PROCEDURE",
+      "guideline_clause": "11.4.1",
+      "guideline_page": 51,
+      "guideline_printed_page": "39",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P051"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=51",
+      "required_fields": [
+        "payment_id",
+        "payment_utilization_certificate_reference"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "The source has only work-level UC status, not payment-level linkage.",
+      "test_coverage_identifier": null
+    },
+    {
+      "rule_id": "CANDIDATE-11.4.4-ANNUAL-AUDIT-DEADLINE",
+      "title": "Annual audit report deadline",
+      "category": "AUDIT",
+      "description": "Potential authority-level September 30 audit deadline check.",
+      "lifecycle_applicability": [
+        "EXECUTION",
+        "COMPLETION"
+      ],
+      "severity": "STRONG_WARNING",
+      "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+      "guideline_chapter": "CHAPTER 11 - ACCOUNTING PROCEDURE",
+      "guideline_clause": "11.4.4",
+      "guideline_page": 51,
+      "guideline_printed_page": "39",
+      "guideline_chunk_ids": [
+        "MPLADS-2023-P051"
+      ],
+      "official_reference": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf#page=51",
+      "required_fields": [
+        "fund_release_financial_year",
+        "authority_audit_report_date"
+      ],
+      "evaluation_logic": null,
+      "result_semantics": null,
+      "implemented_status": "UNIMPLEMENTED_RULE_CANDIDATE",
+      "unimplemented_reason": "Work-level audit dates are not linked to fund-release year or the responsible authority's annual report.",
+      "test_coverage_identifier": null
+    }
+  ]
+}

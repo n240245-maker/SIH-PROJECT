@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Environment secrets
+.env
+code/frontend/.env.local
+# Model artifacts are ignored by default
+*.joblib
+*.pkl
+
+# Governed runtime/model artifacts required by this project
+!code/models/**/*.joblib
+!code/models/**/*.pkl
+
+# Node
+node_modules/
+.next/
+
+# Runtime review state (local and append-only)
+data/runtime/*.jsonl
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Temporary/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+tmp/
+output/

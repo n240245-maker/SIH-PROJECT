@@ -1,0 +1,350 @@
+{
+  "status": "COMPLETED_WITH_FALLBACK",
+  "explicit_live_smoke": true,
+  "cases_evaluated": 3,
+  "calls_attempted": 3,
+  "results": [
+    {
+      "work_id": "W-001937",
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "generation_mode": "GROQ_GROUNDED",
+      "api_status": "SUCCESS",
+      "request_size_bytes": 14894,
+      "evidence_item_count": 7,
+      "guideline_excerpt_count": 5,
+      "direct_chunk_count": 2,
+      "semantic_chunk_count": 2,
+      "http_outcome": "HTTP_200",
+      "schema_validation_outcome": "PASSED",
+      "grounding_validation_outcome": "PASSED",
+      "grounding_issues": [],
+      "explanation": {
+        "work_id": "W-001937",
+        "summary": "Work W-001937 exhibits several compliance and operational concerns that warrant human review.",
+        "why_flagged": [
+          {
+            "family": "COMPLIANCE",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "MPLADS-3.2.17-PUBLIC-USE"
+            ],
+            "interpretation": "Public‑use evidence not visible for the completed asset; clause 3.2.17 requires immediate public use but no numeric grace period is defined.",
+            "caveat": "Evidence based on document visibility; requires verification of plaque installation."
+          },
+          {
+            "family": "COMPLIANCE",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "MPLADS-11.3-ASSET-HANDOVER"
+            ],
+            "interpretation": "Asset handover evidence not visible; clause 11.3 mandates transfer without delay but lacks a numeric timeline.",
+            "caveat": "Evidence based on document visibility; confirm asset register entry."
+          },
+          {
+            "family": "COMPLIANCE",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "MPLADS-11.2-COMPLETION-UC"
+            ],
+            "interpretation": "Utilisation‑certificate evidence not visible; clause 11.2 calls for rapid finalisation (‘quickly’) without a concrete deadline.",
+            "caveat": "Evidence based on document visibility; obtain the Utilisation Certificate."
+          },
+          {
+            "family": "PAYMENT_EXECUTION",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "RELEASED_TOTAL_EXCEEDS_SANCTION"
+            ],
+            "interpretation": "Released‑payment aggregate exceeds the sanctioned amount, indicating possible over‑expenditure.",
+            "caveat": "Heuristic; financial records need audit."
+          },
+          {
+            "family": "DUPLICATE_REVIEW",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "DUPLICATE_REVIEW_CANDIDATE",
+              "DUPLICATE_REVIEW:W-001937__W-001966"
+            ],
+            "interpretation": "High similarity (94.2) with work W-001966 suggests potential duplicate review.",
+            "caveat": "Similarity based on semantic and locality signals; confirm distinctness of works."
+          },
+          {
+            "family": "OPERATIONAL_TREND_CONTEXT",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "OPERATIONAL_TREND_DEVIATION"
+            ],
+            "interpretation": "Operational‑trend deviation flagged for Karnataka Demo District 1, Sports sector; strongest metric is progress_report_count.",
+            "caveat": "Statistical deviation; verify underlying operational reports."
+          },
+          {
+            "family": "ANOMALY",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "LIFECYCLE_ANOMALY_PERCENTILE"
+            ],
+            "interpretation": "Lifecycle anomaly percentile 98.755 indicates unusually high behavior within the project lifecycle.",
+            "caveat": "Percentile alone does not imply non‑compliance; assess in context."
+          },
+          {
+            "family": "PEER_DEVIATION",
+            "finding": "REVIEW",
+            "source_evidence_codes": [
+              "STATISTICAL_PEER_OUTLIER"
+            ],
+            "interpretation": "Peer‑outlier on financial_overrun_pct_as_of with robust deviation 15.448.",
+            "caveat": "Requires validation against peer projects."
+          }
+        ],
+        "guideline_context": [
+          {
+            "chunk_id": "MPLADS-2023-P021",
+            "clause": "3.2.17",
+            "page": 21,
+            "relevance": "Public‑use plaque requirement immediately upon completion"
+          },
+          {
+            "chunk_id": "MPLADS-2023-P051",
+            "clause": "11.3",
+            "page": 51,
+            "relevance": "Asset transfer to User Agency without delay"
+          },
+          {
+            "chunk_id": "MPLADS-2023-P051",
+            "clause": "11.2",
+            "page": 51,
+            "relevance": "Rapid finalization of accounts and issuance of Utilisation Certificate"
+          }
+        ],
+        "verification_steps": [
+          "Check for plaque installation at the site as required by clause 3.2.17.",
+          "Confirm asset transfer entry in the User Agency register per clause 11.3.",
+          "Obtain and review the Utilisation Certificate as mandated by clause 11.2.",
+          "Audit released‑payment totals against sanctioned limits.",
+          "Compare work W-001937 with W-001966 to rule out duplicate review.",
+          "Review operational trend reports for Karnataka Demo District 1, Sports sector.",
+          "Assess lifecycle anomaly percentile in the context of project progression.",
+          "Validate peer deviation metrics against comparable projects."
+        ],
+        "limitations": [
+          "All evidence is derived from document visibility and heuristic signals; it is not definitive.",
+          "Clauses lack explicit numeric deadlines, leading to interpretive uncertainty.",
+          "Financial heuristics are engineering choices, not formal MPLADS rules."
+        ],
+        "decision_statement": "The work is flagged for detailed review due to multiple compliance gaps, payment irregularities, duplicate‑review risk, and statistical anomalies."
+      }
+    },
+    {
+      "work_id": "W-001966",
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "generation_mode": "DETERMINISTIC_FALLBACK",
+      "api_status": "FALLBACK_GROQRATELIMITERROR",
+      "request_size_bytes": 14558,
+      "evidence_item_count": 6,
+      "guideline_excerpt_count": 5,
+      "direct_chunk_count": 2,
+      "semantic_chunk_count": 2,
+      "http_outcome": "HTTP_429",
+      "schema_validation_outcome": "NOT_RUN",
+      "grounding_validation_outcome": "NOT_RUN",
+      "grounding_issues": [
+        "Groq rate limit or quota was reached; retry-after=12"
+      ],
+      "explanation": {
+        "work_id": "W-001966",
+        "summary": "Work W-001966 has CRITICAL review priority at 76.061/100 (overall rank 6).",
+        "why_flagged": [
+          {
+            "family": "COMPLIANCE",
+            "finding": "Strongest actionable compliance result REVIEW/STRONG_WARNING under rule MPLADS-11.2-COMPLETION-UC.",
+            "source_evidence_codes": [
+              "MPLADS-11.2-COMPLETION-UC"
+            ],
+            "interpretation": "A deterministic Day-5 rule produced the stated compliance evidence.",
+            "caveat": "Only the cited deterministic rule result is reported; human review remains required."
+          },
+          {
+            "family": "DUPLICATE_REVIEW",
+            "finding": "Corroborated Day-4.1 duplicate review candidate; best similarity score 94.202.",
+            "source_evidence_codes": [
+              "DUPLICATE_REVIEW_CANDIDATE"
+            ],
+            "interpretation": "A corroborated Day-4.1 pair merits side-by-side verification.",
+            "caveat": "The pair is a review candidate, not a confirmed duplicate."
+          },
+          {
+            "family": "PAYMENT_EXECUTION",
+            "finding": "Capped payment/execution family: payment severity score 0.0; positive fund-progress score 67.481; persistence boost 10 points.",
+            "source_evidence_codes": [
+              "PERSISTENT_FUND_PROGRESS_REVIEW"
+            ],
+            "interpretation": "Payment or fund-progress records contain review evidence.",
+            "caveat": "The signal requires reconciliation with source records."
+          }
+        ],
+        "guideline_context": [
+          {
+            "chunk_id": "MPLADS-2023-P021",
+            "clause": "3.2.17",
+            "page": 21,
+            "relevance": "Direct reference from the stated deterministic Day-5 rule."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P051",
+            "clause": "11.3",
+            "page": 51,
+            "relevance": "Direct reference from the stated deterministic Day-5 rule."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P037",
+            "clause": null,
+            "page": 37,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P062",
+            "clause": null,
+            "page": 62,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P042",
+            "clause": null,
+            "page": 42,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P015",
+            "clause": null,
+            "page": 15,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P030",
+            "clause": null,
+            "page": 30,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          }
+        ],
+        "verification_steps": [
+          "Verify whether the document or field required by each cited deterministic rule is present and valid.",
+          "Verify whether the paired sanction orders, locations, beneficiary or asset scope, and physical implementations describe distinct works.",
+          "Verify whether request, authorization, release, invoice, and PFMS/source records reconcile in their recorded sequence."
+        ],
+        "limitations": [
+          "Review priority is a prototype human-review policy score, not a probability or verdict.",
+          "No specific compliance conclusion is established by analytical signals unless a cited deterministic Day-5 rule states one.",
+          "Semantic guideline similarity is contextual retrieval, not proof of clause applicability.",
+          "The source dataset is synthetic and external API availability is not required for this fallback.",
+          "The delay predictive model is unavailable and supplies no model signal."
+        ],
+        "decision_statement": "This review-support evidence does not establish fraud or wrongdoing; an authorized officer must verify source records before deciding what follow-up, if any, is warranted."
+      }
+    },
+    {
+      "work_id": "W-002240",
+      "provider": "groq",
+      "model": "openai/gpt-oss-120b",
+      "generation_mode": "DETERMINISTIC_FALLBACK",
+      "api_status": "FALLBACK_GROQRATELIMITERROR",
+      "request_size_bytes": 13484,
+      "evidence_item_count": 8,
+      "guideline_excerpt_count": 4,
+      "direct_chunk_count": 1,
+      "semantic_chunk_count": 2,
+      "http_outcome": "HTTP_429",
+      "schema_validation_outcome": "NOT_RUN",
+      "grounding_validation_outcome": "NOT_RUN",
+      "grounding_issues": [
+        "Groq rate limit or quota was reached; retry-after=8"
+      ],
+      "explanation": {
+        "work_id": "W-002240",
+        "summary": "Work W-002240 has HIGH review priority at 73.342/100 (overall rank 17).",
+        "why_flagged": [
+          {
+            "family": "PAYMENT_EXECUTION",
+            "finding": "Capped payment/execution family: payment severity score 0.0; positive fund-progress score 98.490; persistence boost 10 points.",
+            "source_evidence_codes": [
+              "PERSISTENT_FUND_PROGRESS_REVIEW"
+            ],
+            "interpretation": "Payment or fund-progress records contain review evidence.",
+            "caveat": "The signal requires reconciliation with source records."
+          },
+          {
+            "family": "OBSERVED_CONDITIONS",
+            "finding": "Observed overdue=True (days=967.0, score=100.000); observed over sanction=True (overrun_pct=1.188858695652174, score=80.263).",
+            "source_evidence_codes": [
+              "OBSERVED_OVERDUE_AND_OVER_SANCTION"
+            ],
+            "interpretation": "The source snapshot records an already-observed timing or cost condition.",
+            "caveat": "Check approved revisions or extensions before drawing a conclusion."
+          },
+          {
+            "family": "ANOMALY",
+            "finding": "Within-lifecycle statistical unusualness percentile 98.250; not a probability.",
+            "source_evidence_codes": [
+              "LIFECYCLE_ANOMALY_PERCENTILE"
+            ],
+            "interpretation": "The work is statistically unusual relative to its lifecycle comparison set.",
+            "caveat": "An anomaly percentile is not a probability of wrongdoing."
+          }
+        ],
+        "guideline_context": [
+          {
+            "chunk_id": "MPLADS-2023-P019",
+            "clause": "3.2.4",
+            "page": 19,
+            "relevance": "Direct reference from the stated deterministic Day-5 rule."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P015",
+            "clause": null,
+            "page": 15,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P025",
+            "clause": null,
+            "page": 25,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P062",
+            "clause": null,
+            "page": 62,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P053",
+            "clause": null,
+            "page": 53,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          },
+          {
+            "chunk_id": "MPLADS-2023-P067",
+            "clause": null,
+            "page": 67,
+            "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+          }
+        ],
+        "verification_steps": [
+          "Verify whether request, authorization, release, invoice, and PFMS/source records reconcile in their recorded sequence.",
+          "Verify whether an approved extension, revised schedule, revised sanction, or authorized cost variation applies.",
+          "Verify the unusual source values against the work file and lifecycle-comparable records."
+        ],
+        "limitations": [
+          "Review priority is a prototype human-review policy score, not a probability or verdict.",
+          "No specific compliance conclusion is established by analytical signals unless a cited deterministic Day-5 rule states one.",
+          "Semantic guideline similarity is contextual retrieval, not proof of clause applicability.",
+          "The source dataset is synthetic and external API availability is not required for this fallback.",
+          "The cost-overrun model has prototype weak discrimination and is secondary evidence only.",
+          "The delay predictive model is unavailable and supplies no model signal."
+        ],
+        "decision_statement": "This review-support evidence does not establish fraud or wrongdoing; an authorized officer must verify source records before deciding what follow-up, if any, is warranted."
+      }
+    }
+  ]
+}

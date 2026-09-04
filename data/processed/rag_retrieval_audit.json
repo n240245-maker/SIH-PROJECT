@@ -1,0 +1,797 @@
+{
+  "retrieval_policy": "all unique direct rule chunks, then up to five semantic chunks",
+  "semantic_top_k": 5,
+  "context_cap": 10,
+  "direct_compliance_references_tested": 10,
+  "representative_cases": [
+    {
+      "category": "COMPLIANCE",
+      "work_id": "W-001937",
+      "query": "lifecycle COMPLETION | sector Sports | sub-sector Playground Development | MPLADS-11.2-COMPLETION-UC | PERSISTENT_FUND_PROGRESS_REVIEW | DUPLICATE_REVIEW_CANDIDATE | OPERATIONAL_TREND_DEVIATION | LIFECYCLE_ANOMALY_PERCENTILE | COMPLIANCE_REVIEW | DUPLICATE_REVIEW_CANDIDATE | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P037",
+          "page_start": 37,
+          "page_end": 37,
+          "chapter": "CHAPTER 7",
+          "clause_identifiers": "7.3.2, 7.3.3, 7.3.4, 7.4, 7.4.1, 7.4.2, 7.5, 7.5.1, 7.5.2, 7.1, 7.6, 7.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.5190281271934509,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4945486783981323,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4869305491447449,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P030",
+          "page_start": 30,
+          "page_end": 30,
+          "chapter": "CHAPTER 5",
+          "clause_identifiers": "5.1.9, 5.2, 5.2.1, 5.2.2, 5.2.3, 5.2.4, 5.2.5, 5.2.6, 5.2.7, 5.2.8, 5.2.9, 5.2.10, 5.2.11, 5.2.12, 5.2.13, 5.2.14, 5.3, 5.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4816570281982422,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.47743678092956543,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "COMPLIANCE",
+      "work_id": "W-000431",
+      "query": "lifecycle COMPLETION | sector Health | sub-sector Health Sub-Centre | MPLADS-11.2-COMPLETION-UC | PERSISTENT_FUND_PROGRESS_REVIEW | DUPLICATE_REVIEW_CANDIDATE | OPERATIONAL_TREND_DEVIATION | LIFECYCLE_ANOMALY_PERCENTILE | COMPLIANCE_REVIEW | DUPLICATE_REVIEW_CANDIDATE | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.5335082411766052,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.5061333179473877,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P059",
+          "page_start": 59,
+          "page_end": 59,
+          "chapter": "ANNEXURE VI",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.5025643706321716,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P025",
+          "page_start": 25,
+          "page_end": 25,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.4.2, 4.4.3, 4.4.4, 4.4.5, 4.4.6, 4.4.7, 4.5, 4.5.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4758777320384979,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.47558876872062683,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "COMPLIANCE",
+      "work_id": "W-002276",
+      "query": "lifecycle COMPLETION | sector Drinking Water | sub-sector RO Water Plant | MPLADS-11.2-COMPLETION-UC | PERSISTENT_FUND_PROGRESS_REVIEW | DUPLICATE_REVIEW_CANDIDATE | LIFECYCLE_ANOMALY_PERCENTILE | STATISTICAL_PEER_OUTLIER | COMPLIANCE_REVIEW | DUPLICATE_REVIEW_CANDIDATE | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.48817455768585205,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P025",
+          "page_start": 25,
+          "page_end": 25,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.4.2, 4.4.3, 4.4.4, 4.4.5, 4.4.6, 4.4.7, 4.5, 4.5.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4753188490867615,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P030",
+          "page_start": 30,
+          "page_end": 30,
+          "chapter": "CHAPTER 5",
+          "clause_identifiers": "5.1.9, 5.2, 5.2.1, 5.2.2, 5.2.3, 5.2.4, 5.2.5, 5.2.6, 5.2.7, 5.2.8, 5.2.9, 5.2.10, 5.2.11, 5.2.12, 5.2.13, 5.2.14, 5.3, 5.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.46247610449790955,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4607962369918823,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.45711255073547363,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "COMPLIANCE",
+      "work_id": "W-002259",
+      "query": "lifecycle COMPLETION | sector Drinking Water | sub-sector RO Water Plant | MPLADS-11.2-COMPLETION-UC | FUND_PROGRESS_REVIEW | DUPLICATE_REVIEW_CANDIDATE | LIFECYCLE_ANOMALY_PERCENTILE | STATISTICAL_PEER_OUTLIER | COMPLIANCE_REVIEW | DUPLICATE_REVIEW_CANDIDATE | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | General one-year completion limit clause 3.2.12 | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P020",
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P020",
+          "page_start": 20,
+          "page_end": 20,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.8, 3.2.9, 3.2.10, 3.2.11, 3.2.12, 3.2.13",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4815835654735565,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P025",
+          "page_start": 25,
+          "page_end": 25,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.4.2, 4.4.3, 4.4.4, 4.4.5, 4.4.6, 4.4.7, 4.5, 4.5.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.48035719990730286,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4595770239830017,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P030",
+          "page_start": 30,
+          "page_end": 30,
+          "chapter": "CHAPTER 5",
+          "clause_identifiers": "5.1.9, 5.2, 5.2.1, 5.2.2, 5.2.3, 5.2.4, 5.2.5, 5.2.6, 5.2.7, 5.2.8, 5.2.9, 5.2.10, 5.2.11, 5.2.12, 5.2.13, 5.2.14, 5.3, 5.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4594039022922516,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4509986639022827,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "COMPLIANCE",
+      "work_id": "W-002760",
+      "query": "lifecycle EXECUTION | sector Renewable Energy | sub-sector Solar Water System | PERSISTENT_FUND_PROGRESS_REVIEW | OBSERVED_OVER_SANCTION | LIFECYCLE_ANOMALY_PERCENTILE | STATISTICAL_PEER_OUTLIER | MPLADS-3.2.4-SANCTION-45D | COMPLIANCE_REVIEW | FUND_PROGRESS_REVIEW | OBSERVED_OVER_SANCTION | OPERATIONAL_TREND_DEVIATION | PAYMENT_IRREGULARITY | Recommendation response within 45 days clause 3.2.4; 3.2.6",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P019"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P019",
+          "page_start": 19,
+          "page_end": 19,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.1.2.1, 3.1.2.2, 3.1.3, 3.2, 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.2.5, 3.2.6, 3.2.7",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4923558831214905,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P023",
+          "page_start": 23,
+          "page_end": 23,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.1, 4.1.1, 4.1.2, 4.1.3, 4.2, 4.2.1, 4.2.2, 4.2.3, 4.2.4, 4.2.5, 4.2.6, 4.2.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.47836270928382874,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P025",
+          "page_start": 25,
+          "page_end": 25,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.4.2, 4.4.3, 4.4.4, 4.4.5, 4.4.6, 4.4.7, 4.5, 4.5.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4623153805732727,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P016",
+          "page_start": 16,
+          "page_end": 16,
+          "chapter": "CHAPTER 2",
+          "clause_identifiers": "2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4621773958206177,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.44743791222572327,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE",
+      "work_id": "W-001966",
+      "query": "lifecycle COMPLETION | sector Sports | sub-sector Playground Development | MPLADS-11.2-COMPLETION-UC | DUPLICATE_REVIEW_CANDIDATE | PERSISTENT_FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | LIFECYCLE_ANOMALY_PERCENTILE | COMPLIANCE_REVIEW | DUPLICATE_REVIEW_CANDIDATE | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | STATISTICAL_ANOMALY | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P037",
+          "page_start": 37,
+          "page_end": 37,
+          "chapter": "CHAPTER 7",
+          "clause_identifiers": "7.3.2, 7.3.3, 7.3.4, 7.4, 7.4.1, 7.4.2, 7.5, 7.5.1, 7.5.2, 7.1, 7.6, 7.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4987965226173401,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4955494999885559,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.47599226236343384,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.46804776787757874,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P030",
+          "page_start": 30,
+          "page_end": 30,
+          "chapter": "CHAPTER 5",
+          "clause_identifiers": "5.1.9, 5.2, 5.2.1, 5.2.2, 5.2.3, 5.2.4, 5.2.5, 5.2.6, 5.2.7, 5.2.8, 5.2.9, 5.2.10, 5.2.11, 5.2.12, 5.2.13, 5.2.14, 5.3, 5.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.46789395809173584,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "PAYMENT_EXECUTION",
+      "work_id": "W-000090",
+      "query": "lifecycle COMPLETION | sector Sports | sub-sector Playground Development | MPLADS-11.2-COMPLETION-UC | PERSISTENT_FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | LIFECYCLE_ANOMALY_PERCENTILE | STATISTICAL_PEER_OUTLIER | COMPLIANCE_REVIEW | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | STATISTICAL_ANOMALY | Public use after completion clause 3.2.17 | Completed asset handover clause 11.3 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P021",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P021",
+          "page_start": 21,
+          "page_end": 21,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.2.14, 3.2.15, 3.2.16, 3.2.17, 3.2.18, 3.2.19",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P037",
+          "page_start": 37,
+          "page_end": 37,
+          "chapter": "CHAPTER 7",
+          "clause_identifiers": "7.3.2, 7.3.3, 7.3.4, 7.4, 7.4.1, 7.4.2, 7.5, 7.5.1, 7.5.2, 7.1, 7.6, 7.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.49794381856918335,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4946037530899048,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4817543029785156,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4761587977409363,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P030",
+          "page_start": 30,
+          "page_end": 30,
+          "chapter": "CHAPTER 5",
+          "clause_identifiers": "5.1.9, 5.2, 5.2.1, 5.2.2, 5.2.3, 5.2.4, 5.2.5, 5.2.6, 5.2.7, 5.2.8, 5.2.9, 5.2.10, 5.2.11, 5.2.12, 5.2.13, 5.2.14, 5.3, 5.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4657089114189148,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "COST_OVERRUN_WARNING",
+      "work_id": "W-002240",
+      "query": "lifecycle EXECUTION | sector Roads & Bridges | sub-sector CC Road | PERSISTENT_FUND_PROGRESS_REVIEW | OBSERVED_OVERDUE_AND_OVER_SANCTION | LIFECYCLE_ANOMALY_PERCENTILE | MPLADS-3.2.4-SANCTION-45D | STATISTICAL_PEER_OUTLIER | COMPLIANCE_REVIEW | FUND_PROGRESS_REVIEW | OBSERVED_OVERDUE | OBSERVED_OVER_SANCTION | OPERATIONAL_TREND_DEVIATION | Recommendation response within 45 days clause 3.2.4; 3.2.6",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P019"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P019",
+          "page_start": 19,
+          "page_end": 19,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.1.2.1, 3.1.2.2, 3.1.3, 3.2, 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.2.5, 3.2.6, 3.2.7",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.5087677836418152,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P025",
+          "page_start": 25,
+          "page_end": 25,
+          "chapter": "CHAPTER 4",
+          "clause_identifiers": "4.4.2, 4.4.3, 4.4.4, 4.4.5, 4.4.6, 4.4.7, 4.5, 4.5.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4703570306301117,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.46754175424575806,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P053",
+          "page_start": 53,
+          "page_end": 53,
+          "chapter": "ANNEXURE II",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.45256149768829346,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P067",
+          "page_start": 67,
+          "page_end": 67,
+          "chapter": "ANNEXURE VIII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.44352811574935913,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    },
+    {
+      "category": "TREND_CONTEXT",
+      "work_id": "W-000934",
+      "query": "lifecycle COMPLETION | sector Sports | sub-sector Sports Equipment Facility | MPLADS-11.2-COMPLETION-UC | PERSISTENT_FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | LIFECYCLE_ANOMALY_PERCENTILE | STATISTICAL_PEER_OUTLIER | COMPLIANCE_REVIEW | FUND_PROGRESS_REVIEW | OPERATIONAL_TREND_DEVIATION | PEER_DEVIATION | STATISTICAL_ANOMALY | Recommendation response within 45 days clause 3.2.4; 3.2.6 | Utilization Certificate on completion clause 11.2",
+      "direct_chunk_ids": [
+        "MPLADS-2023-P019",
+        "MPLADS-2023-P051"
+      ],
+      "direct_references_retained": true,
+      "results": [
+        {
+          "chunk_id": "MPLADS-2023-P019",
+          "page_start": 19,
+          "page_end": 19,
+          "chapter": "CHAPTER 3",
+          "clause_identifiers": "3.1.2.1, 3.1.2.2, 3.1.3, 3.2, 3.2.1, 3.2.2, 3.2.3, 3.2.4, 3.2.5, 3.2.6, 3.2.7",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P051",
+          "page_start": 51,
+          "page_end": 51,
+          "chapter": "CHAPTER 11",
+          "clause_identifiers": "11.1, 11.2, 11.3, 11.4, 11.4.1, 11.4.2, 11.4.3, 11.4.4, 11.4.5, 11.4.6",
+          "retrieval_method": "DIRECT_RULE_REFERENCE",
+          "cosine_similarity": null,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P062",
+          "page_start": 62,
+          "page_end": 62,
+          "chapter": "ANNEXURE VII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4918455481529236,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P015",
+          "page_start": 15,
+          "page_end": 15,
+          "chapter": "CHAPTER 1",
+          "clause_identifiers": "1.1, 1.2, 1.3",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.464221328496933,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P042",
+          "page_start": 42,
+          "page_end": 42,
+          "chapter": "CHAPTER 9",
+          "clause_identifiers": "9.3.1.5, 9.3.1.6, 9.3.1.7, 9.3.1.8, 9.3.1.9, 9.3.2, 9.3.2.1, 9.3.2.2, 9.3.2.3, 9.3.2.4, 9.3.2.5, 9.3.2.6, 9.3.2.7, 9.3.2.8, 9.3.2.9, 9.3.3, 9.3.3.1",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.43740314245224,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P067",
+          "page_start": 67,
+          "page_end": 67,
+          "chapter": "ANNEXURE VIII",
+          "clause_identifiers": null,
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4305492639541626,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        },
+        {
+          "chunk_id": "MPLADS-2023-P016",
+          "page_start": 16,
+          "page_end": 16,
+          "chapter": "CHAPTER 2",
+          "clause_identifiers": "2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7",
+          "retrieval_method": "SEMANTIC_SIMILARITY",
+          "cosine_similarity": 0.4265337884426117,
+          "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+          "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6"
+        }
+      ]
+    }
+  ]
+}

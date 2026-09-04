@@ -1,0 +1,123 @@
+{
+  "artifact_type": "Day-5 deterministic compliance evidence summary",
+  "as_of_date": "2026-09-01",
+  "governance": "Rule outcomes are clause-linked deterministic evidence for authorized human review; counts are not a final project risk score.",
+  "verified_guideline_identity": {
+    "document_title": "Members of Parliament Local Area Development Scheme Guidelines",
+    "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+    "effective_date": "2023-04-01",
+    "official_source_url": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf",
+    "verification_date": "2026-09-02"
+  },
+  "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6",
+  "guideline_page_count": 70,
+  "guideline_extractable_page_count": 64,
+  "guideline_chunk_count": 61,
+  "implemented_rule_count": 8,
+  "unimplemented_candidate_rule_count": 9,
+  "result_counts_by_rule": {
+    "MPLADS-11.2-COMPLETION-UC": {
+      "PASS": 0,
+      "REVIEW": 1929,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 1071,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-11.3-ASSET-HANDOVER": {
+      "PASS": 101,
+      "REVIEW": 1828,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 1071,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-3.2.12-COMPLETION-LIMIT": {
+      "PASS": 2355,
+      "REVIEW": 375,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 270,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-3.2.17-PUBLIC-USE": {
+      "PASS": 55,
+      "REVIEW": 1874,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 1071,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-3.2.4-SANCTION-45D": {
+      "PASS": 2418,
+      "REVIEW": 312,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 270,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-3.2.9-MIN-SANCTION": {
+      "PASS": 2730,
+      "REVIEW": 0,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 270,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-4.5.3-COMPLETION-PHOTO": {
+      "PASS": 1929,
+      "REVIEW": 0,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 1071,
+      "INSUFFICIENT_DATA": 0
+    },
+    "MPLADS-4.5.8-ASSET-REGISTER": {
+      "PASS": 99,
+      "REVIEW": 1,
+      "NON_COMPLIANT": 1,
+      "NOT_APPLICABLE": 2899,
+      "INSUFFICIENT_DATA": 0
+    }
+  },
+  "result_counts_by_category": {
+    "ASSET": {
+      "PASS": 200,
+      "REVIEW": 1829,
+      "NON_COMPLIANT": 1,
+      "NOT_APPLICABLE": 3970,
+      "INSUFFICIENT_DATA": 0
+    },
+    "COMPLETION": {
+      "PASS": 1984,
+      "REVIEW": 1874,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 2142,
+      "INSUFFICIENT_DATA": 0
+    },
+    "SANCTION": {
+      "PASS": 7503,
+      "REVIEW": 687,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 810,
+      "INSUFFICIENT_DATA": 0
+    },
+    "UTILIZATION_CERTIFICATE": {
+      "PASS": 0,
+      "REVIEW": 1929,
+      "NON_COMPLIANT": 0,
+      "NOT_APPLICABLE": 1071,
+      "INSUFFICIENT_DATA": 0
+    }
+  },
+  "overall_result_counts": {
+    "PASS": 9687,
+    "REVIEW": 6319,
+    "NON_COMPLIANT": 1,
+    "NOT_APPLICABLE": 7993,
+    "INSUFFICIENT_DATA": 0
+  },
+  "works_with_review_evidence": 2132,
+  "works_with_deterministic_non_compliant_evidence": 1,
+  "works_with_insufficient_data_evidence": 0,
+  "artifact_paths": {
+    "compliance_evidence": "C:\\SIH-PROJECT\\data\\processed\\compliance_evidence.csv",
+    "compliance_summary": "C:\\SIH-PROJECT\\data\\processed\\compliance_summary.csv",
+    "compliance_rule_registry": "C:\\SIH-PROJECT\\data\\processed\\compliance_rule_registry.json",
+    "guideline_chunks": "C:\\SIH-PROJECT\\data\\processed\\guideline_chunks.json",
+    "guideline_manifest": "C:\\SIH-PROJECT\\data\\processed\\guideline_manifest.json"
+  }
+}

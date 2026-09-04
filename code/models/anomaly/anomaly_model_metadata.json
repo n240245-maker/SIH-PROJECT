@@ -1,0 +1,454 @@
+{
+  "artifact_type": "lifecycle-specific Isolation Forest registry",
+  "feature_snapshot_date": "2026-09-01",
+  "python_version": "3.12.10",
+  "scikit_learn_version": "1.9.0",
+  "random_state": 42,
+  "hyperparameters": {
+    "n_estimators": 300,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "global_model_used": false,
+  "model_count": 3,
+  "ground_truth_used_for_training": false,
+  "score_semantics": "Higher iforest_unusualness_score and within-stage percentile mean more statistically unusual within that lifecycle stage; neither is a probability.",
+  "stages": {
+    "PRE_SANCTION": {
+      "model_scope": "lifecycle_stage_only",
+      "stage_row_count": 270,
+      "training_row_count": 270,
+      "feature_count": 3,
+      "feature_list": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "estimate_to_recommended_ratio"
+      ],
+      "excluded_features": [
+        {
+          "feature": "sanctioned_amount_inr",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "sanction_to_recommended_ratio",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "sanction_to_estimate_ratio",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "days_recommendation_to_sanction",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "planned_duration_days",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "days_sanction_to_expected_start",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "released_payment_count_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "released_payment_total_inr_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "largest_payment_inr_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "mean_payment_inr_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "largest_payment_share_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "days_since_last_payment_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "expenditure_to_sanction_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "financial_overrun_amount_inr_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "financial_overrun_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "progress_report_count_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "latest_physical_progress_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "latest_financial_progress_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "latest_expected_progress_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "financial_minus_physical_gap_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "expected_minus_physical_gap_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "physical_progress_decrease_count_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "max_physical_progress_drop_pct_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "physical_progress_velocity_pct_per_30d",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "actual_start_available_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 270,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "days_since_actual_start_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "days_to_expected_completion_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "overdue_days_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        },
+        {
+          "feature": "schedule_elapsed_ratio_as_of",
+          "reason": "STRUCTURALLY_INAPPLICABLE_TO_LIFECYCLE",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        }
+      ],
+      "imputation_strategy": "stage-local median",
+      "imputation_values": {
+        "recommended_amount_inr": 1962000.0,
+        "technical_estimate_amount_inr": 2017000.0,
+        "estimate_to_recommended_ratio": 1.0182720212224354
+      }
+    },
+    "EXECUTION": {
+      "model_scope": "lifecycle_stage_only",
+      "stage_row_count": 801,
+      "training_row_count": 801,
+      "feature_count": 31,
+      "feature_list": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "estimate_to_recommended_ratio",
+        "sanction_to_recommended_ratio",
+        "sanction_to_estimate_ratio",
+        "days_recommendation_to_sanction",
+        "planned_duration_days",
+        "days_sanction_to_expected_start",
+        "released_payment_count_as_of",
+        "released_payment_total_inr_as_of",
+        "largest_payment_inr_as_of",
+        "mean_payment_inr_as_of",
+        "largest_payment_share_as_of",
+        "days_since_last_payment_as_of",
+        "expenditure_to_sanction_pct_as_of",
+        "financial_overrun_amount_inr_as_of",
+        "financial_overrun_pct_as_of",
+        "progress_report_count_as_of",
+        "latest_physical_progress_pct_as_of",
+        "latest_financial_progress_pct_as_of",
+        "latest_expected_progress_pct_as_of",
+        "financial_minus_physical_gap_pct_as_of",
+        "expected_minus_physical_gap_pct_as_of",
+        "physical_progress_decrease_count_as_of",
+        "max_physical_progress_drop_pct_as_of",
+        "physical_progress_velocity_pct_per_30d",
+        "days_since_actual_start_as_of",
+        "days_to_expected_completion_as_of",
+        "overdue_days_as_of",
+        "schedule_elapsed_ratio_as_of"
+      ],
+      "excluded_features": [
+        {
+          "feature": "actual_start_available_as_of",
+          "reason": "NEAR_ZERO_VARIANCE_WITHIN_STAGE",
+          "non_null_count": 801,
+          "missing_percentage": 0.0,
+          "unique_count": 2,
+          "dominant_value_percentage": 99.500624
+        }
+      ],
+      "imputation_strategy": "stage-local median",
+      "imputation_values": {
+        "recommended_amount_inr": 1935000.0,
+        "technical_estimate_amount_inr": 1962000.0,
+        "sanctioned_amount_inr": 2006000.0,
+        "estimate_to_recommended_ratio": 1.0076481835564053,
+        "sanction_to_recommended_ratio": 1.011173184357542,
+        "sanction_to_estimate_ratio": 1.0056044835868696,
+        "days_recommendation_to_sanction": 28.0,
+        "planned_duration_days": 286.0,
+        "days_sanction_to_expected_start": 26.0,
+        "released_payment_count_as_of": 4.0,
+        "released_payment_total_inr_as_of": 1050000.0,
+        "largest_payment_inr_as_of": 414500.0,
+        "mean_payment_inr_as_of": 327583.3333333334,
+        "largest_payment_share_as_of": 0.3627760252365931,
+        "days_since_last_payment_as_of": 41.5,
+        "expenditure_to_sanction_pct_as_of": 63.25156325156325,
+        "financial_overrun_amount_inr_as_of": 0.0,
+        "financial_overrun_pct_as_of": 0.0,
+        "progress_report_count_as_of": 5.0,
+        "latest_physical_progress_pct_as_of": 63.0,
+        "latest_financial_progress_pct_as_of": 63.3,
+        "latest_expected_progress_pct_as_of": 69.2,
+        "financial_minus_physical_gap_pct_as_of": -1.5,
+        "expected_minus_physical_gap_pct_as_of": 5.400000000000006,
+        "physical_progress_decrease_count_as_of": 0.0,
+        "max_physical_progress_drop_pct_as_of": 0.0,
+        "physical_progress_velocity_pct_per_30d": 8.75535822213957,
+        "days_since_actual_start_as_of": 195.0,
+        "days_to_expected_completion_as_of": 68.0,
+        "overdue_days_as_of": 0.0,
+        "schedule_elapsed_ratio_as_of": 0.7633928571428571
+      }
+    },
+    "COMPLETION": {
+      "model_scope": "lifecycle_stage_only",
+      "stage_row_count": 1929,
+      "training_row_count": 1929,
+      "feature_count": 29,
+      "feature_list": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "estimate_to_recommended_ratio",
+        "sanction_to_recommended_ratio",
+        "sanction_to_estimate_ratio",
+        "days_recommendation_to_sanction",
+        "planned_duration_days",
+        "days_sanction_to_expected_start",
+        "released_payment_count_as_of",
+        "released_payment_total_inr_as_of",
+        "largest_payment_inr_as_of",
+        "mean_payment_inr_as_of",
+        "largest_payment_share_as_of",
+        "days_since_last_payment_as_of",
+        "expenditure_to_sanction_pct_as_of",
+        "financial_overrun_amount_inr_as_of",
+        "financial_overrun_pct_as_of",
+        "progress_report_count_as_of",
+        "latest_financial_progress_pct_as_of",
+        "latest_expected_progress_pct_as_of",
+        "financial_minus_physical_gap_pct_as_of",
+        "expected_minus_physical_gap_pct_as_of",
+        "physical_progress_decrease_count_as_of",
+        "max_physical_progress_drop_pct_as_of",
+        "physical_progress_velocity_pct_per_30d",
+        "days_since_actual_start_as_of",
+        "days_to_expected_completion_as_of",
+        "schedule_elapsed_ratio_as_of"
+      ],
+      "excluded_features": [
+        {
+          "feature": "latest_physical_progress_pct_as_of",
+          "reason": "ZERO_VARIANCE_WITHIN_STAGE",
+          "non_null_count": 1929,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "actual_start_available_as_of",
+          "reason": "ZERO_VARIANCE_WITHIN_STAGE",
+          "non_null_count": 1929,
+          "missing_percentage": 0.0,
+          "unique_count": 1,
+          "dominant_value_percentage": 100.0
+        },
+        {
+          "feature": "overdue_days_as_of",
+          "reason": "EXCESSIVE_STAGE_MISSINGNESS",
+          "non_null_count": 0,
+          "missing_percentage": 100.0,
+          "unique_count": 0,
+          "dominant_value_percentage": null
+        }
+      ],
+      "imputation_strategy": "stage-local median",
+      "imputation_values": {
+        "recommended_amount_inr": 1925000.0,
+        "technical_estimate_amount_inr": 1948000.0,
+        "sanctioned_amount_inr": 1980000.0,
+        "estimate_to_recommended_ratio": 1.0091420534458508,
+        "sanction_to_recommended_ratio": 1.0168150346191889,
+        "sanction_to_estimate_ratio": 1.0067708333333334,
+        "days_recommendation_to_sanction": 28.0,
+        "planned_duration_days": 263.0,
+        "days_sanction_to_expected_start": 26.0,
+        "released_payment_count_as_of": 4.0,
+        "released_payment_total_inr_as_of": 2004000.0,
+        "largest_payment_inr_as_of": 736000.0,
+        "mean_payment_inr_as_of": 571666.6666666666,
+        "largest_payment_share_as_of": 0.3706835799859055,
+        "days_since_last_payment_as_of": 433.0,
+        "expenditure_to_sanction_pct_as_of": 101.8640350877193,
+        "financial_overrun_amount_inr_as_of": 28000.0,
+        "financial_overrun_pct_as_of": 1.8640350877192984,
+        "progress_report_count_as_of": 6.0,
+        "latest_financial_progress_pct_as_of": 101.9,
+        "latest_expected_progress_pct_as_of": 100.0,
+        "financial_minus_physical_gap_pct_as_of": 1.9000000000000057,
+        "expected_minus_physical_gap_pct_as_of": 0.0,
+        "physical_progress_decrease_count_as_of": 0.0,
+        "max_physical_progress_drop_pct_as_of": 0.0,
+        "physical_progress_velocity_pct_per_30d": 4.179661016949153,
+        "days_since_actual_start_as_of": 722.0,
+        "days_to_expected_completion_as_of": -463.0,
+        "schedule_elapsed_ratio_as_of": 2.7192307692307693
+      }
+    }
+  },
+  "model_artifacts": {
+    "PRE_SANCTION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_pre_sanction.joblib",
+    "EXECUTION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_execution.joblib",
+    "COMPLETION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_completion.joblib"
+  }
+}

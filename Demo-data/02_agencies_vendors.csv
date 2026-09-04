@@ -1,0 +1,109 @@
+﻿entity_id,entity_type,entity_name,state_name,district,registration_or_office_code,vendor_category,active_status,source_type,synthetic_marker
+IA-AP-001,IMPLEMENTING_AGENCY,Demo Panchayat Engineering Division AP-01,Andhra Pradesh,Andhra Pradesh Demo District 1,AP-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-AP-002,IMPLEMENTING_AGENCY,Demo Panchayat Engineering Division AP-02,Andhra Pradesh,Andhra Pradesh Demo District 2,AP-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-AP-003,IMPLEMENTING_AGENCY,Demo Public Health Engineering Division AP-03,Andhra Pradesh,Andhra Pradesh Demo District 3,AP-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-AP-004,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell AP-04,Andhra Pradesh,Andhra Pradesh Demo District 4,AP-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-AP-005,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division AP-05,Andhra Pradesh,Andhra Pradesh Demo District 1,AP-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-AP-006,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division AP-06,Andhra Pradesh,Andhra Pradesh Demo District 2,AP-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-001,VENDOR,Demo Vendor AP-001,Andhra Pradesh,Andhra Pradesh Demo District 1,AP-VN-5001,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-002,VENDOR,Demo Vendor AP-002,Andhra Pradesh,Andhra Pradesh Demo District 2,AP-VN-5002,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-003,VENDOR,Demo Vendor AP-003,Andhra Pradesh,Andhra Pradesh Demo District 3,AP-VN-5003,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-004,VENDOR,Demo Vendor AP-004,Andhra Pradesh,Andhra Pradesh Demo District 4,AP-VN-5004,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-005,VENDOR,Demo Vendor AP-005,Andhra Pradesh,Andhra Pradesh Demo District 1,AP-VN-5005,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-006,VENDOR,Demo Vendor AP-006,Andhra Pradesh,Andhra Pradesh Demo District 2,AP-VN-5006,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-007,VENDOR,Demo Vendor AP-007,Andhra Pradesh,Andhra Pradesh Demo District 3,AP-VN-5007,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-008,VENDOR,Demo Vendor AP-008,Andhra Pradesh,Andhra Pradesh Demo District 4,AP-VN-5008,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-009,VENDOR,Demo Vendor AP-009,Andhra Pradesh,Andhra Pradesh Demo District 1,AP-VN-5009,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-010,VENDOR,Demo Vendor AP-010,Andhra Pradesh,Andhra Pradesh Demo District 2,AP-VN-5010,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-011,VENDOR,Demo Vendor AP-011,Andhra Pradesh,Andhra Pradesh Demo District 3,AP-VN-5011,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-AP-012,VENDOR,Demo Vendor AP-012,Andhra Pradesh,Andhra Pradesh Demo District 4,AP-VN-5012,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-001,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell TS-01,Telangana,Telangana Demo District 1,TS-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-002,IMPLEMENTING_AGENCY,Demo Municipal Engineering Wing TS-02,Telangana,Telangana Demo District 2,TS-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-003,IMPLEMENTING_AGENCY,Demo PWD Division TS-03,Telangana,Telangana Demo District 3,TS-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-004,IMPLEMENTING_AGENCY,Demo PWD Division TS-04,Telangana,Telangana Demo District 4,TS-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-005,IMPLEMENTING_AGENCY,Demo Public Health Engineering Division TS-05,Telangana,Telangana Demo District 1,TS-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-TS-006,IMPLEMENTING_AGENCY,Demo PWD Division TS-06,Telangana,Telangana Demo District 2,TS-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-001,VENDOR,Demo Vendor TS-001,Telangana,Telangana Demo District 1,TS-VN-5001,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-002,VENDOR,Demo Vendor TS-002,Telangana,Telangana Demo District 2,TS-VN-5002,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-003,VENDOR,Demo Vendor TS-003,Telangana,Telangana Demo District 3,TS-VN-5003,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-004,VENDOR,Demo Vendor TS-004,Telangana,Telangana Demo District 4,TS-VN-5004,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-005,VENDOR,Demo Vendor TS-005,Telangana,Telangana Demo District 1,TS-VN-5005,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-006,VENDOR,Demo Vendor TS-006,Telangana,Telangana Demo District 2,TS-VN-5006,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-007,VENDOR,Demo Vendor TS-007,Telangana,Telangana Demo District 3,TS-VN-5007,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-008,VENDOR,Demo Vendor TS-008,Telangana,Telangana Demo District 4,TS-VN-5008,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-009,VENDOR,Demo Vendor TS-009,Telangana,Telangana Demo District 1,TS-VN-5009,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-010,VENDOR,Demo Vendor TS-010,Telangana,Telangana Demo District 2,TS-VN-5010,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-011,VENDOR,Demo Vendor TS-011,Telangana,Telangana Demo District 3,TS-VN-5011,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-TS-012,VENDOR,Demo Vendor TS-012,Telangana,Telangana Demo District 4,TS-VN-5012,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-001,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division KA-01,Karnataka,Karnataka Demo District 1,KA-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-002,IMPLEMENTING_AGENCY,Demo Municipal Engineering Wing KA-02,Karnataka,Karnataka Demo District 2,KA-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-003,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division KA-03,Karnataka,Karnataka Demo District 3,KA-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-004,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division KA-04,Karnataka,Karnataka Demo District 4,KA-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-005,IMPLEMENTING_AGENCY,Demo Municipal Engineering Wing KA-05,Karnataka,Karnataka Demo District 1,KA-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-KA-006,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division KA-06,Karnataka,Karnataka Demo District 2,KA-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-001,VENDOR,Demo Vendor KA-001,Karnataka,Karnataka Demo District 1,KA-VN-5001,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-002,VENDOR,Demo Vendor KA-002,Karnataka,Karnataka Demo District 2,KA-VN-5002,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-003,VENDOR,Demo Vendor KA-003,Karnataka,Karnataka Demo District 3,KA-VN-5003,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-004,VENDOR,Demo Vendor KA-004,Karnataka,Karnataka Demo District 4,KA-VN-5004,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-005,VENDOR,Demo Vendor KA-005,Karnataka,Karnataka Demo District 1,KA-VN-5005,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-006,VENDOR,Demo Vendor KA-006,Karnataka,Karnataka Demo District 2,KA-VN-5006,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-007,VENDOR,Demo Vendor KA-007,Karnataka,Karnataka Demo District 3,KA-VN-5007,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-008,VENDOR,Demo Vendor KA-008,Karnataka,Karnataka Demo District 4,KA-VN-5008,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-009,VENDOR,Demo Vendor KA-009,Karnataka,Karnataka Demo District 1,KA-VN-5009,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-010,VENDOR,Demo Vendor KA-010,Karnataka,Karnataka Demo District 2,KA-VN-5010,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-011,VENDOR,Demo Vendor KA-011,Karnataka,Karnataka Demo District 3,KA-VN-5011,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-KA-012,VENDOR,Demo Vendor KA-012,Karnataka,Karnataka Demo District 4,KA-VN-5012,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-001,IMPLEMENTING_AGENCY,Demo Public Health Engineering Division MH-01,Maharashtra,Maharashtra Demo District 1,MH-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-002,IMPLEMENTING_AGENCY,Demo PWD Division MH-02,Maharashtra,Maharashtra Demo District 2,MH-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-003,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell MH-03,Maharashtra,Maharashtra Demo District 3,MH-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-004,IMPLEMENTING_AGENCY,Demo PWD Division MH-04,Maharashtra,Maharashtra Demo District 4,MH-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-005,IMPLEMENTING_AGENCY,Demo Municipal Engineering Wing MH-05,Maharashtra,Maharashtra Demo District 1,MH-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-MH-006,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell MH-06,Maharashtra,Maharashtra Demo District 2,MH-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-001,VENDOR,Demo Vendor MH-001,Maharashtra,Maharashtra Demo District 1,MH-VN-5001,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-002,VENDOR,Demo Vendor MH-002,Maharashtra,Maharashtra Demo District 2,MH-VN-5002,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-003,VENDOR,Demo Vendor MH-003,Maharashtra,Maharashtra Demo District 3,MH-VN-5003,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-004,VENDOR,Demo Vendor MH-004,Maharashtra,Maharashtra Demo District 4,MH-VN-5004,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-005,VENDOR,Demo Vendor MH-005,Maharashtra,Maharashtra Demo District 1,MH-VN-5005,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-006,VENDOR,Demo Vendor MH-006,Maharashtra,Maharashtra Demo District 2,MH-VN-5006,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-007,VENDOR,Demo Vendor MH-007,Maharashtra,Maharashtra Demo District 3,MH-VN-5007,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-008,VENDOR,Demo Vendor MH-008,Maharashtra,Maharashtra Demo District 4,MH-VN-5008,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-009,VENDOR,Demo Vendor MH-009,Maharashtra,Maharashtra Demo District 1,MH-VN-5009,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-010,VENDOR,Demo Vendor MH-010,Maharashtra,Maharashtra Demo District 2,MH-VN-5010,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-011,VENDOR,Demo Vendor MH-011,Maharashtra,Maharashtra Demo District 3,MH-VN-5011,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-MH-012,VENDOR,Demo Vendor MH-012,Maharashtra,Maharashtra Demo District 4,MH-VN-5012,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-001,IMPLEMENTING_AGENCY,Demo Public Health Engineering Division OD-01,Odisha,Odisha Demo District 1,OD-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-002,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell OD-02,Odisha,Odisha Demo District 2,OD-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-003,IMPLEMENTING_AGENCY,Demo PWD Division OD-03,Odisha,Odisha Demo District 3,OD-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-004,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division OD-04,Odisha,Odisha Demo District 4,OD-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-005,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division OD-05,Odisha,Odisha Demo District 1,OD-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-OD-006,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell OD-06,Odisha,Odisha Demo District 2,OD-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-001,VENDOR,Demo Vendor OD-001,Odisha,Odisha Demo District 1,OD-VN-5001,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-002,VENDOR,Demo Vendor OD-002,Odisha,Odisha Demo District 2,OD-VN-5002,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-003,VENDOR,Demo Vendor OD-003,Odisha,Odisha Demo District 3,OD-VN-5003,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-004,VENDOR,Demo Vendor OD-004,Odisha,Odisha Demo District 4,OD-VN-5004,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-005,VENDOR,Demo Vendor OD-005,Odisha,Odisha Demo District 1,OD-VN-5005,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-006,VENDOR,Demo Vendor OD-006,Odisha,Odisha Demo District 2,OD-VN-5006,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-007,VENDOR,Demo Vendor OD-007,Odisha,Odisha Demo District 3,OD-VN-5007,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-008,VENDOR,Demo Vendor OD-008,Odisha,Odisha Demo District 4,OD-VN-5008,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-009,VENDOR,Demo Vendor OD-009,Odisha,Odisha Demo District 1,OD-VN-5009,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-010,VENDOR,Demo Vendor OD-010,Odisha,Odisha Demo District 2,OD-VN-5010,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-011,VENDOR,Demo Vendor OD-011,Odisha,Odisha Demo District 3,OD-VN-5011,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-OD-012,VENDOR,Demo Vendor OD-012,Odisha,Odisha Demo District 4,OD-VN-5012,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-001,IMPLEMENTING_AGENCY,Demo Municipal Engineering Wing RJ-01,Rajasthan,Rajasthan Demo District 1,RJ-IA-1001,,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-002,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell RJ-02,Rajasthan,Rajasthan Demo District 2,RJ-IA-1002,,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-003,IMPLEMENTING_AGENCY,Demo District Education Engineering Cell RJ-03,Rajasthan,Rajasthan Demo District 3,RJ-IA-1003,,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-004,IMPLEMENTING_AGENCY,Demo Rural Water Supply Division RJ-04,Rajasthan,Rajasthan Demo District 4,RJ-IA-1004,,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-005,IMPLEMENTING_AGENCY,Demo Panchayat Engineering Division RJ-05,Rajasthan,Rajasthan Demo District 1,RJ-IA-1005,,Active,SYNTHETIC_PROTOTYPE,True
+IA-RJ-006,IMPLEMENTING_AGENCY,Demo Public Health Engineering Division RJ-06,Rajasthan,Rajasthan Demo District 2,RJ-IA-1006,,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-001,VENDOR,Demo Vendor RJ-001,Rajasthan,Rajasthan Demo District 1,RJ-VN-5001,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-002,VENDOR,Demo Vendor RJ-002,Rajasthan,Rajasthan Demo District 2,RJ-VN-5002,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-003,VENDOR,Demo Vendor RJ-003,Rajasthan,Rajasthan Demo District 3,RJ-VN-5003,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-004,VENDOR,Demo Vendor RJ-004,Rajasthan,Rajasthan Demo District 4,RJ-VN-5004,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-005,VENDOR,Demo Vendor RJ-005,Rajasthan,Rajasthan Demo District 1,RJ-VN-5005,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-006,VENDOR,Demo Vendor RJ-006,Rajasthan,Rajasthan Demo District 2,RJ-VN-5006,Water Works Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-007,VENDOR,Demo Vendor RJ-007,Rajasthan,Rajasthan Demo District 3,RJ-VN-5007,Civil Contractor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-008,VENDOR,Demo Vendor RJ-008,Rajasthan,Rajasthan Demo District 4,RJ-VN-5008,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-009,VENDOR,Demo Vendor RJ-009,Rajasthan,Rajasthan Demo District 1,RJ-VN-5009,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-010,VENDOR,Demo Vendor RJ-010,Rajasthan,Rajasthan Demo District 2,RJ-VN-5010,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-011,VENDOR,Demo Vendor RJ-011,Rajasthan,Rajasthan Demo District 3,RJ-VN-5011,Electrical Vendor,Active,SYNTHETIC_PROTOTYPE,True
+VN-RJ-012,VENDOR,Demo Vendor RJ-012,Rajasthan,Rajasthan Demo District 4,RJ-VN-5012,Equipment Supplier,Active,SYNTHETIC_PROTOTYPE,True

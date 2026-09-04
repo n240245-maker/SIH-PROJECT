@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-09-02T16:42:48.763753+00:00",
+  "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+  "guideline_sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6",
+  "chunk_count": 61,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "retrieval_policy": "all unique direct rule chunks, then up to five semantic chunks",
+  "direct_reference_count_statistics": {
+    "works_with_direct_references": 2132,
+    "total_work_chunk_references": 4492,
+    "unique_direct_chunk_ids": [
+      "MPLADS-2023-P019",
+      "MPLADS-2023-P020",
+      "MPLADS-2023-P021",
+      "MPLADS-2023-P026",
+      "MPLADS-2023-P051"
+    ],
+    "retrieval_audit_references_tested": 10
+  },
+  "semantic_retrieval_top_k": 5,
+  "maximum_context_chunks": 10,
+  "prompt_version": "DAY8_GROUNDED_EXPLANATION_V1",
+  "llm_provider": "groq",
+  "configured_model": "openai/gpt-oss-120b",
+  "api_base": "https://api.groq.com/openai/v1",
+  "api_endpoint": "/chat/completions",
+  "external_tools_enabled": false,
+  "web_search_enabled": false,
+  "x_search_enabled": false,
+  "live_smoke_status": "SKIPPED_NO_GROQ_API_KEY",
+  "fallback_available": true,
+  "explanation_context_count": 3000,
+  "structured_output_schema_fields": [
+    "work_id",
+    "summary",
+    "why_flagged",
+    "guideline_context",
+    "verification_steps",
+    "limitations",
+    "decision_statement"
+  ],
+  "representative_fallback": {
+    "work_id": "W-001937",
+    "summary": "Work W-001937 has CRITICAL review priority at 89.442/100 (overall rank 1).",
+    "why_flagged": [
+      {
+        "family": "COMPLIANCE",
+        "finding": "Strongest actionable compliance result REVIEW/STRONG_WARNING under rule MPLADS-11.2-COMPLETION-UC.",
+        "source_evidence_codes": [
+          "MPLADS-11.2-COMPLETION-UC"
+        ],
+        "interpretation": "A deterministic Day-5 rule produced the stated compliance evidence.",
+        "caveat": "Only the cited deterministic rule result is reported; human review remains required."
+      },
+      {
+        "family": "PAYMENT_EXECUTION",
+        "finding": "Capped payment/execution family: payment severity score 0.0; positive fund-progress score 100.000; persistence boost 10 points.",
+        "source_evidence_codes": [
+          "PERSISTENT_FUND_PROGRESS_REVIEW"
+        ],
+        "interpretation": "Payment or fund-progress records contain review evidence.",
+        "caveat": "The signal requires reconciliation with source records."
+      },
+      {
+        "family": "DUPLICATE_REVIEW",
+        "finding": "Corroborated Day-4.1 duplicate review candidate; best similarity score 94.202.",
+        "source_evidence_codes": [
+          "DUPLICATE_REVIEW_CANDIDATE"
+        ],
+        "interpretation": "A corroborated Day-4.1 pair merits side-by-side verification.",
+        "caveat": "The pair is a review candidate, not a confirmed duplicate."
+      }
+    ],
+    "guideline_context": [
+      {
+        "chunk_id": "MPLADS-2023-P021",
+        "clause": "3.2.17",
+        "page": 21,
+        "relevance": "Direct reference from the stated deterministic Day-5 rule."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P051",
+        "clause": "11.3",
+        "page": 51,
+        "relevance": "Direct reference from the stated deterministic Day-5 rule."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P037",
+        "clause": null,
+        "page": 37,
+        "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P062",
+        "clause": null,
+        "page": 62,
+        "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P042",
+        "clause": null,
+        "page": 42,
+        "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P030",
+        "clause": null,
+        "page": 30,
+        "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+      },
+      {
+        "chunk_id": "MPLADS-2023-P015",
+        "clause": null,
+        "page": 15,
+        "relevance": "Semantic context only; it does not establish applicability or a compliance result."
+      }
+    ],
+    "verification_steps": [
+      "Verify whether the document or field required by each cited deterministic rule is present and valid.",
+      "Verify whether request, authorization, release, invoice, and PFMS/source records reconcile in their recorded sequence.",
+      "Verify whether the paired sanction orders, locations, beneficiary or asset scope, and physical implementations describe distinct works."
+    ],
+    "limitations": [
+      "Review priority is a prototype human-review policy score, not a probability or verdict.",
+      "No specific compliance conclusion is established by analytical signals unless a cited deterministic Day-5 rule states one.",
+      "Semantic guideline similarity is contextual retrieval, not proof of clause applicability.",
+      "The source dataset is synthetic and external API availability is not required for this fallback.",
+      "The delay predictive model is unavailable and supplies no model signal."
+    ],
+    "decision_statement": "This review-support evidence does not establish fraud or wrongdoing; an authorized officer must verify source records before deciding what follow-up, if any, is warranted."
+  },
+  "artifact_paths": {
+    "guideline_embeddings": "data/processed/guideline_embeddings.npy",
+    "embedding_metadata": "data/processed/guideline_embedding_metadata.json",
+    "retrieval_audit": "data/processed/rag_retrieval_audit.json",
+    "explanation_context": "data/processed/explanation_context.jsonl",
+    "live_smoke": "data/processed/evaluation/day8_groq_live_smoke.json"
+  },
+  "integrity": {
+    "prior_artifact_count_verified": 76,
+    "prior_artifacts_unchanged": true,
+    "demo_data_file_count": 12,
+    "demo_data_hashes_unchanged": true
+  },
+  "governance_statement": "The Groq-hosted model explains supplied evidence only and never recalculates risk, detects wrongdoing, decides compliance, or overrides deterministic rules.",
+  "ground_truth_used": false
+}

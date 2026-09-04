@@ -1,0 +1,65 @@
+{
+  "generated_at": "2026-09-03T16:31:27.387140+00:00",
+  "application": "MPLADS Sentinel",
+  "as_of_date": "2026-09-01",
+  "day": "9.1",
+  "new_or_updated_routes": [
+    "GET /api/v1/works/{work_id}",
+    "GET /api/v1/works/{work_id}/case-report.pdf",
+    "POST /api/v1/works/{work_id}/explain"
+  ],
+  "pdf_report": {
+    "available": true,
+    "media_type": "application/pdf",
+    "offline_fallback": true,
+    "automatically_calls_groq": false,
+    "validated_cached_groq_only": true
+  },
+  "work_detail_section_order": [
+    "Case at a Glance / Case Overview",
+    "Why This Work Needs Attention",
+    "Early Warnings & Review Signals",
+    "Payments & Work Progress",
+    "Project Timeline & Event Checks",
+    "MPLADS Rule & Compliance Check",
+    "Duplicate Work Review",
+    "Comparison With Similar Works",
+    "Forecast & Early Warning",
+    "Operational Trend Context",
+    "AI-Assisted Case Brief",
+    "Officer Review & Audit Trail"
+  ],
+  "field_highlighting_rules": {
+    "observed_or_deterministic_strong_issue": "red",
+    "requires_review": "amber",
+    "analytical_signal": "blue",
+    "context_or_not_applicable": "neutral",
+    "pass": "green",
+    "source": "existing governed evidence only"
+  },
+  "friendly_peer_metric_mapping_count": 20,
+  "warning_presentation_categories": [
+    "Observed Condition",
+    "Compliance Review",
+    "Analytical Signal",
+    "Operational Context"
+  ],
+  "explanation_and_report_behavior": {
+    "default_explanation": "Local Deterministic Explanation",
+    "groq_requires_explicit_user_action": true,
+    "quantitative_facts_from_structured_backend": true,
+    "report_download_never_calls_groq": true
+  },
+  "verification": {
+    "frontend_tests": "5 passed",
+    "frontend_lint": "PASS",
+    "frontend_build": "PASS",
+    "python_regression": "197 passed",
+    "browser_verification": "PASS",
+    "browser_console_errors": 0,
+    "pdf_visual_verification": "PASS"
+  },
+  "secrets_included": false,
+  "ground_truth_used": false,
+  "frozen_intelligence_changed": false
+}

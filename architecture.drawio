@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-01T04:14:11.740830+00:00" agent="ChatGPT" version="24.7.17" type="device">
+  <diagram id="MASTER" name="00 - 10/10 MASTER FLOW">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="MPLADS AI RISK INTELLIGENCE PLATFORM" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="22" width="1350" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="sub" value="SIH26102 • lifecycle-aware early warning from recommendation to asset closure • explainable, auditable, human-verified" style="text;html=1;fontSize=13;align=left;verticalAlign=middle;fontColor=#5C6978;" vertex="1" parent="1">
+          <mxGeometry x="50" y="66" width="1700" height="28" as="geometry"/>
+        </mxCell>
+        <mxCell id="hint" value="CLICK MAJOR MODULES FOR DETAILS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4CE;strokeColor=#D89A2B;fontStyle=1;fontSize=11;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1930" y="28" width="380" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="L1" value="1  DATA SOURCES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#D8DEE8;strokeWidth=1;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="120" width="310" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="L2" value="2  TRUSTED PROJECT RECORD" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#D8DEE8;strokeWidth=1;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="360" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="L3" value="3  OFFLINE TRAINING / CALIBRATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#D8DEE8;strokeWidth=1;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="800" y="120" width="500" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="L4" value="4  LIFECYCLE-AWARE INTELLIGENCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#D8DEE8;strokeWidth=1;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="120" width="610" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="L5" value="5  EXPLAIN • DELIVER • VERIFY" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#D8DEE8;strokeWidth=1;fontStyle=1;fontSize=13;align=center;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="1990" y="120" width="330" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="src1" value="&lt;b&gt;MP + Allocation&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;01_mp_master.csv&lt;br&gt;Allocated Limit&lt;br&gt;Calamity Consent&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="190" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="src2" value="&lt;b&gt;Work Lifecycle&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;03_works.csv&lt;br&gt;recommendation • estimate • sanction&lt;br&gt;location • status • expenditure&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="284" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="src3" value="&lt;b&gt;Payments&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;04_payments.csv&lt;br&gt;vendor • amount • date&lt;br&gt;stage • cumulative spend&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="378" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="src4" value="&lt;b&gt;Progress&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;05_progress.csv&lt;br&gt;physical % • expected %&lt;br&gt;time-series • geo/evidence&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="472" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="src5" value="&lt;b&gt;Completion / Asset&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;06_assets_compliance.csv&lt;br&gt;completion • UC • asset&lt;br&gt;handover • audit&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="566" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="src6" value="&lt;b&gt;MPLADS Rules&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;Official guidelines / norms&lt;br&gt;process • eligibility • closure&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DATA">
+          <mxGeometry x="55" y="660" width="300" height="84" as="geometry"/>
+        </mxCell>
+        <mxCell id="ingest" value="INGEST + VALIDATE&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;schema • dates • money • missingness • provenance&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,FOUNDATION">
+          <mxGeometry x="430" y="220" width="300" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="link" value="LINK LIFECYCLE&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;MP ↔ work ↔ IA ↔ vendor ↔ payments ↔ progress ↔ asset&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,FOUNDATION">
+          <mxGeometry x="430" y="340" width="300" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="profile" value="UNIFIED PROJECT PROFILE&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;one work = one versioned timeline + data-quality score&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,FOUNDATION">
+          <mxGeometry x="430" y="470" width="300" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="feature" value="FEATURE STORE&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;financial • temporal • text • geo • entity • closure features&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,FEATURE">
+          <mxGeometry x="430" y="595" width="300" height="86" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src1" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src2" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src3" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src4" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src5" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="src_e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="src6" target="ingest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fl1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="ingest" target="link">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fl2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="link" target="profile">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fl3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="profile" target="feature">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="split" value="TIME-AWARE TRAIN / VALIDATION / TEST&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;prevent leakage • keep related cases together&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,TRAINING">
+          <mxGeometry x="835" y="210" width="430" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_anom" value="Anomaly Baseline&lt;br&gt;&lt;font size='2'&gt;Isolation Forest + robust peer statistics&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,TRAINING">
+          <mxGeometry x="825" y="330" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_pred" value="Delay / Overrun&lt;br&gt;&lt;font size='2'&gt;Gradient Boosting / RF + calibration&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,TRAINING">
+          <mxGeometry x="1050" y="330" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_dup" value="Duplicate Thresholds&lt;br&gt;&lt;font size='2'&gt;semantic + geo + amount + time&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,TRAINING">
+          <mxGeometry x="825" y="455" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_rule" value="Rule Pack&lt;br&gt;&lt;font size='2'&gt;versioned MPLADS compliance conditions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,RULES">
+          <mxGeometry x="1050" y="455" width="200" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="validate" value="VALIDATE + TUNE&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;precision • recall • F1 • false-alert rate • top-k queue quality&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,VALIDATE">
+          <mxGeometry x="835" y="585" width="430" height="88" as="geometry"/>
+        </mxCell>
+        <mxCell id="registry" value="APPROVED MODEL / RULE REGISTRY&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;version • threshold • metrics • rollback&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,REGISTRY">
+          <mxGeometry x="835" y="715" width="430" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="f_split" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="feature" target="split">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp_m_anom" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="split" target="m_anom">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_anom_v" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="m_anom" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp_m_pred" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="split" target="m_pred">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_pred_v" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="m_pred" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp_m_dup" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="split" target="m_dup">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_dup_v" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="m_dup" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="sp_m_rule" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="split" target="m_rule">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="m_rule_v" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="m_rule" target="validate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="v_reg" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="validate" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="event" value="NEW / UPDATED MPLADS EVENT&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;recommendation • sanction • payment • progress • completion&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,RUNTIME">
+          <mxGeometry x="1430" y="185" width="430" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="runtime" value="REBUILD CURRENT PROJECT FEATURES&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;same feature definitions as training • stage-aware scoring&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,RUNTIME">
+          <mxGeometry x="1430" y="295" width="430" height="78" as="geometry"/>
+        </mxCell>
+        <mxCell id="reg_runtime" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="registry" target="runtime">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="event_runtime" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="event" target="runtime">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pre" value="&lt;b&gt;PRE-SANCTION INTELLIGENCE&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Peer cost benchmark&lt;br&gt;• Duplicate / overlap candidate&lt;br&gt;• Eligibility / compliance rules&lt;br&gt;&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;Goal: prevent avoidable risk before spending&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F8FF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,PRE">
+          <mxGeometry x="1365" y="430" width="250" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="exec" value="&lt;b&gt;EXECUTION INTELLIGENCE&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Payment / utilization anomaly&lt;br&gt;• Financial vs physical progress&lt;br&gt;• Delay prediction&lt;br&gt;• Cost-overrun prediction&lt;br&gt;• Vendor / agency context&lt;br&gt;&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;Goal: early warning while work is active&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF9EF;strokeColor=#D89A2B;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,EXEC">
+          <mxGeometry x="1640" y="430" width="250" height="230" as="geometry"/>
+        </mxCell>
+        <mxCell id="complete" value="&lt;b&gt;COMPLETION + ASSET INTELLIGENCE&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Completion consistency&lt;br&gt;• Final cost / final payment checks&lt;br&gt;• Post-completion payments&lt;br&gt;• Asset / UC / handover checks&lt;br&gt;&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;Goal: verify clean closure and asset creation&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4FAF5;strokeColor=#4E8A58;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,COMPLETE">
+          <mxGeometry x="1365" y="700" width="525" height="170" as="geometry"/>
+        </mxCell>
+        <mxCell id="rt_pre" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#2E6BFF;" edge="1" parent="1" source="runtime" target="pre">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rt_exec" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D89A2B;" edge="1" parent="1" source="runtime" target="exec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rt_comp" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#4E8A58;" edge="1" parent="1" source="runtime" target="complete">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="trend" value="&lt;b&gt;CROSS-PROJECT TREND INTELLIGENCE&lt;/b&gt;&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;state • district • sector • implementing agency • vendor • year/quarter&lt;/font&gt;&lt;br&gt;&lt;br&gt;rolling baselines • change detection • concentration • hotspot clustering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F5FF;strokeColor=#7657D9;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,TREND">
+          <mxGeometry x="1365" y="910" width="525" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="pre_trend" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="pre" target="trend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="exec_trend" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="exec" target="trend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="comp_trend" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#7657D9;" edge="1" parent="1" source="complete" target="trend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="fusion" value="&lt;b&gt;EXPLAINABLE RISK FUSION&lt;/b&gt;&lt;br&gt;&lt;br&gt;signal severity × model confidence × data quality × lifecycle relevance&lt;br&gt;&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;LOW • MEDIUM • HIGH • CRITICAL&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E9;strokeColor=#D9682C;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,FUSION">
+          <mxGeometry x="1365" y="1060" width="525" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="pre_fusion" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="pre" target="fusion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="exec_fusion" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="exec" target="fusion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="complete_fusion" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="complete" target="fusion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="trend_fusion" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="trend" target="fusion">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rag" value="GUIDELINE RETRIEVAL&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;retrieve only relevant official MPLADS clauses&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF5;strokeColor=#4E8A58;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,GROK">
+          <mxGeometry x="1995" y="205" width="320" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="grok" value="GROK API — GROUNDED EXPLANATION&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;why flagged • evidence • what to verify next&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF5;strokeColor=#4E8A58;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,GROK">
+          <mxGeometry x="1995" y="315" width="320" height="82" as="geometry"/>
+        </mxCell>
+        <mxCell id="fusion_rag" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#4E8A58;" edge="1" parent="1" source="fusion" target="rag">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="rag_grok" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#4E8A58;" edge="1" parent="1" source="rag" target="grok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_cost" value="&lt;b&gt;Cost / Overrun Alert&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;peer range • deviation • exposure&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="440" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_cost" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_cost">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_dup" value="&lt;b&gt;Duplicate Candidate&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;Work A ↔ Work B • text/geo/amount/time evidence&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="508" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_dup" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_dup">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_delay" value="&lt;b&gt;Delay Alert&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;probability • overdue days • drivers&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="576" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_delay" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_delay">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_mis" value="&lt;b&gt;Fund vs Progress&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;financial % vs physical % • timeline&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="644" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_mis" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_mis">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_pay" value="&lt;b&gt;Payment Irregularity&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;transactions / burst / concentration&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="712" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_pay" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_pay">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_comp" value="&lt;b&gt;Compliance Alert&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;rule hit • guideline clause • missing field&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="780" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_comp" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_comp">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_asset" value="&lt;b&gt;Asset / Closure Alert&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;completion inconsistency • UC/handover gap&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="848" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_asset" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_asset">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_trend" value="&lt;b&gt;Trend / Hotspot&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;district/state/sector/agency emerging pattern&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=11;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,OUTPUTS">
+          <mxGeometry x="1985" y="916" width="340" height="62" as="geometry"/>
+        </mxCell>
+        <mxCell id="g_o_trend" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="grok" target="o_trend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="dash" value="ROLE-BASED DASHBOARDS&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;MP • District Authority • State Nodal Authority • MoSPI&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,DASH">
+          <mxGeometry x="1985" y="995" width="340" height="74" as="geometry"/>
+        </mxCell>
+        <mxCell id="human" value="AUTHORIZED HUMAN VERIFICATION&lt;br&gt;&lt;font size='2' color='#5C6978'&gt;review • clarify • inspect • resolve / escalate / false positive&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4F4;strokeColor=#C84B4B;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1" link="data:page/id,HUMAN">
+          <mxGeometry x="1985" y="1090" width="340" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_cost_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_cost" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_dup_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_dup" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_delay_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_delay" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_mis_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_mis" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_pay_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_pay" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_comp_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_comp" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_asset_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_asset" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="o_trend_dash" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="o_trend" target="dash">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="dash_human" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#C84B4B;dashed=1;" edge="1" parent="1" source="dash" target="human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="feedback" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#C84B4B;dashed=1;" edge="1" parent="1" source="human" target="registry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="gov" value="&lt;b&gt;DESIGN BOUNDARY:&lt;/b&gt; “Potential fraud / misuse” is represented as explainable HIGH-RISK requiring verification. Our models and rules detect; Grok explains grounded evidence; authorized officials decide." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=12;align=center;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="55" y="1190" width="1835" height="88" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="DATA" name="Data Sources &amp; Prototype Schema">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="DATA_t" value="Data Sources &amp;amp; Prototype Schema" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Use the data the problem actually requires and preserve enough provenance to replace demo rows with official eSAKSHI/MoSPI records later." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_in" value="• 01_mp_master.csv + official allocation/calamity files&lt;br&gt;&lt;br&gt;• 02_agencies_vendors.csv&lt;br&gt;&lt;br&gt;• 03_works.csv&lt;br&gt;&lt;br&gt;• 04_payments.csv&lt;br&gt;&lt;br&gt;• 05_progress.csv&lt;br&gt;&lt;br&gt;• 06_assets_compliance.csv&lt;br&gt;&lt;br&gt;• Official MPLADS guidelines / norms&lt;br&gt;&lt;br&gt;• Future authorized eSAKSHI exports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_proc" value="• Keep raw source files immutable&lt;br&gt;&lt;br&gt;• Mark source_type and synthetic/real/public/derived provenance&lt;br&gt;&lt;br&gt;• Map into canonical MP, Work, Payment, Progress, Entity and Asset tables&lt;br&gt;&lt;br&gt;• Exclude evaluation-only ground-truth labels from model features" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_out" value="• Auditable source inventory&lt;br&gt;&lt;br&gt;• Canonical database schema&lt;br&gt;&lt;br&gt;• Real-vs-synthetic lineage&lt;br&gt;&lt;br&gt;• Replaceable source adapters" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="DATA_in" target="DATA_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="DATA_proc" target="DATA_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Python ingestion + PostgreSQL/PostGIS + object storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="DATA_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Demo fields can be replaced field-by-field with official values without changing downstream detectors." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="FOUNDATION" name="Trusted Data Foundation">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="FOUNDATION_t" value="Trusted Data Foundation" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Prevent stale, fragmented or malformed data from becoming false AI evidence." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_in" value="• All source tables / exports&lt;br&gt;&lt;br&gt;• Source metadata&lt;br&gt;&lt;br&gt;• Entity identifiers&lt;br&gt;&lt;br&gt;• Dates, amounts, locations, statuses" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_proc" value="• Validate schema/types/ranges&lt;br&gt;&lt;br&gt;• Normalize money/dates/percentages&lt;br&gt;&lt;br&gt;• Detect missing, stale and impossible chronology&lt;br&gt;&lt;br&gt;• Resolve MP/work/agency/vendor identities&lt;br&gt;&lt;br&gt;• Join lifecycle events&lt;br&gt;&lt;br&gt;• Create data-quality reliability score&lt;br&gt;&lt;br&gt;• Build one versioned project timeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_out" value="• Trusted normalized records&lt;br&gt;&lt;br&gt;• Unified project profile&lt;br&gt;&lt;br&gt;• Complete lifecycle timeline&lt;br&gt;&lt;br&gt;• Data-quality score&lt;br&gt;&lt;br&gt;• Entity relationships" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="FOUNDATION_in" target="FOUNDATION_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="FOUNDATION_proc" target="FOUNDATION_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;FastAPI/Python validation + PostgreSQL + PostGIS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="FOUNDATION_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Low-quality data lowers alert confidence; missing data must not silently become evidence of wrongdoing." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="FEATURE" name="Feature Store">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="FEATURE_t" value="Feature Store" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Transform raw lifecycle records into stable, reusable financial, temporal, textual and geographic signals." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_in" value="• Unified project profile&lt;br&gt;&lt;br&gt;• Historical peer works&lt;br&gt;&lt;br&gt;• Agency/vendor context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_proc" value="• Recommended→estimate→sanction ratios&lt;br&gt;&lt;br&gt;• Financial progress = expenditure/sanction&lt;br&gt;&lt;br&gt;• Financial-vs-physical gap&lt;br&gt;&lt;br&gt;• Expected timeline vs progress&lt;br&gt;&lt;br&gt;• Payment burst/concentration/velocity&lt;br&gt;&lt;br&gt;• Vendor/agency context&lt;br&gt;&lt;br&gt;• Text embeddings&lt;br&gt;&lt;br&gt;• Geo distance&lt;br&gt;&lt;br&gt;• Closure completeness&lt;br&gt;&lt;br&gt;• Peer baselines" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_out" value="• Model-ready feature vector&lt;br&gt;&lt;br&gt;• Time-series features&lt;br&gt;&lt;br&gt;• Text/geo embeddings&lt;br&gt;&lt;br&gt;• Peer cohort keys&lt;br&gt;&lt;br&gt;• Versioned feature schema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="FEATURE_in" target="FEATURE_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="FEATURE_proc" target="FEATURE_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Python + scikit-learn preprocessing + SentenceTransformers + PostGIS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="FEATURE_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Training and live scoring use identical feature definitions; every alert stores the feature version." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="TRAINING" name="Offline Training / Calibration">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TRAINING_t" value="Offline Training / Calibration" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Train only components that benefit from historical patterns while keeping deterministic MPLADS rules separate." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_in" value="• Feature store&lt;br&gt;&lt;br&gt;• Historical completed works&lt;br&gt;&lt;br&gt;• Synthetic anomaly labels for benchmarking only&lt;br&gt;&lt;br&gt;• Known synthetic duplicate pairs&lt;br&gt;&lt;br&gt;• Versioned MPLADS rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_proc" value="• Time-aware train/validation/test split&lt;br&gt;&lt;br&gt;• Fit Isolation Forest / robust peer baselines&lt;br&gt;&lt;br&gt;• Train delay and overrun predictor&lt;br&gt;&lt;br&gt;• Calibrate duplicate thresholds&lt;br&gt;&lt;br&gt;• Version compliance rule pack&lt;br&gt;&lt;br&gt;• Tune thresholds against review-queue quality" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_out" value="• Anomaly model&lt;br&gt;&lt;br&gt;• Delay/overrun model&lt;br&gt;&lt;br&gt;• Duplicate thresholds&lt;br&gt;&lt;br&gt;• Rule pack&lt;br&gt;&lt;br&gt;• Validation metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="TRAINING_in" target="TRAINING_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="TRAINING_proc" target="TRAINING_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;scikit-learn / XGBoost or LightGBM optional / SentenceTransformers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="TRAINING_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;We do not claim supervised fraud classification without verified labels. We model anomalies and outcomes, then humans verify risk." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="VALIDATE" name="Validation &amp; Threshold Tuning">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="VALIDATE_t" value="Validation &amp;amp; Threshold Tuning" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Optimize the usefulness of the officer review queue, not a misleading headline accuracy." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_in" value="• Held-out test set&lt;br&gt;&lt;br&gt;• Synthetic benchmark labels&lt;br&gt;&lt;br&gt;• Duplicate-pair truth for demo&lt;br&gt;&lt;br&gt;• Historical delay/overrun outcomes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_proc" value="• Measure precision/recall/F1/AUC where labels exist&lt;br&gt;&lt;br&gt;• Measure top-k precision and false-alert rate&lt;br&gt;&lt;br&gt;• Check subgroup performance&lt;br&gt;&lt;br&gt;• Inspect false positives&lt;br&gt;&lt;br&gt;• Tune Low/Medium/High/Critical thresholds to review capacity" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_out" value="• Approved thresholds&lt;br&gt;&lt;br&gt;• Validation report&lt;br&gt;&lt;br&gt;• Known limitations&lt;br&gt;&lt;br&gt;• Judge-ready benchmark metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="VALIDATE_in" target="VALIDATE_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="VALIDATE_proc" target="VALIDATE_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;scikit-learn metrics + optional MLflow" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="VALIDATE_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Prototype metrics remain explicitly synthetic until validated against official reviewed outcomes." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="REGISTRY" name="Approved Model / Rule Registry">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="REGISTRY_t" value="Approved Model / Rule Registry" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Make every scoring decision reproducible and rollback-safe." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_in" value="• Validated model artifacts&lt;br&gt;&lt;br&gt;• Thresholds&lt;br&gt;&lt;br&gt;• Feature schema&lt;br&gt;&lt;br&gt;• Rule pack&lt;br&gt;&lt;br&gt;• Validation metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_proc" value="• Assign version IDs&lt;br&gt;&lt;br&gt;• Store approval date and metrics&lt;br&gt;&lt;br&gt;• Record feature-schema hash&lt;br&gt;&lt;br&gt;• Keep previous versions&lt;br&gt;&lt;br&gt;• Expose only approved versions to runtime" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_out" value="• Approved scoring package&lt;br&gt;&lt;br&gt;• Version metadata&lt;br&gt;&lt;br&gt;• Rollback point&lt;br&gt;&lt;br&gt;• Reproducible audit reference" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="REGISTRY_in" target="REGISTRY_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="REGISTRY_proc" target="REGISTRY_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;MLflow or versioned object store + PostgreSQL metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="REGISTRY_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Every risk case stores the exact model/rule/feature version that generated it." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="RUNTIME" name="Runtime / Batch Scoring">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="RUNTIME_t" value="Runtime / Batch Scoring" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Score a work whenever its lifecycle changes without retraining models." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_in" value="• New recommendation/sanction/payment/progress/completion event&lt;br&gt;&lt;br&gt;• Current project profile&lt;br&gt;&lt;br&gt;• Approved model/rule registry" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_proc" value="• Update the affected timeline&lt;br&gt;&lt;br&gt;• Recompute required features&lt;br&gt;&lt;br&gt;• Identify lifecycle stage&lt;br&gt;&lt;br&gt;• Run only stage-relevant checks&lt;br&gt;&lt;br&gt;• Persist timestamped detector outputs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_out" value="• Updated stage-specific signals&lt;br&gt;&lt;br&gt;• Fresh project risk state&lt;br&gt;&lt;br&gt;• Stored evidence snapshot" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="RUNTIME_in" target="RUNTIME_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="RUNTIME_proc" target="RUNTIME_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;FastAPI + worker queue / batch Python scoring + PostgreSQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="RUNTIME_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;The MVP can score uploaded CSVs; the same runtime later supports official API/event feeds." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="PRE" name="Pre-Sanction Intelligence">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="PRE_t" value="Pre-Sanction Intelligence" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Prevent avoidable risk before execution and significant expenditure begin." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_in" value="• Recommendation&lt;br&gt;&lt;br&gt;• Work description&lt;br&gt;&lt;br&gt;• Sector/sub-sector&lt;br&gt;&lt;br&gt;• Location&lt;br&gt;&lt;br&gt;• Recommended amount&lt;br&gt;&lt;br&gt;• Technical estimate&lt;br&gt;&lt;br&gt;• Historical peers&lt;br&gt;&lt;br&gt;• MPLADS rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_proc" value="• Peer-cost benchmark by category/location/time&lt;br&gt;&lt;br&gt;• Semantic duplicate candidate search&lt;br&gt;&lt;br&gt;• Geo proximity + amount/time similarity&lt;br&gt;&lt;br&gt;• Eligibility/process rule checks&lt;br&gt;&lt;br&gt;• Explain comparable projects" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_out" value="• Cost deviation alert&lt;br&gt;&lt;br&gt;• Potential duplicate pair&lt;br&gt;&lt;br&gt;• Pre-sanction compliance alert&lt;br&gt;&lt;br&gt;• Evidence for District Authority review" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="PRE_in" target="PRE_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="PRE_proc" target="PRE_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Robust statistics + embeddings + pgvector/FAISS + PostGIS + deterministic rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="PRE_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Moving cost and duplicate checks earlier gives true prevention rather than post-spend detection." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="EXEC" name="Execution Intelligence">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="EXEC_t" value="Execution Intelligence" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Monitor money, physical delivery and time together while a work is active." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_in" value="• Sanctioned amount&lt;br&gt;&lt;br&gt;• Payment sequence&lt;br&gt;&lt;br&gt;• Cumulative expenditure&lt;br&gt;&lt;br&gt;• Physical progress history&lt;br&gt;&lt;br&gt;• Expected timeline&lt;br&gt;&lt;br&gt;• Milestones&lt;br&gt;&lt;br&gt;• Vendor/agency context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_proc" value="• Payment burst/concentration detection&lt;br&gt;&lt;br&gt;• Financial-vs-physical comparison&lt;br&gt;&lt;br&gt;• Persistent trajectory-gap detection&lt;br&gt;&lt;br&gt;• Progress velocity monitoring&lt;br&gt;&lt;br&gt;• Delay probability prediction&lt;br&gt;&lt;br&gt;• Cost-overrun probability prediction&lt;br&gt;&lt;br&gt;• Agency/vendor concentration context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_out" value="• Payment anomaly&lt;br&gt;&lt;br&gt;• Fund/progress mismatch&lt;br&gt;&lt;br&gt;• Delay probability&lt;br&gt;&lt;br&gt;• Overrun probability&lt;br&gt;&lt;br&gt;• Execution risk reasons&lt;br&gt;&lt;br&gt;• Verification recommendation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="EXEC_in" target="EXEC_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="EXEC_proc" target="EXEC_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Isolation Forest / time-series features / rules / Gradient Boosting or Random Forest / SHAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="EXEC_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Independent signals reinforce one another; multi-signal agreement should rank higher than a single anomaly." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="COMPLETE" name="Completion + Asset Intelligence">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="COMPLETE_t" value="Completion + Asset Intelligence" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Continue monitoring after a work is marked complete because final payments, closure evidence and asset creation may still be inconsistent." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_in" value="• Completion status/date&lt;br&gt;&lt;br&gt;• Final expenditure&lt;br&gt;&lt;br&gt;• Final payments&lt;br&gt;&lt;br&gt;• Physical progress&lt;br&gt;&lt;br&gt;• Asset ID/location&lt;br&gt;&lt;br&gt;• UC status&lt;br&gt;&lt;br&gt;• Handover/audit metadata&lt;br&gt;&lt;br&gt;• Completion evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_proc" value="• Completion vs progress check&lt;br&gt;&lt;br&gt;• Final expenditure vs sanctioned/revised cost&lt;br&gt;&lt;br&gt;• Payments after completion&lt;br&gt;&lt;br&gt;• Asset metadata/location consistency&lt;br&gt;&lt;br&gt;• UC/handover/closure completeness&lt;br&gt;&lt;br&gt;• Duplicate asset/location checks" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_out" value="• Closure anomaly&lt;br&gt;&lt;br&gt;• Asset consistency alert&lt;br&gt;&lt;br&gt;• Missing evidence list&lt;br&gt;&lt;br&gt;• Post-completion payment alert&lt;br&gt;&lt;br&gt;• Archive or review decision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="COMPLETE_in" target="COMPLETE_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="COMPLETE_proc" target="COMPLETE_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Rules + geospatial checks + optional image verification extension" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="COMPLETE_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Computer vision is optional; the MVP remains strong using structured completion and asset metadata." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="TREND" name="Cross-Project Trend Intelligence">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="TREND_t" value="Cross-Project Trend Intelligence" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Detect systemic patterns invisible when projects are analyzed one at a time." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_in" value="• All project profiles&lt;br&gt;&lt;br&gt;• All stage-specific outputs&lt;br&gt;&lt;br&gt;• State/district/sector/agency/vendor/time dimensions&lt;br&gt;&lt;br&gt;• Historical baselines" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_proc" value="• Rolling baselines&lt;br&gt;&lt;br&gt;• Trend/change detection&lt;br&gt;&lt;br&gt;• High-risk share adjusted for project volume&lt;br&gt;&lt;br&gt;• Payment/cost/delay concentration&lt;br&gt;&lt;br&gt;• Geo clustering of duplicate/risk signals&lt;br&gt;&lt;br&gt;• Compare areas/agencies to history and peers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_out" value="• District/state hotspots&lt;br&gt;&lt;br&gt;• Sector delay trend&lt;br&gt;&lt;br&gt;• Agency/vendor concentration signal&lt;br&gt;&lt;br&gt;• Emerging national pattern&lt;br&gt;&lt;br&gt;• Policy-level insight" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="TREND_in" target="TREND_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="TREND_proc" target="TREND_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;SQL analytics + rolling statistics + change detection + geospatial clustering" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="TREND_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;This directly satisfies the SIH requirement for trend analysis as well as case-level detection." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="RULES" name="MPLADS Compliance Rule Pack">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="RULES_t" value="MPLADS Compliance Rule Pack" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Use deterministic logic for machine-checkable scheme conditions; use Grok only to explain relevant official text." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_in" value="• Structured project facts&lt;br&gt;&lt;br&gt;• Current lifecycle stage&lt;br&gt;&lt;br&gt;• Versioned MPLADS guideline knowledge base" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_proc" value="• Encode machine-checkable conditions&lt;br&gt;&lt;br&gt;• Evaluate only stage-relevant rules&lt;br&gt;&lt;br&gt;• Store rule ID/severity/version&lt;br&gt;&lt;br&gt;• Retrieve relevant guideline clause&lt;br&gt;&lt;br&gt;• Flag missing required process/closure fields" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_out" value="• Rule hit&lt;br&gt;&lt;br&gt;• Severity&lt;br&gt;&lt;br&gt;• Rule reference&lt;br&gt;&lt;br&gt;• Missing/invalid fields&lt;br&gt;&lt;br&gt;• Guideline evidence reference" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="RULES_in" target="RULES_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="RULES_proc" target="RULES_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Python rule engine + versioned rules table + RAG retriever" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="RULES_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;A language model should not replace a condition that can be evaluated exactly." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="FUSION" name="Explainable Risk Fusion">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="FUSION_t" value="Explainable Risk Fusion" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Combine independent signals into one defensible review priority without hiding why the case ranked highly." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_in" value="• Pre-sanction signals&lt;br&gt;&lt;br&gt;• Execution signals&lt;br&gt;&lt;br&gt;• Completion signals&lt;br&gt;&lt;br&gt;• Trend context&lt;br&gt;&lt;br&gt;• Model confidence&lt;br&gt;&lt;br&gt;• Data-quality reliability" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_proc" value="• Normalize per-signal severity&lt;br&gt;&lt;br&gt;• Weight by lifecycle relevance&lt;br&gt;&lt;br&gt;• Down-weight uncertain evidence&lt;br&gt;&lt;br&gt;• Escalate when independent signals agree&lt;br&gt;&lt;br&gt;• Assign review tier&lt;br&gt;&lt;br&gt;• Store per-signal contributions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_out" value="• Overall risk score&lt;br&gt;&lt;br&gt;• Low/Medium/High/Critical tier&lt;br&gt;&lt;br&gt;• Confidence&lt;br&gt;&lt;br&gt;• Top drivers&lt;br&gt;&lt;br&gt;• Evidence list&lt;br&gt;&lt;br&gt;• Recommended verification priority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="FUSION_in" target="FUSION_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="FUSION_proc" target="FUSION_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Calibrated weighted ensemble / scorecard" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="FUSION_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;The fused score is a review-priority score, not a probability that fraud occurred." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="GROK" name="Grok API — Grounded Explanation / RAG">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="GROK_t" value="Grok API — Grounded Explanation / RAG" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Use Grok for language reasoning and guideline-grounded explanation, not as the primary anomaly detector." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_in" value="• Structured project facts&lt;br&gt;&lt;br&gt;• Risk-fusion output&lt;br&gt;&lt;br&gt;• Detector evidence&lt;br&gt;&lt;br&gt;• Retrieved official MPLADS guideline clauses&lt;br&gt;&lt;br&gt;• Peer comparisons" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_proc" value="• Retrieve relevant guideline text&lt;br&gt;&lt;br&gt;• Construct grounded prompt&lt;br&gt;&lt;br&gt;• Call Grok API&lt;br&gt;&lt;br&gt;• Require structured JSON response&lt;br&gt;&lt;br&gt;• Return why flagged + evidence + guideline context + next checks&lt;br&gt;&lt;br&gt;• Reject unsupported statements and preserve source references" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_out" value="• Human-readable case explanation&lt;br&gt;&lt;br&gt;• Guideline-aware context&lt;br&gt;&lt;br&gt;• Verification checklist&lt;br&gt;&lt;br&gt;• Concise case summary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="GROK_in" target="GROK_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="GROK_proc" target="GROK_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Grok API + pgvector/FAISS RAG retriever + structured JSON schema" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="GROK_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;We do not claim to train Grok on MPLADS CSVs. The core analytics continue to work even if the API is unavailable." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="OUTPUTS" name="Problem-Specific Alert Outputs">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="OUTPUTS_t" value="Problem-Specific Alert Outputs" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Different problems need different evidence; one generic red &amp;#x27;fraud alert&amp;#x27; would be weak and hard to act on." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_in" value="• Risk-fusion result&lt;br&gt;&lt;br&gt;• Detector-specific evidence&lt;br&gt;&lt;br&gt;• Grok grounded explanation&lt;br&gt;&lt;br&gt;• Jurisdiction / lifecycle stage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_proc" value="• Select alert type&lt;br&gt;&lt;br&gt;• Attach the evidence relevant to that problem&lt;br&gt;&lt;br&gt;• Generate drill-down case card&lt;br&gt;&lt;br&gt;• Route to responsible role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_out" value="• Cost/overrun alert&lt;br&gt;&lt;br&gt;• Duplicate-work candidate&lt;br&gt;&lt;br&gt;• Delay alert&lt;br&gt;&lt;br&gt;• Fund-vs-progress alert&lt;br&gt;&lt;br&gt;• Payment irregularity&lt;br&gt;&lt;br&gt;• Compliance alert&lt;br&gt;&lt;br&gt;• Asset/closure alert&lt;br&gt;&lt;br&gt;• Trend/hotspot alert" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="OUTPUTS_in" target="OUTPUTS_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="OUTPUTS_proc" target="OUTPUTS_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;Structured alert schema + backend API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="OUTPUTS_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Every alert answers: What is unusual? Why is it unusual? What should the authorized officer verify?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="DASH" name="Role-Based Decision Support">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="DASH_t" value="Role-Based Decision Support" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Deliver the same intelligence at the correct scope for the authority who can act." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_in" value="• Risk-ranked cases&lt;br&gt;&lt;br&gt;• Trend insights&lt;br&gt;&lt;br&gt;• Jurisdiction&lt;br&gt;&lt;br&gt;• Case state&lt;br&gt;&lt;br&gt;• Lifecycle stage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_proc" value="• MP: recommended works/status/major risks&lt;br&gt;&lt;br&gt;• District Authority: operational investigation queue&lt;br&gt;&lt;br&gt;• State Nodal Authority: district trends and unresolved high-risk cases&lt;br&gt;&lt;br&gt;• MoSPI: national benchmark, critical queue and systemic patterns" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_out" value="• MP constituency view&lt;br&gt;&lt;br&gt;• District case queue&lt;br&gt;&lt;br&gt;• State oversight dashboard&lt;br&gt;&lt;br&gt;• MoSPI national command view" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="DASH_in" target="DASH_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="DASH_proc" target="DASH_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;React/Next.js + charts + map + FastAPI backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="DASH_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;Role-based delivery is part of the expected solution, not just UI polish." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="HUMAN" name="Human Verification + Governed Feedback">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1850" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="HUMAN_t" value="Human Verification + Governed Feedback" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="50" y="26" width="1200" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_back" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1510" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_why" value="&lt;b&gt;WHY THIS EXISTS&lt;/b&gt;&lt;br&gt;&lt;br&gt;Keep administrative decisions human, contestable and auditable, while using reviewed outcomes to improve later versions." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#D8DEE8;strokeWidth=2;fontSize=14;align=left;verticalAlign=top;spacing=14;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="105" width="1740" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_h0" value="INPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_h1" value="PROCESS / ALGORITHM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#1D8F84;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="680" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_h2" value="OUTPUTS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F4F7FA;strokeColor=#D9682C;strokeWidth=2;fontStyle=1;fontSize=14;align=center;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="255" width="480" height="48" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_in" value="• Evidence-ready case&lt;br&gt;&lt;br&gt;• Officer review/inspection&lt;br&gt;&lt;br&gt;• Clarifications&lt;br&gt;&lt;br&gt;• Source snapshot&lt;br&gt;&lt;br&gt;• Model/rule version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F6FAFF;strokeColor=#2E6BFF;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=10;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="50" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_proc" value="• Officer marks resolved / further review / confirmed issue / false positive&lt;br&gt;&lt;br&gt;• Store notes and evidence snapshot&lt;br&gt;&lt;br&gt;• Create reviewed outcome label&lt;br&gt;&lt;br&gt;• Analyze false positives/false negatives&lt;br&gt;&lt;br&gt;• Retrain or recalibrate offline in governed versions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_out" value="• Case disposition&lt;br&gt;&lt;br&gt;• Immutable audit trail&lt;br&gt;&lt;br&gt;• Reviewed labels&lt;br&gt;&lt;br&gt;• Future calibrated model/rule version" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7F2;strokeColor=#D9682C;strokeWidth=2;fontSize=14;align=left;verticalAlign=middle;spacing=9;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="330" width="480" height="410" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="HUMAN_in" target="HUMAN_proc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#D9682C;" edge="1" parent="1" source="HUMAN_proc" target="HUMAN_out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_stack" value="&lt;b&gt;IMPLEMENTATION&lt;/b&gt;&lt;br&gt;PostgreSQL audit tables + RBAC + versioned model pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAF8FF;strokeColor=#7657D9;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="50" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="HUMAN_note" value="&lt;b&gt;DESIGN NOTE&lt;/b&gt;&lt;br&gt;No online self-training from one officer click; reviewed outcomes enter a controlled future training cycle." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=13;align=left;verticalAlign=middle;spacing=12;" vertex="1" parent="1">
+          <mxGeometry x="960" y="800" width="830" height="90" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="DEMO" name="Judge Demo Story">
+    <mxGraphModel dx="1700" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="dt" value="JUDGE DEMO SPINE — ONE COMPLETE EVIDENCE-TO-DECISION STORY" style="text;html=1;fontSize=30;fontStyle=1;align=left;verticalAlign=middle;fontColor=#15324A;" vertex="1" parent="1">
+          <mxGeometry x="45" y="25" width="1450" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="db" value="← MASTER FLOW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EEF3F7;strokeColor=#2E6BFF;strokeWidth=2;fontStyle=1;align=center;" vertex="1" parent="1" link="data:page/id,MASTER">
+          <mxGeometry x="1450" y="30" width="280" height="42" as="geometry"/>
+        </mxCell>
+        <mxCell id="d1" value="&lt;b&gt;1. National View&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;5,000 works → ranked risk queue&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="140" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="d2" value="&lt;b&gt;2. Open One High-Risk Work&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;show lifecycle, costs, payments, progress&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="245" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d1" target="d2">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d3" value="&lt;b&gt;3. Explain Independent Signals&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;e.g. 82% utilized vs 39% physical progress + 76% delay risk&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E9;strokeColor=#D9682C;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="350" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d2" target="d3">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d4" value="&lt;b&gt;4. Show Duplicate / Peer Evidence&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;matched project + geo/text/amount comparison&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E9;strokeColor=#D9682C;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="455" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d3" target="d4">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d5" value="&lt;b&gt;5. Grok Grounded Explanation&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;relevant MPLADS clause + what to verify&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E9;strokeColor=#D9682C;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=9;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="560" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d4" target="d5">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d6" value="&lt;b&gt;6. Human Disposition&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;resolve / escalate / false positive&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="665" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d5" target="d6">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="d7" value="&lt;b&gt;7. Audit-Ready Output&lt;/b&gt;&lt;br&gt;&lt;font color='#5C6978'&gt;source snapshot + model/rule versions + officer action&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F3FAF8;strokeColor=#1D8F84;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;spacing=8;shadow=1;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="170" y="770" width="900" height="72" as="geometry"/>
+        </mxCell>
+        <mxCell id="de6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=3;flowAnimation=1;strokeColor=#1D8F84;" edge="1" parent="1" source="d6" target="d7">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="demo_note" value="&lt;b&gt;Pitch line:&lt;/b&gt;&lt;br&gt;&lt;br&gt;“We do not merely show anomalies. We take an officer from national risk prioritization to exact evidence, guideline-grounded explanation, human verification and an auditable outcome.”" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF8E6;strokeColor=#D89A2B;strokeWidth=2;fontSize=16;align=left;verticalAlign=top;spacing=18;fontColor=#17212B;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="300" width="520" height="220" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

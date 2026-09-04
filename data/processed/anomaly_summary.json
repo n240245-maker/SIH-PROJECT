@@ -1,0 +1,136 @@
+{
+  "artifact_type": "production anomaly detector summary",
+  "feature_snapshot_date": "2026-09-01",
+  "interpretation": "Anomaly means statistically unusual relative to comparable records; scores are not probabilities or automated verdicts.",
+  "stage_counts": {
+    "COMPLETION": 1929,
+    "EXECUTION": 801,
+    "PRE_SANCTION": 270
+  },
+  "stage_feature_counts": {
+    "PRE_SANCTION": 3,
+    "EXECUTION": 31,
+    "COMPLETION": 29
+  },
+  "model_hyperparameters": {
+    "n_estimators": 300,
+    "max_samples": "auto",
+    "contamination": "auto",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "score_distribution_by_stage": {
+    "COMPLETION": {
+      "row_count": 1929,
+      "minimum": 0.3808514953637341,
+      "maximum": 0.6917445818588914,
+      "mean": 0.44393172346934656,
+      "standard_deviation": 0.04184055486473368
+    },
+    "EXECUTION": {
+      "row_count": 801,
+      "minimum": 0.38725714478654044,
+      "maximum": 0.6460077929783847,
+      "mean": 0.44797094136714954,
+      "standard_deviation": 0.04311890757428727
+    },
+    "PRE_SANCTION": {
+      "row_count": 270,
+      "minimum": 0.4310924996897146,
+      "maximum": 0.7291206642227689,
+      "mean": 0.48764938696292215,
+      "standard_deviation": 0.04664450362542066
+    }
+  },
+  "peer_benchmark": {
+    "minimum_peer_group_size": 20,
+    "stage_metrics": {
+      "PRE_SANCTION": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "estimate_to_recommended_ratio"
+      ],
+      "EXECUTION": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "estimate_to_recommended_ratio",
+        "sanction_to_recommended_ratio",
+        "sanction_to_estimate_ratio",
+        "released_payment_total_inr_as_of",
+        "largest_payment_share_as_of",
+        "expenditure_to_sanction_pct_as_of",
+        "financial_overrun_pct_as_of",
+        "latest_physical_progress_pct_as_of",
+        "latest_financial_progress_pct_as_of",
+        "financial_minus_physical_gap_pct_as_of",
+        "expected_minus_physical_gap_pct_as_of",
+        "physical_progress_decrease_count_as_of",
+        "max_physical_progress_drop_pct_as_of",
+        "physical_progress_velocity_pct_per_30d",
+        "days_since_last_payment_as_of",
+        "overdue_days_as_of",
+        "schedule_elapsed_ratio_as_of"
+      ],
+      "COMPLETION": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "estimate_to_recommended_ratio",
+        "sanction_to_recommended_ratio",
+        "sanction_to_estimate_ratio",
+        "released_payment_total_inr_as_of",
+        "largest_payment_share_as_of",
+        "expenditure_to_sanction_pct_as_of",
+        "financial_overrun_pct_as_of",
+        "latest_financial_progress_pct_as_of",
+        "financial_minus_physical_gap_pct_as_of",
+        "expected_minus_physical_gap_pct_as_of",
+        "physical_progress_decrease_count_as_of",
+        "max_physical_progress_drop_pct_as_of",
+        "physical_progress_velocity_pct_per_30d",
+        "days_since_last_payment_as_of",
+        "schedule_elapsed_ratio_as_of"
+      ]
+    },
+    "distinct_metric_count": 20,
+    "distinct_metrics": [
+      "days_since_last_payment_as_of",
+      "estimate_to_recommended_ratio",
+      "expected_minus_physical_gap_pct_as_of",
+      "expenditure_to_sanction_pct_as_of",
+      "financial_minus_physical_gap_pct_as_of",
+      "financial_overrun_pct_as_of",
+      "largest_payment_share_as_of",
+      "latest_financial_progress_pct_as_of",
+      "latest_physical_progress_pct_as_of",
+      "max_physical_progress_drop_pct_as_of",
+      "overdue_days_as_of",
+      "physical_progress_decrease_count_as_of",
+      "physical_progress_velocity_pct_per_30d",
+      "recommended_amount_inr",
+      "released_payment_total_inr_as_of",
+      "sanction_to_estimate_ratio",
+      "sanction_to_recommended_ratio",
+      "sanctioned_amount_inr",
+      "schedule_elapsed_ratio_as_of",
+      "technical_estimate_amount_inr"
+    ],
+    "evidence_row_count": 51552,
+    "statistical_peer_outlier_evidence_row_count": 1262
+  },
+  "artifact_paths": {
+    "anomaly_feature_sets": "C:\\SIH-PROJECT\\data\\processed\\anomaly_feature_sets.json",
+    "peer_benchmark_evidence": "C:\\SIH-PROJECT\\data\\processed\\peer_benchmark_evidence.csv",
+    "peer_benchmark_summary": "C:\\SIH-PROJECT\\data\\processed\\peer_benchmark_summary.csv",
+    "anomaly_scores": "C:\\SIH-PROJECT\\data\\processed\\anomaly_scores.csv",
+    "anomaly_evidence": "C:\\SIH-PROJECT\\data\\processed\\anomaly_evidence.csv",
+    "model_metadata": "C:\\SIH-PROJECT\\code\\models\\anomaly\\anomaly_model_metadata.json",
+    "models": {
+      "PRE_SANCTION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_pre_sanction.joblib",
+      "EXECUTION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_execution.joblib",
+      "COMPLETION": "C:\\SIH-PROJECT\\code\\models\\anomaly\\isolation_forest_completion.joblib"
+    }
+  },
+  "source_feature_sha256": "760D1D1366316C54CF928C5CCE03AD3A10F2793C0F986782477F03F6D9A77148"
+}

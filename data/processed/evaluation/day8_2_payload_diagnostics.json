@@ -1,0 +1,146 @@
+{
+  "status": "COMPLETED_WITH_FALLBACK",
+  "day8_1_failure_analysis": {
+    "http_413_cases": [
+      "W-001937",
+      "W-001966"
+    ],
+    "grounding_rejected_case": "W-002240",
+    "grounding_rejection_reasons": [
+      "UNSUPPORTED_CLAUSE:MPLADS-2023-P019:3.2.4; 3.2.6",
+      "INVENTED_COMPLIANCE_RULE:['MPLADS-3.2.4']"
+    ]
+  },
+  "day8_1_original_requests": [
+    {
+      "work_id": "W-001937",
+      "request_json_bytes": 37209,
+      "system_prompt_characters": 1271,
+      "evidence_json_characters": 13940,
+      "guideline_context_characters": 18049,
+      "structured_output_schema_characters": 1665,
+      "evidence_item_count": 19,
+      "direct_chunk_count": 2,
+      "semantic_chunk_count": 5
+    },
+    {
+      "work_id": "W-001966",
+      "request_json_bytes": 36372,
+      "system_prompt_characters": 1271,
+      "evidence_json_characters": 13154,
+      "guideline_context_characters": 18052,
+      "structured_output_schema_characters": 1665,
+      "evidence_item_count": 18,
+      "direct_chunk_count": 2,
+      "semantic_chunk_count": 5
+    },
+    {
+      "work_id": "W-002240",
+      "request_json_bytes": 32000,
+      "system_prompt_characters": 1271,
+      "evidence_json_characters": 13042,
+      "guideline_context_characters": 13909,
+      "structured_output_schema_characters": 1665,
+      "evidence_item_count": 20,
+      "direct_chunk_count": 1,
+      "semantic_chunk_count": 5
+    }
+  ],
+  "day8_2_minimized_requests": [
+    {
+      "work_id": "W-001937",
+      "system_prompt_characters": 820,
+      "evidence_json_characters": 5567,
+      "guideline_context_characters": 4478,
+      "structured_output_schema_characters": 1754,
+      "request_json_bytes": 14894,
+      "internal_request_budget_bytes": 18000,
+      "within_internal_budget": true,
+      "budget_failure_reason": null,
+      "evidence_item_cap": 8,
+      "evidence_item_count": 7,
+      "guideline_excerpt_count": 5,
+      "direct_chunk_count": 2,
+      "direct_excerpt_count": 3,
+      "semantic_chunk_count": 2,
+      "semantic_excerpt_count": 2,
+      "dropped_semantic_chunk_count": 0,
+      "dropped_lower_priority_evidence_count": 0,
+      "allowed_evidence_code_count": 13,
+      "allowed_guideline_chunk_id_count": 4,
+      "allowed_compliance_rule_id_count": 3,
+      "credential_fields_logged": false,
+      "http_outcome": "HTTP_200",
+      "schema_validation_outcome": "PASSED",
+      "grounding_validation_outcome": "PASSED",
+      "final_explanation_mode": "GROQ_GROUNDED",
+      "api_status": "SUCCESS",
+      "grounding_issues": []
+    },
+    {
+      "work_id": "W-001966",
+      "system_prompt_characters": 820,
+      "evidence_json_characters": 5305,
+      "guideline_context_characters": 4478,
+      "structured_output_schema_characters": 1727,
+      "request_json_bytes": 14558,
+      "internal_request_budget_bytes": 18000,
+      "within_internal_budget": true,
+      "budget_failure_reason": null,
+      "evidence_item_cap": 8,
+      "evidence_item_count": 6,
+      "guideline_excerpt_count": 5,
+      "direct_chunk_count": 2,
+      "direct_excerpt_count": 3,
+      "semantic_chunk_count": 2,
+      "semantic_excerpt_count": 2,
+      "dropped_semantic_chunk_count": 0,
+      "dropped_lower_priority_evidence_count": 0,
+      "allowed_evidence_code_count": 12,
+      "allowed_guideline_chunk_id_count": 4,
+      "allowed_compliance_rule_id_count": 3,
+      "credential_fields_logged": false,
+      "http_outcome": "HTTP_429",
+      "schema_validation_outcome": "NOT_RUN",
+      "grounding_validation_outcome": "NOT_RUN",
+      "final_explanation_mode": "DETERMINISTIC_FALLBACK",
+      "api_status": "FALLBACK_GROQRATELIMITERROR",
+      "grounding_issues": [
+        "Groq rate limit or quota was reached; retry-after=12"
+      ]
+    },
+    {
+      "work_id": "W-002240",
+      "system_prompt_characters": 820,
+      "evidence_json_characters": 5200,
+      "guideline_context_characters": 3678,
+      "structured_output_schema_characters": 1708,
+      "request_json_bytes": 13484,
+      "internal_request_budget_bytes": 18000,
+      "within_internal_budget": true,
+      "budget_failure_reason": null,
+      "evidence_item_cap": 8,
+      "evidence_item_count": 8,
+      "guideline_excerpt_count": 4,
+      "direct_chunk_count": 1,
+      "direct_excerpt_count": 2,
+      "semantic_chunk_count": 2,
+      "semantic_excerpt_count": 2,
+      "dropped_semantic_chunk_count": 0,
+      "dropped_lower_priority_evidence_count": 0,
+      "allowed_evidence_code_count": 13,
+      "allowed_guideline_chunk_id_count": 3,
+      "allowed_compliance_rule_id_count": 1,
+      "credential_fields_logged": false,
+      "http_outcome": "HTTP_429",
+      "schema_validation_outcome": "NOT_RUN",
+      "grounding_validation_outcome": "NOT_RUN",
+      "final_explanation_mode": "DETERMINISTIC_FALLBACK",
+      "api_status": "FALLBACK_GROQRATELIMITERROR",
+      "grounding_issues": [
+        "Groq rate limit or quota was reached; retry-after=8"
+      ]
+    }
+  ],
+  "credential_fields_logged": false
+}

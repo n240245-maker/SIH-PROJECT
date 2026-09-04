@@ -1,0 +1,190 @@
+{
+  "as_of_date": "2026-09-01",
+  "test_set_policy": "Viewed only after feature lists, parameters, and calibration policy were fixed.",
+  "delay_outcome": {
+    "status": "INSUFFICIENT_SUPERVISED_OUTCOME_DATA",
+    "feasibility": {
+      "status": "INSUFFICIENT_SUPERVISED_OUTCOME_DATA",
+      "eligible_work_count": 1929,
+      "positive_work_count": 1907,
+      "negative_work_count": 22,
+      "landmark_row_count": 5786,
+      "positive_prevalence": 0.9885951270088128,
+      "minimum_positive_work_count": 50,
+      "minimum_negative_work_count": 50
+    },
+    "test_metrics": null
+  },
+  "cost_overrun_outcome": {
+    "status": "EVALUATED",
+    "primary_model": "XGBoost",
+    "baseline_model": "RandomForestClassifier",
+    "primary_prototype_landmark": "50_percent",
+    "test_set_used_for_tuning": false,
+    "landmarks": {
+      "25_percent": {
+        "test_work_count": 50,
+        "positive_prevalence": 0.62,
+        "xgboost_uncalibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.5500848896434636,
+          "average_precision": 0.6963650353794726,
+          "brier_score": 0.29036965749403487,
+          "expected_calibration_error_10_bins": 0.25900286562740804
+        },
+        "xgboost_calibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.44991511035653653,
+          "average_precision": 0.5905974978621973,
+          "brier_score": 0.2655552888357143,
+          "expected_calibration_error_10_bins": 0.14339544772147533
+        },
+        "random_forest_baseline": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.44142614601018676,
+          "average_precision": 0.6047354732520954,
+          "brier_score": 0.26419125462866444,
+          "expected_calibration_error_10_bins": 0.1493794875142683
+        }
+      },
+      "50_percent": {
+        "test_work_count": 50,
+        "positive_prevalence": 0.62,
+        "xgboost_uncalibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.5415959252971138,
+          "average_precision": 0.6995437905352117,
+          "brier_score": 0.3007238718690436,
+          "expected_calibration_error_10_bins": 0.24735260002315043
+        },
+        "xgboost_calibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.45840407470288624,
+          "average_precision": 0.596142641947156,
+          "brier_score": 0.2694840564339272,
+          "expected_calibration_error_10_bins": 0.16029959527487092
+        },
+        "random_forest_baseline": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.4414261460101867,
+          "average_precision": 0.6298074418674393,
+          "brier_score": 0.26446794372774074,
+          "expected_calibration_error_10_bins": 0.21732696096870072
+        }
+      },
+      "75_percent": {
+        "test_work_count": 50,
+        "positive_prevalence": 0.62,
+        "xgboost_uncalibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.5449915110356536,
+          "average_precision": 0.6998687977103932,
+          "brier_score": 0.2953575964414623,
+          "expected_calibration_error_10_bins": 0.24998623140156262
+        },
+        "xgboost_calibrated": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.45500848896434637,
+          "average_precision": 0.5916348741375557,
+          "brier_score": 0.26924184298139114,
+          "expected_calibration_error_10_bins": 0.1680335483062113
+        },
+        "random_forest_baseline": {
+          "status": "EVALUATED",
+          "row_count": 50,
+          "positive_prevalence": 0.62,
+          "roc_auc": 0.5025466893039049,
+          "average_precision": 0.6667657002876644,
+          "brier_score": 0.2532098647681927,
+          "expected_calibration_error_10_bins": 0.2050061861288551
+        }
+      }
+    },
+    "overall_repeated_row_diagnostic": {
+      "warning": "Each work can appear at multiple landmarks; this is secondary only.",
+      "xgboost_uncalibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.62,
+        "roc_auc": 0.5451801546877948,
+        "average_precision": 0.6913130702626686,
+        "brier_score": 0.2954837086015135,
+        "expected_calibration_error_10_bins": 0.23479316172500453
+      },
+      "xgboost_calibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.62,
+        "roc_auc": 0.45481984531220526,
+        "average_precision": 0.5825574526053651,
+        "brier_score": 0.2680937294170109,
+        "expected_calibration_error_10_bins": 0.1572428637675192
+      },
+      "random_forest_baseline": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.62,
+        "roc_auc": 0.45859271835502735,
+        "average_precision": 0.6245123089785589,
+        "brier_score": 0.2606230210415326,
+        "expected_calibration_error_10_bins": 0.1853005804330334
+      }
+    },
+    "calibration": {
+      "method": "sigmoid_platt_on_xgboost_log_odds",
+      "fit_partition": "VALIDATION_ONLY",
+      "validation_uncalibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.64,
+        "roc_auc": 0.3350694444444444,
+        "average_precision": 0.5279544830135359,
+        "brier_score": 0.3418274478007077,
+        "expected_calibration_error_10_bins": 0.3311342126131058
+      },
+      "validation_calibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.64,
+        "roc_auc": 0.6649305555555556,
+        "average_precision": 0.7348882019706763,
+        "brier_score": 0.21019362560551125,
+        "expected_calibration_error_10_bins": 0.15241324596452502
+      },
+      "test_uncalibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.62,
+        "roc_auc": 0.5451801546877948,
+        "average_precision": 0.6913130702626686,
+        "brier_score": 0.2954837086015135,
+        "expected_calibration_error_10_bins": 0.23479316172500453
+      },
+      "test_calibrated": {
+        "status": "EVALUATED",
+        "row_count": 150,
+        "positive_prevalence": 0.62,
+        "roc_auc": 0.45481984531220526,
+        "average_precision": 0.5825574526053651,
+        "brier_score": 0.2680937294170109,
+        "expected_calibration_error_10_bins": 0.1572428637675192
+      }
+    }
+  }
+}

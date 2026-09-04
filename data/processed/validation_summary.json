@@ -1,0 +1,213 @@
+{
+  "as_of_date": "2026-09-01",
+  "issue_counts_by_code": {
+    "DUPLICATE_PFMS_REFERENCE": 1,
+    "DUPLICATE_WORK_REPORT_DATE": 13,
+    "FINANCIAL_PROGRESS_OVER_100": 4292,
+    "FUTURE_ACTUAL_EVENT": 7987,
+    "PAYMENT_AUTH_BEFORE_REQUEST": 718,
+    "PHYSICAL_PROGRESS_DECREASE": 295,
+    "PROGRESS_BEFORE_ACTUAL_START": 12,
+    "STATUS_EXECUTION_INCONSISTENCY": 10,
+    "ZERO_RELEASED_PAYMENT": 4
+  },
+  "issue_counts_by_severity": {
+    "ERROR": 0,
+    "INFO": 0,
+    "WARNING": 13332
+  },
+  "key_integrity_summary": {
+    "assets.asset_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 1929,
+      "status": "PASS"
+    },
+    "assets.work_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 1929,
+      "status": "PASS"
+    },
+    "entities.entity_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 108,
+      "status": "PASS"
+    },
+    "mp.mp_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 36,
+      "status": "PASS"
+    },
+    "payments.payment_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 9727,
+      "status": "PASS"
+    },
+    "progress.progress_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 14902,
+      "status": "PASS"
+    },
+    "works.work_id": {
+      "duplicate_extra_count": 0,
+      "duplicate_row_count": 0,
+      "null_count": 0,
+      "rows": 3000,
+      "status": "PASS"
+    }
+  },
+  "quality_summary": {
+    "payment_consistency": {
+      "duplicate_pfms_reference_extras": 1,
+      "payment_rows_with_cumulative_mismatch": 0,
+      "works_with_payment_total_mismatch": 0,
+      "zero_value_released_payments": 4
+    },
+    "progress_report_cardinality": {
+      "maximum": 8,
+      "mean": 4.967333333333333,
+      "median": 5.0,
+      "minimum": 0,
+      "works_with_multiple_reports": 2706,
+      "works_with_one_report": 24,
+      "works_with_zero_reports": 270
+    },
+    "progress_sequence": {
+      "physical_progress_decrease_transitions": 295,
+      "physical_progress_decrease_works": 220,
+      "same_work_report_date_duplicate_extras": 13
+    },
+    "status_consistency": {
+      "sanctioned_not_started_works": 24,
+      "with_any_execution_evidence": 10,
+      "with_nonzero_expenditure": 10,
+      "with_nonzero_physical_progress": 9,
+      "with_payment_rows": 10
+    }
+  },
+  "relationship_summary": {
+    "assets.work_id->works.work_id": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 1929,
+      "non_null_references": 1929,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 1929,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "payments.authorized_by_agency_id->entities.entity_id[IMPLEMENTING_AGENCY]": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 9727,
+      "non_null_references": 9727,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 9727,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "payments.vendor_id->entities.entity_id[VENDOR]": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 9727,
+      "non_null_references": 9727,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 9727,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "payments.work_id->works.work_id": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 9727,
+      "non_null_references": 9727,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 9727,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "progress.reported_by_agency_id->entities.entity_id[IMPLEMENTING_AGENCY]": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 14902,
+      "non_null_references": 14902,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 14902,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "progress.work_id->works.work_id": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 14902,
+      "non_null_references": 14902,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 14902,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "works.implementing_agency_id->entities.entity_id[IMPLEMENTING_AGENCY]": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 2730,
+      "non_null_references": 2730,
+      "null_references": 270,
+      "status": "PASS",
+      "total_rows": 3000,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    },
+    "works.mp_id->mp.mp_id": {
+      "invalid_null_references": 0,
+      "match_percentage_non_null": 100.0,
+      "matched_references": 3000,
+      "non_null_references": 3000,
+      "null_references": 0,
+      "status": "PASS",
+      "total_rows": 3000,
+      "unexpected_entity_type_references": 0,
+      "unmatched_references": 0
+    }
+  },
+  "row_counts": {
+    "assets": 1929,
+    "entities": 108,
+    "mp": 36,
+    "payments": 9727,
+    "progress": 14902,
+    "works": 3000
+  },
+  "schema_status": {
+    "assets": "PASS",
+    "entities": "PASS",
+    "mp": "PASS",
+    "payments": "PASS",
+    "progress": "PASS",
+    "works": "PASS"
+  },
+  "source_files_loaded": [
+    "01_mp_master.csv",
+    "02_agencies_vendors.csv",
+    "03_works.csv",
+    "04_payments.csv",
+    "05_progress.csv",
+    "06_assets_compliance.csv"
+  ]
+}

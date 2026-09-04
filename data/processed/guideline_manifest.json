@@ -1,0 +1,31 @@
+{
+  "document_title": "Members of Parliament Local Area Development Scheme Guidelines",
+  "guideline_version": "MPLADS Guidelines 2023 - Second Edition, 14 March 2023",
+  "effective_date": "2023-04-01",
+  "edition_text": [
+    "First Edition, 22nd February, 2023",
+    "Second Edition, 14th March, 2023"
+  ],
+  "local_filename": "official_mplads_guidelines.pdf",
+  "local_path": "C:\\SIH-PROJECT\\guidelines\\official_mplads_guidelines.pdf",
+  "sha256": "2E4AF29D2FAAADBA4E8DADB16C30D56318AF23CD062436260ACA11777CEBC5E6",
+  "page_count": 70,
+  "extractable_page_count": 64,
+  "official_source_url": "https://www.mplads.gov.in/MPLADS/UploadedFiles/MPLADSGuidelines2023_English_.pdf",
+  "official_index_url": "https://www.mplads.gov.in/mplads/En/2010-mplads-guidelines.aspx",
+  "verification_date": "2026-09-02",
+  "verification_status": "VERIFIED_IDENTITY_AND_EDITION",
+  "verification_basis": "The official MPLADS portal lists English Guidelines 2023 at the recorded PDF URL. The local cover, editions page, Clause 1.1, and indexed official PDF text agree on title, edition, and effective date.",
+  "official_byte_comparison_status": "NOT_AVAILABLE_OFFICIAL_HOST_TIMEOUT_LOCAL_SHA_RECORDED",
+  "extraction_method": "PyMuPDF 1.28.2 text extraction; no OCR",
+  "extraction_status": "NORMAL_TEXT_EXTRACTION_SUCCESSFUL",
+  "extraction_character_count": 125024,
+  "chunk_count": 61,
+  "pdf_metadata": {
+    "format": "PDF 1.7",
+    "creator": "PDFium",
+    "producer": "PDFium",
+    "creationDate": "D:20251117152717"
+  },
+  "metadata_timestamp_is_edition": false
+}

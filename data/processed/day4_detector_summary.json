@@ -1,0 +1,174 @@
+{
+  "artifact_type": "Day-4 independent detector summary",
+  "feature_snapshot_date": "2026-09-01",
+  "governance": "Duplicate similarity, payment evidence, and fund-progress evidence remain independent review signals; no fused score or final decision exists.",
+  "duplicates": {
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_count": 3000,
+    "unique_candidate_pairs_evaluated": 18290,
+    "retrieval_candidate_pair_count": 18290,
+    "historical_candidate_threshold_0_100": 75.0,
+    "historical_candidate_pair_count": 11763,
+    "works_with_historical_candidate": 2995,
+    "review_candidate_pair_count": 14,
+    "works_with_review_candidate": 24,
+    "review_policy": {
+      "minimum_composite_score_0_100": 90.0,
+      "minimum_text_cosine_similarity": 0.97,
+      "required_local_matches": [
+        "district",
+        "block",
+        "village"
+      ],
+      "maximum_geographic_distance_km": 1.0,
+      "minimum_amount_similarity": 0.9,
+      "maximum_recommendation_date_difference_days": 120,
+      "required_taxonomy_matches": [
+        "sector",
+        "sub_sector"
+      ],
+      "implementing_agency_match_required": false,
+      "interpretation": "Conservative evidence-based review selection; it does not establish work identity or wrongdoing."
+    },
+    "score_distribution": {
+      "count": 18290,
+      "minimum": 58.054002,
+      "p50": 77.000644,
+      "p75": 80.78858650000001,
+      "p90": 84.4984527,
+      "p95": 86.63573985,
+      "p97_5": 88.244030375,
+      "p99": 90.30216292,
+      "maximum": 96.033758
+    },
+    "score_threshold_counts": {
+      "at_or_above_80": 5426,
+      "at_or_above_85": 1572,
+      "at_or_above_90": 209,
+      "at_or_above_92.5": 49,
+      "at_or_above_95": 6
+    },
+    "structured_evidence_audit": {
+      "score_at_or_above_85": {
+        "pair_count": 1572,
+        "text_similarity_median": 0.9963061200000001,
+        "text_similarity_p90": 0.998163546,
+        "distance_km_median": 133.30680266437605,
+        "distance_km_p90": 227.04510089276002,
+        "amount_similarity_p10": 0.6605663378825258,
+        "amount_similarity_median": 0.8796715107103987,
+        "date_difference_days_median": 65.0,
+        "date_difference_days_p90": 189.9000000000001,
+        "same_district_pct": 54.58015267175572,
+        "same_block_pct": 30.343511450381676,
+        "same_village_pct": 10.305343511450381,
+        "sector_match_pct": 100.0,
+        "sub_sector_match_pct": 100.0,
+        "implementing_agency_match_pct": 23.727735368956743
+      },
+      "score_at_or_above_90": {
+        "pair_count": 209,
+        "text_similarity_median": 0.99644649,
+        "text_similarity_p90": 0.9984733,
+        "distance_km_median": 114.22832192457959,
+        "distance_km_p90": 223.38486417013934,
+        "amount_similarity_p10": 0.8000463337918153,
+        "amount_similarity_median": 0.9496717531853645,
+        "date_difference_days_median": 48.0,
+        "date_difference_days_p90": 137.40000000000003,
+        "same_district_pct": 93.30143540669856,
+        "same_block_pct": 51.196172248803826,
+        "same_village_pct": 23.444976076555022,
+        "sector_match_pct": 100.0,
+        "sub_sector_match_pct": 100.0,
+        "implementing_agency_match_pct": 29.1866028708134
+      },
+      "score_at_or_above_92.5": {
+        "pair_count": 49,
+        "text_similarity_median": 0.9949156,
+        "text_similarity_p90": 0.999531576,
+        "distance_km_median": 38.13579960058294,
+        "distance_km_p90": 202.07969655335188,
+        "amount_similarity_p10": 0.9268999143957132,
+        "amount_similarity_median": 0.9715421303656597,
+        "date_difference_days_median": 59.0,
+        "date_difference_days_p90": 133.4,
+        "same_district_pct": 100.0,
+        "same_block_pct": 79.59183673469387,
+        "same_village_pct": 57.14285714285714,
+        "sector_match_pct": 100.0,
+        "sub_sector_match_pct": 100.0,
+        "implementing_agency_match_pct": 22.448979591836736
+      },
+      "score_at_or_above_95": {
+        "pair_count": 6,
+        "text_similarity_median": 0.9861279700000001,
+        "text_similarity_p90": 0.9947066600000001,
+        "distance_km_median": 0.19874400603428316,
+        "distance_km_p90": 0.23661234528045139,
+        "amount_similarity_p10": 0.9551724511956736,
+        "amount_similarity_median": 0.9769173676383438,
+        "date_difference_days_median": 56.5,
+        "date_difference_days_p90": 66.0,
+        "same_district_pct": 100.0,
+        "same_block_pct": 100.0,
+        "same_village_pct": 100.0,
+        "sector_match_pct": 100.0,
+        "sub_sector_match_pct": 100.0,
+        "implementing_agency_match_pct": 0.0
+      }
+    }
+  },
+  "payments": {
+    "signal_counts_by_code": {
+      "PAYMENT_AUTH_BEFORE_REQUEST": 711,
+      "PAYMENT_RELEASE_BEFORE_AUTH": 0,
+      "DUPLICATE_PFMS_REFERENCE": 1,
+      "ZERO_VALUE_RELEASED_PAYMENT": 1,
+      "PAYMENT_AFTER_COMPLETION": 0,
+      "PAYMENT_AFTER_FINAL_PAYMENT": 0,
+      "MULTIPLE_FINAL_PAYMENTS": 0,
+      "RELEASED_TOTAL_EXCEEDS_SANCTION": 1215
+    },
+    "total_evidence_rows": 1928,
+    "works_with_evidence": 1574
+  },
+  "fund_progress": {
+    "applicable_work_count": 2730,
+    "large_positive_gap_engineering_heuristic_pct": 25.0,
+    "persistent_report_count_engineering_heuristic": 2,
+    "fund_minus_physical_gap_distribution": {
+      "count": 2730,
+      "minimum": -16.0,
+      "q1": -3.391902507742504,
+      "median": 0.7112614242343209,
+      "mean": 1.3311509259177963,
+      "q3": 4.6043693463048285,
+      "p90": 6.004368615456474,
+      "maximum": 129.41622176591375
+    },
+    "reported_vs_payment_difference_distribution": {
+      "count": 2730,
+      "minimum": -0.9874670681219415,
+      "q1": -0.024615849901181264,
+      "median": 0.0,
+      "mean": -0.0010776658445359436,
+      "q3": 0.02277107621808039,
+      "p90": 0.03947495142349737,
+      "maximum": 0.04999999999999716
+    },
+    "works_with_persistent_large_reported_gap_evidence": 1448,
+    "works_with_current_large_positive_fund_gap_evidence": 69,
+    "status_not_started_with_payment_evidence": 6,
+    "status_not_started_with_physical_progress": 9
+  },
+  "artifact_paths": {
+    "duplicate_work_embeddings": "C:\\SIH-PROJECT\\data\\processed\\duplicate_work_embeddings.npy",
+    "duplicate_embedding_metadata": "C:\\SIH-PROJECT\\data\\processed\\duplicate_work_embeddings_metadata.json",
+    "duplicate_candidates": "C:\\SIH-PROJECT\\data\\processed\\duplicate_candidates.csv",
+    "duplicate_summary": "C:\\SIH-PROJECT\\data\\processed\\duplicate_summary.csv",
+    "payment_irregularities": "C:\\SIH-PROJECT\\data\\processed\\payment_irregularities.csv",
+    "payment_irregularity_summary": "C:\\SIH-PROJECT\\data\\processed\\payment_irregularity_summary.csv",
+    "fund_progress_evidence": "C:\\SIH-PROJECT\\data\\processed\\fund_progress_evidence.csv"
+  }
+}

@@ -1,0 +1,10 @@
+﻿file_name,row_count,purpose
+01_mp_master.csv,36,MP master + allocation/calamity fields
+02_agencies_vendors.csv,108,Implementing agency and vendor entity master
+03_works.csv,3000,"Recommendation, sanction, location, current status, expenditure"
+04_payments.csv,9727,Transaction-level synthetic payment history
+05_progress.csv,14902,Time-series physical/financial progress
+06_assets_compliance.csv,1929,"Completion, UC, asset, audit/compliance closure"
+07_anomaly_ground_truth.csv,3000,Synthetic validation labels; never use as model input
+08_data_dictionary.csv,120,Column meanings and preferred sources
+09_source_acquisition_plan.csv,9,Real-source collection plan and fallback rules

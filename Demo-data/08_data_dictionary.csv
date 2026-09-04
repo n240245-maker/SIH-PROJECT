@@ -1,0 +1,121 @@
+﻿file_name,column_name,data_type,meaning,preferred_source_or_fallback,prototype_required
+01_mp_master.csv,mp_id,string,Synthetic unique MP key,Official MoSPI allocation export / synthetic fallback,YES
+01_mp_master.csv,mp_name,string,MP display name,Official MoSPI / synthetic demo,YES
+01_mp_master.csv,house_type,category,Lok Sabha or Rajya Sabha,Official/public,YES
+01_mp_master.csv,tenure,string,Parliamentary tenure,Official/public,YES
+01_mp_master.csv,state_code,string,State abbreviation,Derived/public,YES
+01_mp_master.csv,state_name,string,State,Official/public,YES
+01_mp_master.csv,constituency,string,Constituency or seat label,Official/public,YES
+01_mp_master.csv,nodal_district,string,Nodal district,Official/public,YES
+01_mp_master.csv,annual_entitlement_inr,integer,Annual entitlement amount,Guidelines / synthetic,YES
+01_mp_master.csv,allocated_limit_inr,integer,Allocated/authorized limit for MP,MoSPI supplied CSV,YES
+01_mp_master.csv,calamity_consent_amount_inr,integer,Amount consented for calamity,MoSPI supplied CSV,YES
+01_mp_master.csv,record_effective_date,date,Effective date of allocation record,Official/synthetic,YES
+01_mp_master.csv,source_type,string,Provenance classification,System metadata,YES
+01_mp_master.csv,source_reference,string,Where to obtain/replace source,System metadata,YES
+01_mp_master.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+02_agencies_vendors.csv,entity_id,string,Agency/vendor key,Public/eSAKSHI or synthetic,YES
+02_agencies_vendors.csv,entity_type,category,IMPLEMENTING_AGENCY or VENDOR,eSAKSHI / synthetic,YES
+02_agencies_vendors.csv,entity_name,string,Agency/vendor name,eSAKSHI / synthetic,YES
+02_agencies_vendors.csv,state_name,string,State,Public/eSAKSHI,YES
+02_agencies_vendors.csv,district,string,District,Public/eSAKSHI,YES
+02_agencies_vendors.csv,registration_or_office_code,string,Office/vendor identifier,eSAKSHI if available / synthetic,YES
+02_agencies_vendors.csv,vendor_category,category,Vendor service category,eSAKSHI if available / synthetic,YES
+02_agencies_vendors.csv,active_status,category,Active/inactive status,Synthetic/optional,YES
+02_agencies_vendors.csv,source_type,string,Provenance classification,System metadata,YES
+02_agencies_vendors.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+03_works.csv,work_id,string,Unique work key,Public MPLADS/eSAKSHI,YES
+03_works.csv,mp_id,string,Foreign key to MP,Public/MoSPI,YES
+03_works.csv,house_type,category,Lok Sabha/Rajya Sabha,Public,YES
+03_works.csv,tenure,string,Tenure,Public,YES
+03_works.csv,state_name,string,MP state,Public,YES
+03_works.csv,constituency,string,MP constituency,Public,YES
+03_works.csv,nodal_district,string,Nodal district,Public/eSAKSHI,YES
+03_works.csv,recommendation_date,date,Date MP recommended work,Public scrape/eSAKSHI,YES
+03_works.csv,recommendation_type,category,Normal/calamity/other permitted type,Public/eSAKSHI,YES
+03_works.csv,sector,category,Work sector,Public MPLADS,YES
+03_works.csv,sub_sector,category,Detailed work type,Public MPLADS,YES
+03_works.csv,work_description,string,Free-text work description,Public MPLADS/eSAKSHI,YES
+03_works.csv,work_location_state,string,State of work,Public,YES
+03_works.csv,district,string,District of work,Public,YES
+03_works.csv,block,string,Block,Public where available,YES
+03_works.csv,village,string,Village/locality,Public where available,YES
+03_works.csv,latitude,float,Work latitude,eSAKSHI/GIS if available; synthetic fallback,YES
+03_works.csv,longitude,float,Work longitude,eSAKSHI/GIS if available; synthetic fallback,YES
+03_works.csv,recommended_amount_inr,integer,Amount recommended by MP,Public/eSAKSHI,YES
+03_works.csv,technical_estimate_amount_inr,integer,Technical cost estimate,Needed by PS; scrape/document/synthetic,YES
+03_works.csv,sanctioned_amount_inr,integer,Financially sanctioned amount,Public/eSAKSHI,YES
+03_works.csv,sanction_date,date,Date of sanction,Public/eSAKSHI,YES
+03_works.csv,sanction_status,category,Pending/Sanctioned/Rejected,eSAKSHI,YES
+03_works.csv,implementing_agency_id,string,Executing agency,Public/eSAKSHI,YES
+03_works.csv,expected_start_date,date,Expected start,Sanction/work record or synthetic,YES
+03_works.csv,expected_completion_date,date,Target completion,Sanction/work record or synthetic,YES
+03_works.csv,actual_start_date,date,Actual start,Public/work record if available,YES
+03_works.csv,current_status,category,Ongoing/Completed/etc.,Public/eSAKSHI,YES
+03_works.csv,current_physical_progress_pct,float,Latest progress,eSAKSHI or synthetic,YES
+03_works.csv,current_expenditure_inr,integer,Latest expenditure,Public/eSAKSHI,YES
+03_works.csv,duplicate_group_reference,string,Demo-only duplicate-group helper,Synthetic evaluation helper,YES
+03_works.csv,source_type,string,Provenance,System metadata,YES
+03_works.csv,source_reference,string,Source note,System metadata,YES
+03_works.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+04_payments.csv,payment_id,string,Payment transaction key,eSAKSHI/PFMS if public; synthetic,YES
+04_payments.csv,work_id,string,Work foreign key,eSAKSHI/synthetic,YES
+04_payments.csv,vendor_id,string,Vendor foreign key,eSAKSHI if available,YES
+04_payments.csv,payment_request_date,date,Vendor payment request date,eSAKSHI if available,YES
+04_payments.csv,authorization_date,date,Authorization date,eSAKSHI/PFMS if available,YES
+04_payments.csv,payment_release_date,date,Release date,eSAKSHI/PFMS if available,YES
+04_payments.csv,payment_amount_inr,integer,Transaction amount,eSAKSHI/PFMS if available,YES
+04_payments.csv,payment_stage,string,Stage/installment,eSAKSHI/synthetic,YES
+04_payments.csv,invoice_number,string,Invoice/bill identifier,Not guaranteed public; synthetic,YES
+04_payments.csv,cumulative_expenditure_inr,integer,Running expenditure,Derived,YES
+04_payments.csv,payment_status,category,Released/Pending/etc.,eSAKSHI,YES
+04_payments.csv,payment_mode,string,CNA/PFMS channel,Guidelines/system,YES
+04_payments.csv,pfms_reference,string,PFMS reference,Likely restricted; synthetic,YES
+04_payments.csv,authorized_by_agency_id,string,Agency that authorized,eSAKSHI,YES
+04_payments.csv,concurrence_authority,string,District concurrence authority,eSAKSHI,YES
+04_payments.csv,is_final_payment,boolean,Whether payment closes work,Derived/eSAKSHI,YES
+04_payments.csv,source_type,string,Provenance,System metadata,YES
+04_payments.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+05_progress.csv,progress_id,string,Progress snapshot key,eSAKSHI/synthetic,YES
+05_progress.csv,work_id,string,Work foreign key,eSAKSHI/synthetic,YES
+05_progress.csv,report_date,date,Progress report date,eSAKSHI,YES
+05_progress.csv,physical_progress_pct,float,Physical completion percent,eSAKSHI,YES
+05_progress.csv,financial_progress_pct,float,Expenditure/sanction percentage,Derived,YES
+05_progress.csv,expected_progress_pct_by_date,float,Expected timeline progress,Derived,YES
+05_progress.csv,execution_stage,category,Execution stage,Derived/eSAKSHI,YES
+05_progress.csv,reported_status,category,Reported work status,eSAKSHI,YES
+05_progress.csv,reported_by_agency_id,string,Reporting agency,eSAKSHI,YES
+05_progress.csv,photo_reference,string,Progress image reference,eSAKSHI stores photos,YES
+05_progress.csv,geo_latitude,float,Photo/work latitude,eSAKSHI if available,YES
+05_progress.csv,geo_longitude,float,Photo/work longitude,eSAKSHI if available,YES
+05_progress.csv,remarks,string,Progress remarks,eSAKSHI/synthetic,YES
+05_progress.csv,source_type,string,Provenance,System metadata,YES
+05_progress.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+06_assets_compliance.csv,work_id,string,Work foreign key,eSAKSHI/synthetic,YES
+06_assets_compliance.csv,completion_date,date,Actual completion,Public/eSAKSHI,YES
+06_assets_compliance.csv,completion_marked_date,date,Date IA marked complete,eSAKSHI,YES
+06_assets_compliance.csv,final_expenditure_inr,integer,Final work expenditure,Public/eSAKSHI,YES
+06_assets_compliance.csv,utilization_certificate_status,category,UC status,Official records / synthetic,YES
+06_assets_compliance.csv,utilization_certificate_date,date,UC date,Official records / synthetic,YES
+06_assets_compliance.csv,asset_id,string,Created asset key,eSAKSHI/asset register / synthetic,YES
+06_assets_compliance.csv,asset_type,string,Type of asset created,Public/eSAKSHI,YES
+06_assets_compliance.csv,user_agency,string,Agency receiving asset,Official records / synthetic,YES
+06_assets_compliance.csv,asset_register_entry,category,Whether entered in asset register,Official records / synthetic,YES
+06_assets_compliance.csv,handover_date,date,Asset handover date,Official records / synthetic,YES
+06_assets_compliance.csv,public_use_date,date,Date placed in public use,Official records / synthetic,YES
+06_assets_compliance.csv,audit_status,category,Audit status,Audit records / synthetic,YES
+06_assets_compliance.csv,audit_date,date,Audit date,Audit records / synthetic,YES
+06_assets_compliance.csv,audit_observation_category,string,High-level audit observation,Audit reports / synthetic,YES
+06_assets_compliance.csv,compliance_status,category,Compliance closure status,Derived/official,YES
+06_assets_compliance.csv,maintenance_agency,string,Post-completion maintenance agency,Official records / synthetic,YES
+06_assets_compliance.csv,completion_photo_reference,string,Completion image reference,eSAKSHI,YES
+06_assets_compliance.csv,source_type,string,Provenance,System metadata,YES
+06_assets_compliance.csv,synthetic_marker,boolean,True for demo rows,System metadata,YES
+07_anomaly_ground_truth.csv,work_id,string,Work key,Synthetic only,YES
+07_anomaly_ground_truth.csv,injected_anomaly_count,integer,Number of known injected test anomalies,Synthetic only,YES
+07_anomaly_ground_truth.csv,injected_anomaly_types,string,Known anomaly labels separated by |,Synthetic only,YES
+07_anomaly_ground_truth.csv,expected_risk_score_0_100,integer,Expected demo risk score,Synthetic only,YES
+07_anomaly_ground_truth.csv,expected_risk_class,category,LOW/MEDIUM/HIGH,Synthetic only,YES
+07_anomaly_ground_truth.csv,duplicate_group_reference,string,Known duplicate group,Synthetic only,YES
+07_anomaly_ground_truth.csv,label_usage_note,string,Prevents label leakage,Synthetic only,YES
+07_anomaly_ground_truth.csv,synthetic_marker,boolean,True,Synthetic only,YES

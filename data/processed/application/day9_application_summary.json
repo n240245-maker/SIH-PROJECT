@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-09-03T01:33:36.763984+00:00",
+  "application": "MPLADS Sentinel",
+  "as_of_date": "2026-09-01",
+  "endpoint_count": 12,
+  "routes": [
+    "/api/v1/alerts",
+    "/api/v1/dashboard/overview",
+    "/api/v1/hotspots",
+    "/api/v1/meta",
+    "/api/v1/review-queue",
+    "/api/v1/scope/options",
+    "/api/v1/trends",
+    "/api/v1/works/{work_id}",
+    "/api/v1/works/{work_id}/explain",
+    "/api/v1/works/{work_id}/reviews",
+    "/health"
+  ],
+  "roles": [
+    "MOSPI",
+    "STATE",
+    "DISTRICT",
+    "MP"
+  ],
+  "work_count": 3000,
+  "review_queue_count": 1104,
+  "explanation": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "default_mode": "DETERMINISTIC_FALLBACK",
+    "live_call_requires_explicit_user_action": true,
+    "live_call_performed_during_day9_verification": false
+  },
+  "runtime_review_paths": [
+    "data/runtime/reviews.jsonl",
+    "data/runtime/audit_log.jsonl"
+  ],
+  "verification": {
+    "python_tests": "189 passed",
+    "frontend_lint": "PASS",
+    "frontend_build": "PASS",
+    "browser_end_to_end": "PASS",
+    "browser_console_errors": 0
+  },
+  "ground_truth_used": false
+}

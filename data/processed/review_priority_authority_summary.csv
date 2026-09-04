@@ -1,0 +1,39 @@
+group_type,group_value,work_count,mean_review_priority,high_priority_count,critical_priority_count
+DISTRICT,state_name=Andhra Pradesh|district=Andhra Pradesh Demo District 1,129,40.300179666666665,41,0
+DISTRICT,state_name=Andhra Pradesh|district=Andhra Pradesh Demo District 2,127,43.1726150472441,50,1
+DISTRICT,state_name=Andhra Pradesh|district=Andhra Pradesh Demo District 3,113,45.640823690265485,53,2
+DISTRICT,state_name=Andhra Pradesh|district=Andhra Pradesh Demo District 4,116,44.9979920862069,59,0
+DISTRICT,state_name=Karnataka|district=Karnataka Demo District 1,132,43.23459328030303,50,2
+DISTRICT,state_name=Karnataka|district=Karnataka Demo District 2,130,42.36696137692308,52,0
+DISTRICT,state_name=Karnataka|district=Karnataka Demo District 3,127,43.57075866929134,47,2
+DISTRICT,state_name=Karnataka|district=Karnataka Demo District 4,128,43.50059478125,47,0
+DISTRICT,state_name=Maharashtra|district=Maharashtra Demo District 1,147,42.228803020408165,53,0
+DISTRICT,state_name=Maharashtra|district=Maharashtra Demo District 2,107,43.54416535514018,39,0
+DISTRICT,state_name=Maharashtra|district=Maharashtra Demo District 3,131,40.344383534351145,46,0
+DISTRICT,state_name=Maharashtra|district=Maharashtra Demo District 4,117,38.522739128205124,35,0
+DISTRICT,state_name=Odisha|district=Odisha Demo District 1,136,40.67207166911765,45,0
+DISTRICT,state_name=Odisha|district=Odisha Demo District 2,119,42.15238331092437,43,0
+DISTRICT,state_name=Odisha|district=Odisha Demo District 3,112,42.660661482142864,41,0
+DISTRICT,state_name=Odisha|district=Odisha Demo District 4,123,42.03673261788618,39,1
+DISTRICT,state_name=Rajasthan|district=Rajasthan Demo District 1,125,42.101256056,41,0
+DISTRICT,state_name=Rajasthan|district=Rajasthan Demo District 2,112,41.848927607142855,38,0
+DISTRICT,state_name=Rajasthan|district=Rajasthan Demo District 3,124,38.84123175,35,0
+DISTRICT,state_name=Rajasthan|district=Rajasthan Demo District 4,117,44.451899615384626,51,0
+DISTRICT,state_name=Telangana|district=Telangana Demo District 1,115,40.58319703478262,43,0
+DISTRICT,state_name=Telangana|district=Telangana Demo District 2,152,41.755052559210526,49,0
+DISTRICT,state_name=Telangana|district=Telangana Demo District 3,131,43.75769572519084,51,0
+DISTRICT,state_name=Telangana|district=Telangana Demo District 4,130,42.71168762307692,48,0
+SECTOR,sector=Community Infrastructure,375,41.68544050133334,135,0
+SECTOR,sector=Drinking Water,397,43.54762869017632,148,2
+SECTOR,sector=Education,348,43.321608933908045,134,0
+SECTOR,sector=Health,385,44.17474389870131,159,1
+SECTOR,sector=Renewable Energy,362,41.71850539502763,130,1
+SECTOR,sector=Roads & Bridges,348,41.136669902298856,122,0
+SECTOR,sector=Sanitation,416,40.69089186778846,145,0
+SECTOR,sector=Sports,369,41.86195155826558,123,4
+STATE,state_name=Andhra Pradesh,485,43.42025865360825,203,3
+STATE,state_name=Karnataka,517,43.16486223404255,196,4
+STATE,state_name=Maharashtra,502,41.15365429880478,173,0
+STATE,state_name=Odisha,490,41.8286684877551,168,1
+STATE,state_name=Rajasthan,478,41.77180311924686,165,0
+STATE,state_name=Telangana,528,42.23222192992424,191,0

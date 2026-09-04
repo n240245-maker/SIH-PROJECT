@@ -1,0 +1,75 @@
+{
+  "as_of_date": "2026-09-01",
+  "delay_model_feasibility": {
+    "status": "INSUFFICIENT_SUPERVISED_OUTCOME_DATA",
+    "eligible_work_count": 1929,
+    "positive_work_count": 1907,
+    "negative_work_count": 22,
+    "landmark_row_count": 5786,
+    "positive_prevalence": 0.9885951270088128,
+    "minimum_positive_work_count": 50,
+    "minimum_negative_work_count": 50
+  },
+  "cost_overrun_model_feasibility": {
+    "status": "FEASIBLE",
+    "eligible_work_count": 332,
+    "positive_work_count": 210,
+    "negative_work_count": 122,
+    "landmark_row_count": 996,
+    "positive_prevalence": 0.6325301204819277,
+    "minimum_positive_work_count": 50,
+    "minimum_negative_work_count": 50
+  },
+  "landmark_counts": {
+    "0.25": 1929,
+    "0.5": 1929,
+    "0.75": 1928
+  },
+  "current_execution_work_count": 801,
+  "current_execution_works_with_delay_probability": 0,
+  "current_execution_works_with_cost_overrun_probability": 801,
+  "current_observed_overdue_count": 272,
+  "current_observed_over_sanction_count": 20,
+  "current_probability_distributions": {
+    "delay": null,
+    "cost_overrun_raw_serving": {
+      "minimum": 0.0192106440663337,
+      "p25": 0.339337021112442,
+      "median": 0.5817383527755737,
+      "p75": 0.7692155838012695,
+      "maximum": 0.9804577231407166,
+      "mean": 0.5554679776338416
+    },
+    "cost_overrun_calibrated_diagnostic": {
+      "minimum": 0.2954526228559479,
+      "p25": 0.5964824081892219,
+      "median": 0.6893124106941323,
+      "p75": 0.7789843242426571,
+      "maximum": 0.9414504154816116,
+      "mean": 0.6788480915857916
+    }
+  },
+  "artifacts": {
+    "predictive_landmark_snapshots": "data/processed/modeling/day6/predictive_landmark_snapshots.csv",
+    "delay_training_rows": "data/processed/modeling/day6/delay_training_rows.csv",
+    "cost_overrun_training_rows": "data/processed/modeling/day6/cost_overrun_training_rows.csv",
+    "predictive_scores": "data/processed/predictive_scores.csv",
+    "predictive_explanations": "data/processed/predictive_explanations.csv",
+    "metrics": "data/processed/evaluation/day6_predictive_metrics.json",
+    "test_predictions": "data/processed/evaluation/day6_test_predictions.csv",
+    "model_metadata": "code/models/predictive/predictive_model_metadata.json"
+  },
+  "final_fused_risk_created": false,
+  "delay_serving_status": "MODEL_UNAVAILABLE_INSUFFICIENT_CLASS_BALANCE",
+  "cost_overrun_serving_status": "RAW_XGBOOST_SECONDARY_EARLY_WARNING_EVIDENCE",
+  "cost_overrun_calibration_status": "UNSTABLE_RANK_REVERSAL",
+  "cost_overrun_calibration_serving_eligible": false,
+  "cost_overrun_model_quality_status": "PROTOTYPE_WEAK_DISCRIMINATION",
+  "serving_score_field": "cost_overrun_serving_score",
+  "serving_score_source_field": "cost_overrun_probability_uncalibrated",
+  "serving_percentile_field": "cost_overrun_serving_percentile_0_100",
+  "serving_rank_field": "cost_overrun_serving_rank",
+  "models_retrained_for_day6_1": false,
+  "models_retuned_for_day6_1": false,
+  "evaluation_metrics_changed_for_day6_1": false
+}

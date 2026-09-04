@@ -1,0 +1,10 @@
+﻿priority,dataset_or_field_group,target_file,preferred_source,acquisition_method,current_status,synthetic_fallback
+1,MP allocation limits,01_mp_master.csv,MoSPI supplied file: Allocated Limit for Honble MPs,Direct official CSV/XLSX import,User has supplied official export; values to replace synthetic demo rows,Yes
+1,Calamity consent amounts,01_mp_master.csv,MoSPI supplied file: Amount consented for Calamity,Direct official CSV/XLSX import,User has supplied official export; values to replace synthetic demo rows,Yes
+1,Work recommendations and work descriptions,03_works.csv,Official MPLADS/eSAKSHI public reports; public MPLADS work dataset,Official download/export first; compliant public scraping only if allowed,Public records confirmed; current eSAKSHI automated scraping blocked by human verification,Yes
+1,Sanctions / sanctioned amounts / dates,03_works.csv,eSAKSHI / MPLADS reports,Official public report/export,Partly public; exact extractability to be tested,Yes
+1,Expenditure,"03_works.csv, 04_payments.csv",MPLADS public expenditure reports / eSAKSHI,Official public report/export,Aggregate/work expenditure publicly available; transaction-level availability uncertain,Yes for payment-level detail
+1,Physical progress history,05_progress.csv,eSAKSHI,Official export/API/manual download if exposed,Portal workflow confirms progress records; bulk public extraction not yet available to us,Yes
+2,Vendor payment transactions,04_payments.csv,eSAKSHI/PFMS/CNA,Use only publicly exposed/authorized export,Workflow exists; detailed public accessibility uncertain,Yes
+2,Asset/completion/UC/audit data,06_assets_compliance.csv,eSAKSHI + public MPLADS documents/reports,Official report/document extraction,Completion is public; detailed UC/audit fields may be limited,Yes
+3,Known anomaly/fraud labels,07_anomaly_ground_truth.csv,Confirmed audit/investigation findings if legally/publicly available,Public audit reports only; never infer guilt,No clean labels expected,YES - inject controlled anomalies for model validation
