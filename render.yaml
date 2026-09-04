@@ -17,7 +17,7 @@ services:
       - key: MPLADS_ENVIRONMENT
         value: production
       - key: MPLADS_CORS_ORIGINS
-        value: https://placeholder.invalid
+        value: https://mplads-sentinel-one.vercel.app
       - key: MPLADS_RUNTIME_DATA_DIR
         value: /tmp/mplads-sentinel-runtime
       - key: HF_HUB_OFFLINE

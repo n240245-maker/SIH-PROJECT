@@ -1,0 +1,79 @@
+{
+  "deployment_timestamp": "2026-09-04T20:37:43+05:30",
+  "verified_application_git_commit": "8f21ec0585ad5dba852a190c063c91df5836c914",
+  "frontend": {
+    "provider": "Vercel Hobby",
+    "url": "https://mplads-sentinel-one.vercel.app",
+    "https": true
+  },
+  "backend": {
+    "provider": "Render Free",
+    "url": "https://mplads-sentinel-api.onrender.com",
+    "health_url": "https://mplads-sentinel-api.onrender.com/health",
+    "https": true,
+    "deployment_id": "dep-daddpplg1s2s7384el8g"
+  },
+  "health": {
+    "status": "ok",
+    "artifact_status": "validated",
+    "hosted_work_count": 3000,
+    "as_of_date": "2026-09-01"
+  },
+  "attention_level_counts": {
+    "NORMAL": 378,
+    "LOW_ATTENTION": 189,
+    "MEDIUM_ATTENTION": 1329,
+    "HIGH_ATTENTION": 1096,
+    "IMMEDIATE_PRIORITY": 8
+  },
+  "requires_review_count": 2470,
+  "review_queue_count": 1104,
+  "hosted_acceptance": {
+    "w_001937_review_priority": 89.441901,
+    "w_002760_review_priority": 78.928155,
+    "w_000933_non_compliant_count": 1,
+    "w_000476_attention_level": "NORMAL",
+    "duplicate_candidate_pair": [
+      "W-001937",
+      "W-001966"
+    ]
+  },
+  "pdf_status": {
+    "status": "PASS",
+    "verified_works": [
+      "W-001937",
+      "W-002760"
+    ]
+  },
+  "deterministic_fallback_status": "PASS",
+  "live_groq_status": {
+    "attempts": 1,
+    "status": "SUCCESS",
+    "generation_mode": "GROQ_GROUNDED",
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "fallback_used": false,
+    "retrieved_guideline_count": 7
+  },
+  "tests": {
+    "python_pytest_passed": 216,
+    "frontend_tests_passed": 9,
+    "frontend_lint": "PASS",
+    "frontend_production_build": "PASS"
+  },
+  "browser_console_status": "ZERO_APPLICATION_ERRORS",
+  "cors_status": "PASS_EXACT_FRONTEND_ORIGIN",
+  "warm_median_ms": {
+    "health": 275.9,
+    "overview": 232.6,
+    "queue": 258.1,
+    "work_detail": 217.3,
+    "trends": 479.1
+  },
+  "cold_start_note": "Render Free can spin down; requests may be delayed by 50 seconds or more. Open health 2-3 minutes before a demo.",
+  "runtime_persistence_limitation": "Officer review and audit JSONL files are stored under an ephemeral Render /tmp directory and can reset after restart or redeploy.",
+  "demo_data_hashes_unchanged": true,
+  "frozen_intelligence_unchanged": true,
+  "ground_truth_production_isolated": true,
+  "deployment_decision": "PASS"
+}
