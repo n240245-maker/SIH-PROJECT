@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterator, Mapping
 from pathlib import Path
 from typing import Any
 
@@ -39,6 +40,39 @@ def _records(frame: pd.DataFrame) -> list[dict[str, Any]]:
     return json_safe(frame.to_dict(orient="records"))
 
 
+class IndexedJsonlMapping(Mapping[str, dict[str, Any]]):
+    """Read-only JSONL lookup that keeps byte offsets, not full records, in RAM."""
+
+    def __init__(self, path: Path, key: str) -> None:
+        self.path = path
+        self._offsets: dict[str, tuple[int, int]] = {}
+        with path.open("rb") as stream:
+            while line := stream.readline():
+                if not line.strip():
+                    continue
+                start = stream.tell() - len(line)
+                item = json.loads(line)
+                item_key = str(item[key])
+                if item_key in self._offsets:
+                    raise RuntimeError(f"{path.name} contains duplicate {key}={item_key}")
+                self._offsets[item_key] = (start, len(line))
+
+    def __getitem__(self, key: str) -> dict[str, Any]:
+        try:
+            start, length = self._offsets[str(key)]
+        except KeyError:
+            raise KeyError(key) from None
+        with self.path.open("rb") as stream:
+            stream.seek(start)
+            return json.loads(stream.read(length))
+
+    def __iter__(self) -> Iterator[str]:
+        return iter(self._offsets)
+
+    def __len__(self) -> int:
+        return len(self._offsets)
+
+
 class ApplicationArtifactRepository:
     """Loads governed artifacts once and creates bounded lookup indexes."""
 
@@ -65,12 +99,12 @@ class ApplicationArtifactRepository:
         if missing:
             raise RuntimeError(f"Missing critical frozen artifacts: {missing}")
 
-        self.frames: dict[str, pd.DataFrame] = {
+        loaded_frames: dict[str, pd.DataFrame] = {
             name: pd.read_csv(processed / filename, low_memory=False)
             for name, filename in CORE_WORK_FILES.items()
         }
         expected_ids: set[str] | None = None
-        for name, frame in self.frames.items():
+        for name, frame in loaded_frames.items():
             if len(frame) != 3_000 or not frame["work_id"].is_unique:
                 raise RuntimeError(
                     f"{CORE_WORK_FILES[name]} must contain 3,000 unique work IDs"
@@ -83,17 +117,22 @@ class ApplicationArtifactRepository:
         self.work_ids = frozenset(expected_ids or set())
 
         self.single: dict[str, dict[str, dict[str, Any]]] = {}
-        for name, frame in self.frames.items():
+        for name, frame in loaded_frames.items():
             self.single[name] = {
                 str(row["work_id"]): json_safe(row)
                 for row in frame.to_dict(orient="records")
             }
+        # ApplicationService needs these two tabular views. All other core tables
+        # are served from ``single``; retaining their DataFrames duplicates data.
+        self.frames = {
+            name: loaded_frames[name] for name in ("features", "priority")
+        }
+        del loaded_frames
 
         self.groups: dict[str, dict[str, list[dict[str, Any]]]] = {}
         self.group_frames: dict[str, pd.DataFrame] = {}
         for name, filename in GROUP_FILES.items():
             frame = pd.read_csv(processed / filename, low_memory=False)
-            self.group_frames[name] = frame
             unknown = set(frame["work_id"].astype(str)) - self.work_ids
             if unknown:
                 raise RuntimeError(f"{filename} contains unknown work IDs")
@@ -101,6 +140,9 @@ class ApplicationArtifactRepository:
                 str(work_id): _records(group)
                 for work_id, group in frame.groupby("work_id", sort=False)
             }
+            # Only alert aggregation consumes a full group DataFrame after startup.
+            if name == "alerts":
+                self.group_frames[name] = frame
 
         self.queue = pd.read_csv(processed / "review_priority_queue.csv", low_memory=False)
         self.fund_progress = {
@@ -134,13 +176,9 @@ class ApplicationArtifactRepository:
         if not self.guideline_manifest.get("sha256"):
             raise RuntimeError("Guideline hash is missing")
 
-        self.explanations: dict[str, dict[str, Any]] = {}
-        with (processed / "explanation_context.jsonl").open(
-            encoding="utf-8"
-        ) as stream:
-            for line in stream:
-                item = json.loads(line)
-                self.explanations[str(item["work_id"])] = item
+        self.explanations: Mapping[str, dict[str, Any]] = IndexedJsonlMapping(
+            processed / "explanation_context.jsonl", "work_id"
+        )
         if set(self.explanations) != self.work_ids:
             raise RuntimeError("Explanation context must cover the same 3,000 works")
 

@@ -11,7 +11,12 @@ from typing import Any
 from .groq_client import GroqClient, GroqSettings, serialized_request_size
 from .models import ExternalGuidelineExcerpt, RetrievedGuidelineChunk
 from .prompt import SYSTEM_PROMPT, build_external_user_prompt
-from .retrieval import DIRECT_RULE_REFERENCE, SEMANTIC_SIMILARITY
+
+
+# Keep serving-time prompt minimization independent from the transformer stack.
+# These are persisted retrieval-method values, not model configuration.
+DIRECT_RULE_REFERENCE = "DIRECT_RULE_REFERENCE"
+SEMANTIC_SIMILARITY = "SEMANTIC_SIMILARITY"
 
 
 EXTERNAL_EVIDENCE_CAP = 8

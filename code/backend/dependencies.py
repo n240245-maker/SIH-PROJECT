@@ -35,13 +35,11 @@ def get_validated_explanation_cache() -> ValidatedExplanationCache:
 
 @lru_cache(maxsize=1)
 def get_explanation_service():
-    from rag.evidence import ArtifactRepository
+    from backend.services.frozen_explanations import FrozenContextExplanationService
     from rag.groq_client import GroqClient, load_groq_settings
-    from rag.retrieval import GuidelineRetriever
-    from rag.service import ExplanationService
 
     paths = ProjectPaths.discover()
-    return ExplanationService(
-        ArtifactRepository(paths), GuidelineRetriever(paths),
+    return FrozenContextExplanationService(
+        get_artifacts(),
         GroqClient(load_groq_settings(paths)),
     )
