@@ -55,7 +55,7 @@ class V2ApplicationService:
         self.artifacts = artifacts
         self.reviews = reviews
         self.geo_runtime = geo_runtime
-        self.work_view = artifacts.profile.copy()
+        self.work_view = artifacts.profile
 
     @staticmethod
     def _validate_scope(scope: Scope) -> None:
@@ -427,7 +427,7 @@ class V2ApplicationService:
 
     def alerts(self, scope: Scope, *, limit: int = 200, **_: Any) -> dict[str, Any]:
         allowed = set(self.scoped(self.work_view, scope)["work_id"].astype(str))
-        all_rows = [row for work_id in sorted(allowed) for row in self.artifacts.group("alerts", work_id)]
+        all_rows = self.artifacts.rows_for_work_ids("alerts", allowed)
         grouped: dict[str, dict[str, Any]] = {}
         for row in all_rows:
             alert_type = str(row.get("alert_type") or "OTHER_REVIEW_SIGNAL")

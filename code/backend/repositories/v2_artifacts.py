@@ -10,7 +10,7 @@ import pandas as pd
 
 from backend.serialization import json_safe
 from intelligence.data.paths import ProjectPaths
-from intelligence.v2.loader import load_v2_data, v2_models_dir, v2_processed_dir
+from intelligence.v2.loader import load_v2_serving_data, v2_models_dir, v2_processed_dir
 
 
 def _records(frame: pd.DataFrame) -> list[dict[str, Any]]:
@@ -22,7 +22,7 @@ class V2ArtifactRepository:
 
     def __init__(self, paths: ProjectPaths | None = None) -> None:
         self.paths = paths or ProjectPaths.discover()
-        self.data = load_v2_data(self.paths)
+        self.data = load_v2_serving_data(self.paths)
         processed = v2_processed_dir(self.paths)
         models = v2_models_dir(self.paths)
         required = [
@@ -38,12 +38,12 @@ class V2ArtifactRepository:
             raise RuntimeError(f"Missing demo-v2 generated artifacts: {missing}")
 
         self.profile = pd.read_csv(processed / "work_profile.csv", low_memory=False)
-        if len(self.profile) != len(self.data.works) or not self.profile["work_id"].is_unique:
+        if len(self.profile) != int(self.data.metadata["work_count"]) or not self.profile["work_id"].is_unique:
             raise RuntimeError("demo-v2 work profile must contain one row per work")
         self.work_ids = frozenset(self.profile["work_id"].astype(str))
-        self.work_index = {
-            str(row["work_id"]): json_safe(row)
-            for row in self.profile.to_dict(orient="records")
+        self._work_positions = {
+            str(work_id): position
+            for position, work_id in enumerate(self.profile["work_id"])
         }
         self.mp_index = {
             str(row["mp_id"]): json_safe(row)
@@ -53,13 +53,16 @@ class V2ArtifactRepository:
             str(row["entity_id"]): json_safe(row)
             for row in self.data.entities.to_dict(orient="records")
         }
-        self.groups = {
-            "payments": self._group(self.data.payments),
-            "progress": self._group(self.data.progress),
-            "records": self._group(self.data.records),
-            "geo": self._group(self.data.geo_evidence),
-            "alerts": self._group(pd.read_csv(processed / "review_alerts.csv")),
-            "priority_evidence": self._group(pd.read_csv(processed / "review_priority_evidence.csv")),
+        # Keep each one-to-many table once. Materializing nested dictionaries of
+        # every row roughly doubled the serving footprint and exceeded the 512 MB
+        # production instance when the baseline repository was also resident.
+        self._group_frames = {
+            "payments": self.data.payments,
+            "progress": self.data.progress,
+            "records": self.data.records,
+            "geo": self.data.geo_evidence,
+            "alerts": pd.read_csv(processed / "review_alerts.csv"),
+            "priority_evidence": pd.read_csv(processed / "review_priority_evidence.csv"),
         }
         candidates = pd.read_csv(processed / "duplicate_candidates.csv")
         candidates = candidates.loc[candidates["review_candidate"].astype(str).str.casefold().eq("true")]
@@ -67,7 +70,7 @@ class V2ArtifactRepository:
         for item in _records(candidates):
             for work_id in (str(item["work_id_a"]), str(item["work_id_b"])):
                 self.duplicate_pairs.setdefault(work_id, []).append(item)
-        self.allocations = self.data.allocations.copy()
+        self.allocations = self.data.allocations
         self.policy = self._load_json(processed / "risk_fusion_policy.json")
         self.manifest = self._load_json(processed / "manifest.json")
         self.cost_evaluation = self._load_json(processed / "evaluation" / "cost_model_evaluation.json")
@@ -83,21 +86,22 @@ class V2ArtifactRepository:
     def _load_json(path: Path) -> Any:
         return json.loads(path.read_text(encoding="utf-8"))
 
-    @staticmethod
-    def _group(frame: pd.DataFrame) -> dict[str, list[dict[str, Any]]]:
-        return {
-            str(work_id): _records(group)
-            for work_id, group in frame.groupby("work_id", sort=False)
-        }
-
     def require_work(self, work_id: str) -> dict[str, Any]:
         try:
-            return self.work_index[work_id]
+            position = self._work_positions[work_id]
         except KeyError:
             raise KeyError(work_id) from None
+        return json_safe(self.profile.iloc[position].to_dict())
 
     def group(self, name: str, work_id: str) -> list[dict[str, Any]]:
-        return self.groups[name].get(work_id, [])
+        frame = self._group_frames[name]
+        return _records(frame.loc[frame["work_id"].eq(work_id)])
+
+    def rows_for_work_ids(self, name: str, work_ids: set[str]) -> list[dict[str, Any]]:
+        """Return bounded evidence without building a permanent nested copy."""
+
+        frame = self._group_frames[name]
+        return _records(frame.loc[frame["work_id"].isin(work_ids)])
 
     def image_path(self, relative_path: str) -> Path:
         candidate = (self.paths.project_root / "data" / "Demo-data-v2" / relative_path).resolve()

@@ -36,6 +36,25 @@ class V2DataBundle:
         }
 
 
+@dataclass(slots=True)
+class V2ServingDataBundle:
+    """Minimum operational tables required by the demo-v2 API.
+
+    The generated one-row-per-work profile replaces the raw works table for
+    serving. Assets are already represented by governed profile fields, so
+    neither large source table is retained in the web process.
+    """
+
+    mps: pd.DataFrame
+    entities: pd.DataFrame
+    payments: pd.DataFrame
+    progress: pd.DataFrame
+    records: pd.DataFrame
+    allocations: pd.DataFrame
+    geo_evidence: pd.DataFrame
+    metadata: dict
+
+
 def v2_data_dir(paths: ProjectPaths | None = None) -> Path:
     resolved = paths or ProjectPaths.discover()
     return resolved.project_root / "data" / "Demo-data-v2"
@@ -71,6 +90,25 @@ def load_v2_data(paths: ProjectPaths | None = None) -> V2DataBundle:
         payments=_read(data / "04_payments.csv"),
         progress=_read(data / "05_progress.csv"),
         assets=_read(data / "06_assets.csv"),
+        records=_read(data / "10_work_records.csv"),
+        allocations=_read(data / "11_annual_allocations.csv"),
+        geo_evidence=_read(data / "12_geo_site_evidence.csv"),
+        metadata=metadata,
+    )
+
+
+def load_v2_serving_data(paths: ProjectPaths | None = None) -> V2ServingDataBundle:
+    """Load only the operational source tables required by the v2 API."""
+
+    data = v2_data_dir(paths)
+    metadata = json.loads((data / "dataset_metadata.json").read_text(encoding="utf-8"))
+    if metadata.get("synthetic_demo_data") is not True:
+        raise RuntimeError("demo_v2 metadata must explicitly identify synthetic data")
+    return V2ServingDataBundle(
+        mps=_read(data / "01_mp_master.csv"),
+        entities=_read(data / "02_entities.csv"),
+        payments=_read(data / "04_payments.csv"),
+        progress=_read(data / "05_progress.csv"),
         records=_read(data / "10_work_records.csv"),
         allocations=_read(data / "11_annual_allocations.csv"),
         geo_evidence=_read(data / "12_geo_site_evidence.csv"),

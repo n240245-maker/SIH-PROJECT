@@ -13,8 +13,8 @@ router = APIRouter(tags=["system"])
 
 
 @router.get("/health", response_model=HealthResponse)
-def health(artifacts: ApplicationArtifactRepository = Depends(get_artifacts),
-           settings: AppSettings = Depends(get_settings)) -> HealthResponse:
+def health(settings: AppSettings = Depends(get_settings)) -> HealthResponse:
+    artifacts = get_v2_artifacts() if settings.dataset_profile == "demo_v2" else get_artifacts()
     return HealthResponse(status="ok", application=settings.app_name,
                           artifact_status="validated", work_count=len(artifacts.work_ids),
                           as_of_date=settings.as_of_date)

@@ -29,7 +29,12 @@ from intelligence.v2.geo import (
     location_status,
     monthly_evidence_status,
 )
-from intelligence.v2.loader import load_v2_data, verify_v2_integrity, v2_processed_dir
+from intelligence.v2.loader import (
+    load_v2_data,
+    load_v2_serving_data,
+    verify_v2_integrity,
+    v2_processed_dir,
+)
 
 
 def _sha256(path) -> str:
@@ -76,6 +81,13 @@ def test_ground_truth_is_not_imported_by_operational_or_serving_modules() -> Non
     assert "load_v2_evaluation_ground_truth" not in repository_source
     assert "load_v2_evaluation_ground_truth" not in service_source
     assert "load_v2_evaluation_ground_truth" in inspect.getsource(loader)
+
+
+def test_v2_serving_bundle_omits_redundant_raw_work_and_asset_tables(project_paths) -> None:
+    bundle = load_v2_serving_data(project_paths)
+    assert not hasattr(bundle, "works")
+    assert not hasattr(bundle, "assets")
+    assert not hasattr(bundle, "ground_truth")
 
 
 def test_geo_calendar_location_and_completion_rules() -> None:
