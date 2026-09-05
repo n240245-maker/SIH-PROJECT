@@ -135,6 +135,7 @@ Local verification on 2026-09-04:
 - Alert Center navigation/filter handoff: PASS
 - keyboard readiness disclosure: PASS
 - page-level horizontal overflow: none at the tested desktop viewport
+- mobile breakpoint: PASS at Chrome's 504-pixel minimum CSS viewport; document and body widths matched the 489-pixel client area, while the section navigation and peer table remained locally scrollable
 - deterministic fallback: PASS
 - automatic Groq calls during navigation/PDF: none
 
