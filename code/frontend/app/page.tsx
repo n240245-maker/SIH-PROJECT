@@ -1,61 +1,94 @@
 "use client";
 
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { ArrowRight, Bot, CheckCircle2, MapPinned, ShieldCheck } from "lucide-react";
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
-import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-import { ArrowRight } from "lucide-react";
-import { api } from "@/lib/api";
-import { useScope } from "@/lib/scope";
-import { inr, number } from "@/lib/format";
-import { Band, EmptyState, ErrorState, LoadingState, Section } from "@/components/ui";
-import { attentionLabel, familyLabel } from "@/lib/presentation";
+import { useState } from "react";
 
-const colors = ["#7a1f1b", "#d97706", "#0c756f", "#7890a3"];
+import { EmptyState, ErrorState, LoadingState, Section } from "@/components/ui";
+import { api } from "@/lib/api";
+import { inr, number, text } from "@/lib/format";
+import { useScope } from "@/lib/scope";
+import type { Overview } from "@/lib/types";
+
+type Row = Record<string, unknown>;
+
+const ROLE_LABELS = { MOSPI: "Ministry of Statistics and Programme Implementation", STATE: "State Nodal Authority", DISTRICT: "District Authority", IA: "Implementing Agency", MP: "Member of Parliament" };
+
+function idFor(title: string) { return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
+function money(value: unknown) { const numeric = Number(value); return Number.isFinite(numeric) ? inr.format(numeric) : "Not available"; }
+function metric(value: unknown, suffix = "") { const numeric = Number(value); return Number.isFinite(numeric) ? `${number.format(numeric)}${suffix}` : "Not available"; }
+
+function Snapshot({ data }: { data: Overview }) {
+  const values = data.overview;
+  const cards: [string, unknown][] = [
+    ["Works in scope", values.total_projects], ["Completed", values.completed], ["Ongoing", values.ongoing],
+    ["Observed delayed", values.delayed], ["High-priority review", values.high_priority_review],
+    ["Works requiring review", values.works_requiring_review], ["Site evidence overdue", values.site_evidence_overdue],
+    ["Pending compliance issues", values.pending_compliance_issues],
+  ];
+  return <div className="dashboard-kpis">{cards.map(([label, value]) => <article className="dashboard-kpi" key={String(label)}><span>{label}</span><strong>{metric(value)}</strong><small>Within the selected authority scope</small></article>)}</div>;
+}
+
+function FundFlow({ flow }: { flow: Row }) {
+  const cards: [string, unknown][] = [
+    ["Allocated", flow.allocated_amount_inr], ["Sanctioned", flow.sanctioned_amount_inr],
+    ["Released", flow.released_amount_inr], ["Recorded utilization", flow.utilized_amount_inr],
+    ["Unspent released balance", flow.unspent_released_amount_inr],
+  ];
+  return <><div className="fund-flow-strip">{cards.map(([label, value], index) => <article key={String(label)}><span>{label}</span><strong>{money(value)}</strong>{index < cards.length - 1 && <ArrowRight size={17} aria-hidden="true" />}</article>)}</div>
+    <div className="comparison-note"><strong>Utilization of sanction:</strong> {metric(flow.utilization_pct_of_sanction, "%")}<span>Current-year source utilization {metric(flow.current_year_utilization_pct, "%")} · previous year {metric(flow.previous_year_utilization_pct, "%")}</span></div></>;
+}
+
+function StatusGrid({ values }: { values: Record<string, number> }) {
+  const total = Math.max(1, Object.values(values).reduce((sum, value) => sum + value, 0));
+  return <div className="status-bars">{Object.entries(values).map(([label, value]) => <div key={label}><div><strong>{label.replaceAll("_", " ")}</strong><span>{number.format(value)} works · {number.format(value / total * 100)}%</span></div><div className="track"><span style={{ width: `${value / total * 100}%` }} /></div></div>)}</div>;
+}
+
+function ComparisonTable({ data }: { data: Overview }) {
+  const rows = data.comparison.items;
+  if (!rows.length) return <EmptyState />;
+  return <div className="table-wrap"><table><thead><tr><th>{data.comparison.level}</th><th>Works</th><th>Utilization</th><th>Completion</th><th>Observed delayed</th><th>High priority</th><th>Compliance follow-up</th></tr></thead><tbody>{rows.slice(0, 24).map((row) => <tr key={String(row.label)}><td><strong>{text(row.label)}</strong></td><td>{metric(row.work_count)}</td><td>{metric(row.utilization_pct, "%")}</td><td>{metric(row.completion_rate_pct, "%")}</td><td>{metric(row.delayed_count)}</td><td>{metric(row.high_priority_count)}</td><td>{metric(row.compliance_issue_count)}</td></tr>)}</tbody></table></div>;
+}
+
+function AttentionTable({ rows }: { rows: Row[] }) {
+  if (!rows.length) return <EmptyState label="No projects require attention in this scope." />;
+  return <div className="table-wrap"><table><thead><tr><th>Work</th><th>Project / location</th><th>Main issue</th><th>Review Priority</th><th>Officer status</th></tr></thead><tbody>{rows.map((row) => <tr key={String(row.work_id)}><td><Link className="work-link" href={`/works/${row.work_id}`}>{text(row.work_id)}</Link></td><td><strong>{text(row.project)}</strong><br /><small>{text(row.location)}</small></td><td>{text(row.main_issue)}</td><td>{metric(row.review_priority)} <span className={`band band-${String(row.review_priority_band).toLowerCase()}`}>{text(row.review_priority_band)}</span></td><td>{text(row.officer_case_status)}</td></tr>)}</tbody></table></div>;
+}
+
+function SectorTable({ rows }: { rows: Row[] }) {
+  return <div className="sector-grid">{rows.slice(0, 8).map((row) => <article key={String(row.sector)}><strong>{text(row.sector)}</strong><span>{money(row.sanctioned_amount_inr)}</span><small>{metric(row.share_pct, "%")} of scoped sanction</small></article>)}</div>;
+}
+
+function DashboardSection({ title, data, generatedBrief }: { title: string; data: Overview; generatedBrief?: Row | null }) {
+  const lower = title.toLowerCase();
+  if (lower.includes("brief")) return <div className="morning-brief"><div><span>Deterministic morning brief</span>{data.morning_brief.facts.map((fact) => <p key={fact}><CheckCircle2 size={15} />{fact}</p>)}</div>{generatedBrief && <p className="generated-brief"><Bot size={16} />{text(generatedBrief.message, "Structured brief refreshed from current local evidence.")}</p>}</div>;
+  if (lower.startsWith("recommended")) return <ol className="recommended-actions">{data.recommended_actions.map((action) => <li key={action}>{action}</li>)}</ol>;
+  if (lower.includes("fund") || lower.includes("payment readiness")) return <FundFlow flow={data.fund_flow} />;
+  if (lower.includes("map")) return <><div className="map-fallback"><MapPinned size={24} /><div><strong>Accessible monitoring heat table</strong><p>{data.map.license_note}</p></div></div><ComparisonTable data={data} /></>;
+  if (lower.includes("sector")) return <SectorTable rows={data.sector_distribution} />;
+  if (lower.includes("status") || lower.includes("health") || lower.includes("progress & milestones") || lower.includes("agency performance")) return <StatusGrid values={data.project_status} />;
+  if (lower.includes("comparison") || lower.includes("performance") || lower.includes("block &") || lower.includes("fund flow monitoring")) return <ComparisonTable data={data} />;
+  if (lower.includes("attention") || lower.includes("intervention") || lower.includes("action") || lower.includes("queue") || lower.includes("due") || lower.includes("issue") || lower.includes("submission") || lower.includes("compliance") || lower.includes("field verification")) return <AttentionTable rows={data.projects_requiring_attention} />;
+  if (lower.includes("workflow")) return <ol className="decision-flow">{data.decision_workflow.map((step) => <li key={step}>{step.replaceAll("_", " ")}</li>)}</ol>;
+  if (lower.includes("insight")) return <div className="insight-list"><p>Comparisons are calculated only inside the selected authority scope.</p><p>High-priority overlap is displayed once per work; warning rows do not multiply urgency.</p><p>Geo-evidence availability is operational context and contributes zero Review Priority points.</p></div>;
+  if (lower.includes("overview") || lower.includes("summary")) return <Snapshot data={data} />;
+  return <Snapshot data={data} />;
+}
 
 export default function OverviewPage() {
   const { scope } = useScope();
-  const overview = useQuery({ queryKey: ["overview", scope], queryFn: () => api.overview(scope) });
-  const queue = useQuery({ queryKey: ["queue-preview", scope], queryFn: () => api.queue(scope, { page: 1, page_size: 5 }) });
-  if (overview.isLoading) return <LoadingState />;
-  if (overview.error || !overview.data) return <ErrorState error={overview.error} />;
-  const data = overview.data;
-  const bands = Object.entries(data.priority_bands).map(([name, value]) => ({ name, value }));
-  const attentionOrder = ["NORMAL", "LOW_ATTENTION", "MEDIUM_ATTENTION", "HIGH_ATTENTION", "IMMEDIATE_PRIORITY"];
-  const attention = attentionOrder.map((name) => ({ name, value: data.attention_levels[name] ?? 0, pct: data.attention_level_percentages[name] ?? 0 }));
+  const query = useQuery({ queryKey: ["v2-overview", scope], queryFn: () => api.overview(scope) });
+  const brief = useMutation({ mutationFn: () => api.dashboardBrief(scope) });
+  const [layer, setLayer] = useState("Fund Utilization");
+  if (query.isLoading) return <LoadingState label="Loading the local synthetic-demo dashboard…" />;
+  if (query.error || !query.data) return <ErrorState error={query.error} />;
+  const data = query.data;
   return <>
-    <div className="page-title"><div><p className="eyebrow">Operational overview</p><h1>Programme monitoring snapshot</h1><p>Scope-aware oversight of sanctions, execution, review signals, and observed conditions.</p></div>
-      <Link className="button" href="/review-queue">Open review queue <ArrowRight size={15} /></Link></div>
-    <div className="notice">{data.language_note} Multiple signals for a work are fused under the governed policy and never counted as separate verdicts.</div>
-    <div className="kpi-grid">
-      <div className="kpi"><span>Works in scope</span><strong>{number.format(data.work_count)}</strong><small>All lifecycle stages</small></div>
-      <div className="kpi"><span>Requires Review</span><strong>{number.format(data.requires_review_count)}</strong><small>Current actionable evidence</small></div>
-      <div className="kpi"><span>Mean Review Priority</span><strong>{number.format(data.mean_review_priority ?? 0)}</strong><small>Deterministic 0–100 triage score</small></div>
-      <div className="kpi"><span>Immediate Priority</span><strong>{number.format(data.immediate_priority_count)}</strong><small>Frozen CRITICAL band</small></div>
-    </div>
-    <Section title="Attention Level Distribution" subtitle="Natural population derived from the frozen snapshot — categories were not artificially balanced">
-      <div className="attention-distribution" title="Distribution reflects the current frozen analytical snapshot. Categories were not artificially balanced.">{attention.map((item, index) => <div className="attention-row" key={item.name}><span className={`attention-dot attention-${item.name.toLowerCase()}`} /><strong>{attentionLabel(item.name)}</strong><div className="track"><div className="fill" style={{ width: `${item.pct}%`, background: colors[index % colors.length] }} /></div><span>{number.format(item.value)} works</span><b>{number.format(item.pct)}%</b></div>)}</div>
-      <p className="section-note" title={data.attention_level_note}>{data.attention_level_note}</p>
-    </Section>
-    <div className="grid-2">
-      <Section title="Priority distribution" subtitle="Count of works by human-review band">
-        <div style={{ width: "100%", height: 230 }}><ResponsiveContainer><PieChart><Pie data={bands} dataKey="value" nameKey="name" innerRadius={55} outerRadius={88} paddingAngle={2}>
-          {bands.map((item, index) => <Cell key={item.name} fill={colors[index % colors.length]} />)}</Pie><Tooltip /></PieChart></ResponsiveContainer></div>
-        <div className="metric-bars">{bands.map((item, index) => <div className="metric-row" key={item.name}><Band value={item.name} /><div className="track"><div className="fill" style={{ width: `${data.work_count ? item.value / data.work_count * 100 : 0}%`, background: colors[index] }} /></div><strong>{item.value}</strong></div>)}</div>
-      </Section>
-      <Section title="Financial & execution snapshot" subtitle={`Frozen snapshot ${data.as_of_date ?? "not available"}`}>
-        <dl className="data-list"><div><dt>Sanctioned amount</dt><dd>{inr.format(data.financial_snapshot.sanctioned_amount_inr)}</dd></div>
-          <div><dt>Released payments</dt><dd>{inr.format(data.financial_snapshot.released_amount_inr)}</dd></div>
-          <div><dt>Observed over-sanction</dt><dd>{number.format(data.financial_snapshot.observed_over_sanction_count)} works</dd></div>
-          <div><dt>Payment evidence</dt><dd>{number.format(data.review_signals.payment_evidence_work_count)} works</dd></div>
-          <div><dt>Duplicate review candidates</dt><dd>{number.format(data.review_signals.duplicate_review_work_count)} works</dd></div>
-          <div><dt>Compliance review</dt><dd>{number.format(data.review_signals.compliance_review_work_count)} works</dd></div></dl>
-      </Section>
-    </div>
-    <Section title="Highest-priority review items" subtitle="Top five in the selected authority scope">
-      {queue.isLoading ? <LoadingState label="Loading queue preview…" /> : queue.error ? <ErrorState error={queue.error} /> : !queue.data?.items.length ? <EmptyState /> :
-      <div className="table-wrap"><table><thead><tr><th>Work</th><th>Location</th><th>Stage</th><th>Review Priority</th><th>Primary contributor</th><th>Status</th></tr></thead><tbody>
-        {queue.data.items.map((item) => <tr key={item.work_id}><td><Link className="work-link" href={`/works/${item.work_id}`}>{item.work_id}</Link><br /><small>{item.sector}</small></td><td>{item.district}<br /><small>{item.state_name}</small></td><td>{item.lifecycle_stage}</td><td><strong>{number.format(item.review_priority_score_0_100)}</strong> <Band value={item.review_priority_band} /><br /><small>{attentionLabel(item.attention_level)}</small></td><td>{familyLabel(item.top_contributor_1_family)}<br /><small>{item.attention_reasons?.[0] ?? item.top_contributor_1_summary}</small></td><td>{item.current_review_status}</td></tr>)}
-      </tbody></table></div>}
-    </Section>
+    <div className="page-title dashboard-title"><div><p className="eyebrow">{ROLE_LABELS[data.role]} dashboard · synthetic demo-v2</p><h1>{data.primary_question}</h1><p>{data.synthetic_disclaimer}</p></div><Link className="button" href="/review-queue">Open review queue <ArrowRight size={15} /></Link></div>
+    <div className="governance-banner"><ShieldCheck size={18} /><p>{data.language_note} All values on this branch use clearly labelled synthetic demonstration data.</p></div>
+    <nav className="dashboard-nav" aria-label="Dashboard sections">{data.section_order.map((title) => <a key={title} href={`#${idFor(title)}`}>{title}</a>)}</nav>
+    <div className="dashboard-controls"><label>Monitoring map layer<select value={layer} onChange={(event) => setLayer(event.target.value)}>{data.map.layer_options.map((item) => <option key={item}>{item}</option>)}</select></label><button className="button secondary" onClick={() => brief.mutate()} disabled={brief.isPending}><Bot size={15} />{brief.isPending ? "Preparing…" : "Generate structured brief"}</button><span>Selected view: {layer}</span></div>
+    {data.section_order.map((title) => <Section key={title} id={idFor(title)} title={title} subtitle={title.toLowerCase().includes("brief") ? "Generated locally from structured evidence; no Groq call is made." : undefined}><DashboardSection title={title} data={data} generatedBrief={brief.data} /></Section>)}
   </>;
 }

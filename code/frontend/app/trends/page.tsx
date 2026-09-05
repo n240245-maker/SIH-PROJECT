@@ -1,35 +1,22 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
-import { api } from "@/lib/api";
-import { useScope } from "@/lib/scope";
-import { number, text } from "@/lib/format";
-import { EmptyState, ErrorState, LoadingState, Section } from "@/components/ui";
+import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
-const metrics = ["recommendation_work_count", "recommended_amount_inr", "sanction_work_count", "sanctioned_amount_inr", "released_payment_count", "released_payment_amount_inr", "progress_report_count"];
+import { EmptyState, ErrorState, LoadingState, Section } from "@/components/ui";
+import { api } from "@/lib/api";
+import { number, text } from "@/lib/format";
+import { useScope } from "@/lib/scope";
 
 export default function TrendsPage() {
-  const { scope } = useScope(); const [metric, setMetric] = useState("recommendation_work_count"); const [groupType, setGroupType] = useState("STATE");
-  const trend = useQuery({ queryKey: ["trends", scope, metric, groupType], queryFn: () => api.trends(scope, { metric, group_type: groupType, limit: 1200 }) });
-  const hotspots = useQuery({ queryKey: ["hotspots", scope], queryFn: () => api.hotspots(scope) });
-  const series = useMemo(() => {
-    const rows = trend.data?.items ?? []; const first = rows[0]?.group_value;
-    return rows.filter((row) => row.group_value === first).map((row) => ({ month: String(row.month).slice(0,7), value: Number(row.current_value ?? 0), baseline: Number(row.median ?? 0) }));
-  }, [trend.data]);
-  return <><div className="page-title"><div><p className="eyebrow">Cross-project intelligence</p><h1>Trends & hotspots</h1><p>Observed event trends and transparent prevalence shares. Hotspots are contextual aggregates, not opaque scores.</p></div></div>
-    <div className="toolbar"><select aria-label="Trend group" value={groupType} onChange={(e) => setGroupType(e.target.value)}><option>STATE</option><option>DISTRICT</option><option>SECTOR</option><option>STATE_SECTOR</option><option>DISTRICT_SECTOR</option></select>
-      <select aria-label="Trend metric" value={metric} onChange={(e) => setMetric(e.target.value)}>{metrics.map((item) => <option key={item} value={item}>{item.replaceAll("_", " ")}</option>)}</select></div>
-    <Section title="Monthly operational trend" subtitle="First permitted group in the selected scope; baseline median shown for comparison">
-      {trend.isLoading ? <LoadingState /> : trend.error ? <ErrorState error={trend.error} /> : !series.length ? <EmptyState label={scope.role === "MP" ? "No MP-level trend series is present in the frozen artifact." : undefined} /> :
-      <div style={{ width:"100%",height:330 }}><ResponsiveContainer><LineChart data={series}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8ee" /><XAxis dataKey="month" tick={{fontSize:10}} /><YAxis tick={{fontSize:10}} /><Tooltip /><Line type="monotone" dataKey="value" stroke="#0c756f" strokeWidth={2} dot={false} /><Line type="monotone" dataKey="baseline" stroke="#d97706" strokeDasharray="5 4" dot={false} /></LineChart></ResponsiveContainer></div>}
-      <p style={{color:"#637282",fontSize:11}}>Returned {trend.data?.returned ?? 0} of {trend.data?.total ?? 0} scoped records. API responses are deliberately bounded.</p>
-    </Section>
-    <Section title="Detector hotspots" subtitle="Separate observed shares by authority group; no composite hotspot score">
-      {hotspots.isLoading ? <LoadingState /> : hotspots.error ? <ErrorState error={hotspots.error} /> : !hotspots.data?.items.length ? <EmptyState /> : <div className="table-wrap"><table><thead><tr><th>Group</th><th>Works</th><th>Top-decile unusualness</th><th>Duplicate review</th><th>Payment evidence</th><th>Persistent fund gap</th><th>Observed overdue</th><th>Compliance review</th></tr></thead><tbody>
-        {hotspots.data.items.map((row, index) => <tr key={`${row.group_type}-${row.group_value}-${index}`}><td><strong>{text(row.group_label ?? row.group_value)}</strong><br /><small>{text(row.group_type)}</small></td><td>{number.format(Number(row.work_count ?? 0))}</td><td>{number.format(Number(row.top_10pct_anomaly_share ?? 0) * 100)}%</td><td>{number.format(Number(row.duplicate_review_share ?? 0) * 100)}%</td><td>{number.format(Number(row.payment_evidence_share ?? 0) * 100)}%</td><td>{number.format(Number(row.persistent_fund_gap_share ?? 0) * 100)}%</td><td>{number.format(Number(row.observed_overdue_share ?? 0) * 100)}%</td><td>{number.format(Number(row.compliance_review_share ?? 0) * 100)}%</td></tr>)}
-      </tbody></table></div>}
-    </Section>
+  const { scope } = useScope();
+  const query = useQuery({ queryKey: ["v2-performance", scope], queryFn: () => api.overview(scope) });
+  if (query.isLoading) return <LoadingState label="Loading scoped comparisons…" />;
+  if (query.error || !query.data) return <ErrorState error={query.error} />;
+  const data = query.data; const rows = data.comparison.items;
+  return <><div className="page-title"><div><p className="eyebrow">Cross-project management context · synthetic demo-v2</p><h1>Performance comparisons</h1><p>Transparent scoped rates help officers allocate attention. Aggregate context never changes an individual work score.</p></div></div>
+    <Section title={`${data.comparison.level} high-priority comparison`} subtitle="Top groups by number of HIGH/CRITICAL works"><div style={{ width: "100%", height: 340 }}><ResponsiveContainer><BarChart data={rows.slice(0, 18)}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8ee" /><XAxis dataKey="label" tick={{ fontSize: 9 }} interval={0} angle={-25} textAnchor="end" height={80} /><YAxis tick={{ fontSize: 10 }} /><Tooltip /><Bar dataKey="high_priority_count" fill="#0c756f" name="High-priority works" /></BarChart></ResponsiveContainer></div></Section>
+    <Section title={`${data.comparison.level} performance table`} subtitle="Utilization, completion, delay, high-priority and compliance shares are kept separate">{!rows.length ? <EmptyState /> : <div className="table-wrap"><table><thead><tr><th>{data.comparison.level}</th><th>Works</th><th>Utilization</th><th>Completion rate</th><th>Delay rate</th><th>High-priority rate</th><th>Compliance issue rate</th></tr></thead><tbody>{rows.map((row) => <tr key={String(row.label)}><td><strong>{text(row.label)}</strong></td><td>{number.format(Number(row.work_count ?? 0))}</td><td>{number.format(Number(row.utilization_pct ?? 0))}%</td><td>{number.format(Number(row.completion_rate_pct ?? 0))}%</td><td>{number.format(Number(row.delayed_rate_pct ?? 0))}%</td><td>{number.format(Number(row.high_priority_rate_pct ?? 0))}%</td><td>{number.format(Number(row.compliance_issue_rate_pct ?? 0))}%</td></tr>)}</tbody></table></div>}</Section>
+    <p className="section-note">No composite hotspot score is produced. The view uses only the current authority-scoped synthetic demo-v2 artifact.</p>
   </>;
 }

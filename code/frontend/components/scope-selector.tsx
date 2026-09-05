@@ -13,18 +13,21 @@ export function ScopeSelector() {
     const next: Scope = { role };
     if (role === "STATE" && options.data?.states[0]) next.state = options.data.states[0];
     if (role === "DISTRICT" && options.data?.districts[0]) Object.assign(next, { state: options.data.districts[0].state_name, district: options.data.districts[0].district });
+    if (role === "IA" && options.data?.agencies[0]) next.agency_id = options.data.agencies[0].agency_id;
     if (role === "MP" && options.data?.mps[0]) next.mp_id = options.data.mps[0].mp_id;
     setScope(next);
   };
   const districts = options.data?.districts.filter((item) => !scope.state || item.state_name === scope.state) ?? [];
   return <div className="scope-panel" aria-label="Authority scope">
     <Building2 size={17} /><label><span>View as</span><select aria-label="Role" value={scope.role} onChange={(e) => updateRole(e.target.value as Role)}>
-      {(["MOSPI", "STATE", "DISTRICT", "MP"] as Role[]).map((role) => <option key={role}>{role}</option>)}</select></label>
+      {(["MOSPI", "STATE", "DISTRICT", "IA", "MP"] as Role[]).map((role) => <option key={role} value={role}>{role === "MOSPI" ? "MoSPI" : role === "IA" ? "Implementing Agency" : role}</option>)}</select></label>
     {(scope.role === "STATE" || scope.role === "DISTRICT") && <label><span>State</span><select aria-label="State" value={scope.state} onChange={(e) => setScope({ role: scope.role, state: e.target.value, ...(scope.role === "DISTRICT" ? { district: options.data?.districts.find((d) => d.state_name === e.target.value)?.district } : {}) })}>
       {options.data?.states.map((state) => <option key={state}>{state}</option>)}</select></label>}
     {scope.role === "DISTRICT" && <label><span>District</span><select aria-label="District" value={scope.district} onChange={(e) => setScope({ ...scope, district: e.target.value })}>
       {districts.map((item) => <option key={item.district}>{item.district}</option>)}</select></label>}
     {scope.role === "MP" && <label><span>Member</span><select aria-label="Member of Parliament" value={scope.mp_id} onChange={(e) => setScope({ role: "MP", mp_id: e.target.value })}>
       {options.data?.mps.map((mp) => <option key={mp.mp_id} value={mp.mp_id}>{mp.mp_name} · {mp.constituency}</option>)}</select></label>}
+    {scope.role === "IA" && <label><span>Implementing agency</span><select aria-label="Implementing agency" value={scope.agency_id} onChange={(e) => setScope({ role: "IA", agency_id: e.target.value })}>
+      {options.data?.agencies.map((agency) => <option key={agency.agency_id} value={agency.agency_id}>{agency.agency_name} · {agency.district}</option>)}</select></label>}
   </div>;
 }

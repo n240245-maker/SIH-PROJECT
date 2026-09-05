@@ -1,0 +1,252 @@
+{
+  "dataset_profile": "demo_v2",
+  "synthetic_demo_data": true,
+  "work_count": 5000,
+  "cost_model": {
+    "evaluation_label": "Synthetic Holdout Evaluation",
+    "target": "final_actual_expenditure_inr > sanctioned_amount_inr",
+    "selected_model": "xgboost",
+    "selected_model_path": "C:\\SIH-PROJECT\\models\\v2\\cost_overrun\\xgboost.joblib",
+    "model_version": "DEMO_V2_MODELS_1_0",
+    "serving_eligible": true,
+    "model_quality_status": "SYNTHETIC_HOLDOUT_SUPPORTED",
+    "calibration": "NOT_APPLIED",
+    "candidate_metrics": {
+      "logistic_regression": {
+        "validation": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.7918046357615894,
+          "pr_auc": 0.6112453019788978,
+          "precision": 0.5123152709359606,
+          "recall": 0.6887417218543046,
+          "f1": 0.5875706214689266,
+          "brier_score": 0.1782663390685686,
+          "threshold": 0.49,
+          "confusion_matrix": [
+            [
+              301,
+              99
+            ],
+            [
+              47,
+              104
+            ]
+          ]
+        },
+        "test": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.7933443708609271,
+          "pr_auc": 0.6723067467284191,
+          "precision": 0.5023923444976076,
+          "recall": 0.695364238410596,
+          "f1": 0.5833333333333334,
+          "brier_score": 0.1742190826263102,
+          "threshold": 0.49,
+          "confusion_matrix": [
+            [
+              296,
+              104
+            ],
+            [
+              46,
+              105
+            ]
+          ]
+        }
+      },
+      "random_forest": {
+        "validation": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.7702980132450331,
+          "pr_auc": 0.6221022764049615,
+          "precision": 0.631578947368421,
+          "recall": 0.5562913907284768,
+          "f1": 0.5915492957746479,
+          "brier_score": 0.1630308922015537,
+          "threshold": 0.44999999999999996,
+          "confusion_matrix": [
+            [
+              351,
+              49
+            ],
+            [
+              67,
+              84
+            ]
+          ]
+        },
+        "test": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.7950662251655629,
+          "pr_auc": 0.6676992098624107,
+          "precision": 0.644927536231884,
+          "recall": 0.5894039735099338,
+          "f1": 0.615916955017301,
+          "brier_score": 0.15352063945266634,
+          "threshold": 0.44999999999999996,
+          "confusion_matrix": [
+            [
+              351,
+              49
+            ],
+            [
+              62,
+              89
+            ]
+          ]
+        }
+      },
+      "xgboost": {
+        "validation": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.7802649006622516,
+          "pr_auc": 0.6264206242877675,
+          "precision": 0.5071090047393365,
+          "recall": 0.7086092715231788,
+          "f1": 0.5911602209944752,
+          "brier_score": 0.16579777002334595,
+          "threshold": 0.39,
+          "confusion_matrix": [
+            [
+              296,
+              104
+            ],
+            [
+              44,
+              107
+            ]
+          ]
+        },
+        "test": {
+          "positive_prevalence": 0.27404718693284935,
+          "roc_auc": 0.8008940397350993,
+          "pr_auc": 0.6768462709101635,
+          "precision": 0.5167464114832536,
+          "recall": 0.7152317880794702,
+          "f1": 0.6,
+          "brier_score": 0.15431629121303558,
+          "threshold": 0.39,
+          "confusion_matrix": [
+            [
+              299,
+              101
+            ],
+            [
+              43,
+              108
+            ]
+          ]
+        }
+      }
+    },
+    "feature_schema": [
+      "technical_estimate_amount_inr",
+      "sanctioned_amount_inr",
+      "estimate_to_sanction_ratio",
+      "planned_duration_days",
+      "schedule_elapsed_ratio",
+      "released_to_sanction_ratio",
+      "expenditure_to_sanction_ratio",
+      "physical_progress_pct",
+      "financial_progress_pct",
+      "financial_physical_gap_pct",
+      "progress_velocity_pct_per_30d",
+      "payment_count",
+      "sanction_revision_count",
+      "payment_chronology_flag",
+      "sector"
+    ],
+    "prohibited_features": [
+      "actual_completion_date",
+      "anomaly_label",
+      "anomaly_types",
+      "cost_overrun_target",
+      "duplicate_group_id",
+      "final_actual_expenditure_inr",
+      "scenario_tags"
+    ],
+    "split_counts": {
+      "TRAIN": 1650,
+      "VALIDATION": 551,
+      "TEST": 551
+    },
+    "limitations": [
+      "Evaluation uses deterministic synthetic demo data and is not real-world performance.",
+      "The model is an execution-stage early warning, not an observed cost-overrun fact.",
+      "Observed final expenditure remains authoritative when available."
+    ]
+  },
+  "anomaly_evaluation": {
+    "evaluation_label": "Synthetic Holdout Evaluation",
+    "ground_truth_used_for_training": false,
+    "roc_auc": 0.5340508736710925,
+    "pr_auc": 0.22323397421100238,
+    "label_prevalence": 0.0362,
+    "lifecycle_models": {
+      "PRE_SANCTION": {
+        "rows": 498,
+        "features": [
+          "recommended_amount_inr",
+          "technical_estimate_amount_inr"
+        ],
+        "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_pre_sanction.joblib"
+      },
+      "EXECUTION": {
+        "rows": 1750,
+        "features": [
+          "recommended_amount_inr",
+          "technical_estimate_amount_inr",
+          "sanctioned_amount_inr",
+          "released_payments_inr",
+          "current_expenditure_inr",
+          "physical_progress_pct",
+          "financial_progress_pct",
+          "financial_physical_gap_pct",
+          "payment_count",
+          "sanction_revision_count"
+        ],
+        "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_execution.joblib"
+      },
+      "COMPLETION": {
+        "rows": 2752,
+        "features": [
+          "recommended_amount_inr",
+          "technical_estimate_amount_inr",
+          "sanctioned_amount_inr",
+          "released_payments_inr",
+          "current_expenditure_inr",
+          "financial_progress_pct",
+          "financial_physical_gap_pct",
+          "payment_count",
+          "sanction_revision_count"
+        ],
+        "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_completion.joblib"
+      }
+    },
+    "limitations": "Synthetic labels evaluate unusualness only and are not production fraud labels."
+  },
+  "duplicate_evaluation": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_version": "DEMO_V2_MODELS_1_0",
+    "retrieval": "local normalized embeddings + top-5 nearest neighbours",
+    "all_pairs_used": false,
+    "candidate_threshold": 0.9,
+    "corroboration": "same sector, amount similarity >= 0.90, synthetic registered locations within 1,500 metres",
+    "known_synthetic_pairs": 2,
+    "known_pairs_retrieved": 2,
+    "review_candidate_pairs": 3,
+    "candidate_is_not_confirmation": true,
+    "ground_truth_used_for_candidate_generation": false
+  },
+  "review_priority_distribution": {
+    "LOW": 3478,
+    "HIGH": 756,
+    "MEDIUM": 735,
+    "CRITICAL": 31
+  },
+  "requires_review_count": 1959,
+  "geo_warning_count": 61,
+  "alert_count": 3018,
+  "manifest_file_count": 17,
+  "baseline_modified": false
+}

@@ -1,0 +1,122 @@
+{
+  "dataset_profile": "demo_v2",
+  "generated_at": "2026-09-05T00:00:00+00:00",
+  "synthetic_demo_data": true,
+  "files": [
+    {
+      "file": "anomaly_scores.csv",
+      "sha256": "3832aaab01698d08a10b49b21fb6a77b335c87e8ec41e4bfcfd1200b5869e04a",
+      "rows": 5000
+    },
+    {
+      "file": "build_summary.json",
+      "sha256": "7f6de9a28e2ce3cff2c105a903c8d43eb82725b60df7c05cda4833ccb8c004bc",
+      "rows": null
+    },
+    {
+      "file": "cost_overrun_scores.csv",
+      "sha256": "6d95e57dc6ca7b4be8d001e13c33d093d7bf9a7a4d8dce7eb91a8beba0b25ef2",
+      "rows": 1750
+    },
+    {
+      "file": "duplicate_candidates.csv",
+      "sha256": "b5c5a644a74665cb46c9942777a19c9b0487b489d3b48d5bad60f3019ae8af2b",
+      "rows": 15033
+    },
+    {
+      "file": "duplicate_summary.csv",
+      "sha256": "9bba3e1fe2e0a2414a6be2c2c4c3e5e9775055cf5c3b54d163bd1d4603cb1a08",
+      "rows": 5000
+    },
+    {
+      "file": "evaluation/anomaly_evaluation.json",
+      "sha256": "7e361b3b731115b9b003102601567001b860dce5b3e4e9c650e936ae826df53e",
+      "rows": null
+    },
+    {
+      "file": "evaluation/cost_model_evaluation.json",
+      "sha256": "2e1f4d6601fe0b6a08848d0ce712f606e6857dc13df78fad2988f579daf086a6",
+      "rows": null
+    },
+    {
+      "file": "evaluation/duplicate_evaluation.json",
+      "sha256": "23581a054b3a58f1d8698bdc09e37104634732f0262c7c2635a5b8cc252bfb0b",
+      "rows": null
+    },
+    {
+      "file": "geo_evidence_status.csv",
+      "sha256": "b2ca0bd39a9e85087bab0d410457a23a2acada84f60d8c7f99a48e11b7eaa52c",
+      "rows": 5000
+    },
+    {
+      "file": "modeling/cost_model_snapshots.csv",
+      "sha256": "ee4a96e52205de3c87c012f2e4a49cd5683ceec782827d64a49606a6e17f3413",
+      "rows": 2752
+    },
+    {
+      "file": "modeling/cost_model_split.csv",
+      "sha256": "2db0aa8bcde165ecf46f9efd0d7c3c498450f1495b1eba9346beaa82eaaade63",
+      "rows": 2752
+    },
+    {
+      "file": "record_status.csv",
+      "sha256": "7bad35b3c137163db2f14db649508c49696331ec5b756e0336c4f52d54b9407a",
+      "rows": 5000
+    },
+    {
+      "file": "review_alerts.csv",
+      "sha256": "b6ea588e067160521986388bda65724178852cf4b0e6319af7050f519196e4f9",
+      "rows": 3018
+    },
+    {
+      "file": "review_priority_evidence.csv",
+      "sha256": "9494c24009f1fe310ff574294f701599118507df638ffc02ebac92b69b3fbd33",
+      "rows": 30256
+    },
+    {
+      "file": "review_priority_scores.csv",
+      "sha256": "b64a07bc3d4dea99c27fd5190f080eb9be4b8f92062e9fd410979778079a329e",
+      "rows": 5000
+    },
+    {
+      "file": "risk_fusion_policy.json",
+      "sha256": "17c743691fce48c2d74798c85f208d1ea3658cb41418a30bbbb3fd73c7a229e1",
+      "rows": null
+    },
+    {
+      "file": "work_profile.csv",
+      "sha256": "4cab036959d2166987f0f7f29003d2a3f0cd05031c575552f67a54005a555171",
+      "rows": 5000
+    }
+  ],
+  "models": [
+    {
+      "file": "anomaly/isolation_forest_completion.joblib",
+      "sha256": "1c2e747c8394df061bcabd6a5129245722179cd00de772a3df01473f05866787"
+    },
+    {
+      "file": "anomaly/isolation_forest_execution.joblib",
+      "sha256": "176480135372f9562f7a6739d3df1b4e433fb7aa5072b540ac65e0a83ecb698b"
+    },
+    {
+      "file": "anomaly/isolation_forest_pre_sanction.joblib",
+      "sha256": "826f0f114b8894f435251f581f7bdf9b44027778d34d6d6da9411e8f88deed5f"
+    },
+    {
+      "file": "cost_overrun/feature_schema.json",
+      "sha256": "2e1f4d6601fe0b6a08848d0ce712f606e6857dc13df78fad2988f579daf086a6"
+    },
+    {
+      "file": "cost_overrun/xgboost.joblib",
+      "sha256": "120c973b38db8bd006d6711d13c4f4fdb0a247cba6f200793ff790a9612ca4aa"
+    },
+    {
+      "file": "duplicates/embedding_metadata.json",
+      "sha256": "23581a054b3a58f1d8698bdc09e37104634732f0262c7c2635a5b8cc252bfb0b"
+    },
+    {
+      "file": "duplicates/work_embeddings.npy",
+      "sha256": "d4c8475ef4d6c824332d6b52469873917c3e4bb0130f99662a32a6ab2f2d4674"
+    }
+  ]
+}

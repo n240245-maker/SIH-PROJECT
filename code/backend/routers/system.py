@@ -3,8 +3,9 @@
 from fastapi import APIRouter, Depends
 
 from backend.config import AppSettings, get_settings
-from backend.dependencies import get_application_service, get_artifacts
+from backend.dependencies import get_application_service, get_artifacts, get_v2_artifacts
 from backend.repositories import ApplicationArtifactRepository
+from backend.repositories.v2_artifacts import V2ArtifactRepository
 from backend.schemas import HealthResponse
 from backend.services import ApplicationService
 
@@ -39,3 +40,24 @@ def meta(artifacts: ApplicationArtifactRepository = Depends(get_artifacts),
 def scope_options(service: ApplicationService = Depends(get_application_service)) -> dict:
     return service.scope_options()
 
+
+@router.get("/api/v2/meta")
+def v2_meta(
+    artifacts: V2ArtifactRepository = Depends(get_v2_artifacts),
+    settings: AppSettings = Depends(get_settings),
+) -> dict:
+    return {
+        "application": settings.app_name,
+        "api_version": "v2",
+        "dataset_profile": "demo_v2",
+        "synthetic_demo_data": True,
+        "synthetic_disclaimer": artifacts.dataset_metadata["disclaimer"],
+        "work_count": len(artifacts.work_ids),
+        "model_version": artifacts.cost_evaluation["model_version"],
+        "selected_cost_model": artifacts.cost_evaluation["selected_model"],
+        "cost_model_quality": artifacts.cost_evaluation["model_quality_status"],
+        "risk_fusion_policy_version": artifacts.policy["policy_version"],
+        "guideline_version": artifacts.guideline_manifest["guideline_version"],
+        "guideline_sha256": artifacts.guideline_manifest["sha256"],
+        "governance": "Decision support for human review; no output is a verdict.",
+    }

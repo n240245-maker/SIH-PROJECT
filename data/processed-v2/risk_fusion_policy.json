@@ -1,0 +1,31 @@
+{
+  "policy_version": "REVIEW_PRIORITY_POLICY_V0_1_DEMO_V2",
+  "based_on": "REVIEW_PRIORITY_POLICY_V0_1 lifecycle design; v2 completion weights explicitly prioritize deterministic observed conditions",
+  "geo_evidence": "warning-only with exactly zero contribution points",
+  "ground_truth_used": false,
+  "language": "Review Priority is human-review triage, not wrongdoing probability.",
+  "weights": {
+    "PRE_SANCTION": {
+      "ANOMALY": 30,
+      "PEER_DEVIATION": 25,
+      "DUPLICATE_REVIEW": 25
+    },
+    "EXECUTION": {
+      "ANOMALY": 10,
+      "PEER_DEVIATION": 10,
+      "DUPLICATE_REVIEW": 15,
+      "PAYMENT_EXECUTION": 25,
+      "OBSERVED_CONDITIONS": 20,
+      "COMPLIANCE": 10,
+      "COST_OVERRUN_PREDICTION": 5
+    },
+    "COMPLETION": {
+      "ANOMALY": 5,
+      "PEER_DEVIATION": 5,
+      "DUPLICATE_REVIEW": 10,
+      "PAYMENT_EXECUTION": 10,
+      "OBSERVED_CONDITIONS": 50,
+      "COMPLIANCE": 20
+    }
+  }
+}

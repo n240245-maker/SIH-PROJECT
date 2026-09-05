@@ -18,6 +18,9 @@ class AppSettings(BaseSettings):
     cors_origins: str = "http://localhost:3000"
     environment: str = "development"
     runtime_data_dir: Path | None = None
+    dataset_profile: str = "baseline"
+    geo_location_review_threshold_metres: float = 500.0
+    geo_max_image_bytes: int = 5_000_000
 
     model_config = SettingsConfigDict(
         env_prefix="MPLADS_", env_file_encoding="utf-8", extra="ignore"
@@ -29,6 +32,14 @@ class AppSettings(BaseSettings):
         if "*" in {part.strip() for part in value.split(",")}:
             raise ValueError("Wildcard CORS origins are not allowed")
         return value
+
+    @field_validator("dataset_profile")
+    @classmethod
+    def validate_dataset_profile(cls, value: str) -> str:
+        normalized = value.strip().casefold()
+        if normalized not in {"baseline", "demo_v2"}:
+            raise ValueError("dataset_profile must be baseline or demo_v2")
+        return normalized
 
     @property
     def cors_origin_list(self) -> list[str]:

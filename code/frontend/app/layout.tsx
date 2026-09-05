@@ -5,7 +5,7 @@ import { AppShell } from "@/components/app-shell";
 
 export const metadata: Metadata = {
   title: "MPLADS Sentinel",
-  description: "AI-Powered Monitoring & Decision Support",
+  description: "Local synthetic demonstration of AI-powered MPLADS monitoring and human decision support",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

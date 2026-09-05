@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_settings
 from backend.dependencies import get_artifacts
-from backend.routers import application_router, explanations_router, reviews_router, system_router
+from backend.routers import application_router, explanations_router, reviews_router, system_router, v2_router
 
 
 @asynccontextmanager
@@ -31,3 +31,4 @@ app.include_router(system_router)
 app.include_router(application_router)
 app.include_router(explanations_router)
 app.include_router(reviews_router)
+app.include_router(v2_router)

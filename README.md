@@ -71,6 +71,13 @@ These are planned components. No model performance metrics are claimed.
 ## Current Development Status
 
 Day 0 through Day 10, including deployment and the intermediate safety and provider audits, are completed. The post-deployment P0 officer-usability phase is documented in [POST_DEPLOYMENT_IMPROVEMENTS.md](POST_DEPLOYMENT_IMPROVEMENTS.md); P1 and P2 remain deferred pending the P0 hosted checkpoint.
+
+The local `feature/sih-final-enhancements` branch adds a fresh synthetic demo-v2
+profile without changing the reproducible P0 baseline. It includes versioned
+synthetic lifecycle and geo-evidence data, v2 model evaluation, authoritative
+five-role scope, role-specific dashboards, a nine-section officer dossier, and a
+deterministic nine-section case report. See
+[docs/FINAL_SIH_ENHANCEMENT_IMPLEMENTATION.md](docs/FINAL_SIH_ENHANCEMENT_IMPLEMENTATION.md).
 Day 2 provides a leakage-aware unified project profile, independent as-of lifecycle
 aggregations, a one-row-per-work feature snapshot, and an audited feature catalog.
 Day 3 provides robust lifecycle-aware peer benchmarks, three independent lifecycle

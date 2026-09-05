@@ -5,6 +5,7 @@ from zoneinfo import ZoneInfo
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Response
 
+from backend.authorization import request_scope
 from backend.dependencies import (
     get_application_service,
     get_artifacts,
@@ -12,23 +13,14 @@ from backend.dependencies import (
 )
 from backend.reports import build_case_review_pdf
 from backend.repositories import ApplicationArtifactRepository
-from backend.schemas import PageResponse, Role
+from backend.schemas import PageResponse
 from backend.services import ApplicationService, Scope
 from backend.services.explanation_cache import ValidatedExplanationCache
 
 router = APIRouter(prefix="/api/v1", tags=["intelligence"])
 
 
-def scope_dependency(role: Role = Query(Role.MOSPI), state: str | None = Query(None),
-                     district: str | None = Query(None), mp_id: str | None = Query(None)) -> Scope:
-    scope = Scope(role=role, state=state, district=district, mp_id=mp_id)
-    if role == Role.STATE and not state:
-        raise HTTPException(422, "STATE role requires state")
-    if role == Role.DISTRICT and (not state or not district):
-        raise HTTPException(422, "DISTRICT role requires state and district")
-    if role == Role.MP and not mp_id:
-        raise HTTPException(422, "MP role requires mp_id")
-    return scope
+scope_dependency = request_scope
 
 
 @router.get("/dashboard/overview")
@@ -55,8 +47,10 @@ def review_queue(scope: Scope = Depends(scope_dependency), page: int = Query(1, 
 
 
 @router.get("/works/{work_id}")
-def work_detail(work_id: str, service: ApplicationService = Depends(get_application_service)) -> dict:
+def work_detail(work_id: str, scope: Scope = Depends(scope_dependency),
+                service: ApplicationService = Depends(get_application_service)) -> dict:
     try:
+        service.authorize_work(work_id, scope)
         return service.work_detail(work_id)
     except KeyError:
         raise HTTPException(404, "Work was not found") from None
@@ -75,11 +69,13 @@ def work_detail(work_id: str, service: ApplicationService = Depends(get_applicat
 )
 def case_report(
     work_id: str,
+    scope: Scope = Depends(scope_dependency),
     service: ApplicationService = Depends(get_application_service),
     artifacts: ApplicationArtifactRepository = Depends(get_artifacts),
     cache: ValidatedExplanationCache = Depends(get_validated_explanation_cache),
 ) -> Response:
     try:
+        service.authorize_work(work_id, scope)
         detail = service.work_detail(work_id)
     except KeyError:
         raise HTTPException(404, "Work was not found") from None

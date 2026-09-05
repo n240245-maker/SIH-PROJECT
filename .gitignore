@@ -15,10 +15,13 @@ code/frontend/.env.local
 # Governed runtime/model artifacts required by this project
 !code/models/**/*.joblib
 !code/models/**/*.pkl
+!models/v2/**/*.joblib
+!models/v2/**/*.pkl
 
 # Node
 node_modules/
 .next/
+*.tsbuildinfo
 
 # Runtime review state (local and append-only)
 data/runtime/*.jsonl

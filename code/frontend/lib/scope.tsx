@@ -11,7 +11,10 @@ const STORAGE_KEY = "mplads-sentinel-scope";
 function readStoredScope(): Scope {
   const saved = window.localStorage.getItem(STORAGE_KEY);
   if (!saved) return DEFAULT_SCOPE;
-  try { return JSON.parse(saved) as Scope; } catch { return DEFAULT_SCOPE; }
+  try {
+    const parsed = JSON.parse(saved) as Scope;
+    return ["MOSPI", "STATE", "DISTRICT", "IA", "MP"].includes(parsed.role) ? parsed : DEFAULT_SCOPE;
+  } catch { return DEFAULT_SCOPE; }
 }
 
 export function ScopeProvider({ children }: { children: React.ReactNode }) {

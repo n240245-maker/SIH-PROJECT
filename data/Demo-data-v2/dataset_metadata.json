@@ -1,0 +1,38 @@
+{
+  "dataset_profile": "demo_v2",
+  "generated_at": "2026-09-05T00:00:00+00:00",
+  "random_seed": 26102,
+  "work_count": 5000,
+  "as_of_date": "2026-09-05",
+  "synthetic_demo_data": true,
+  "disclaimer": "SYNTHETIC DEMO DATA \u2014 generated for prototype testing; distributions and coordinates do not represent real MPLADS national prevalence or Government field evidence.",
+  "scenario_parameters": {
+    "states": 6,
+    "constituencies_per_state": 3,
+    "districts_per_state": 3,
+    "implementing_agencies_per_district": 3,
+    "lifecycle_mix_rule": "10% pre-sanction, 35% execution, 55% completion before explicit cases",
+    "geo_monthly_window": "first three Monday-Friday working days; no official holiday calendar",
+    "location_review_threshold_metres": 500
+  },
+  "representative_cases": {
+    "normal_work": "W-000101",
+    "observed_delay": "W-000202",
+    "fund_utilization_mismatch": "W-000303",
+    "payment_chronology_irregularity": "W-000404",
+    "observed_cost_overrun": "W-000505",
+    "cost_overrun_early_warning": "W-000606",
+    "duplicate_candidate_a": "W-000707",
+    "duplicate_candidate_b": "W-000708",
+    "missing_monthly_geo_evidence": "W-000808",
+    "late_geo_evidence": "W-000909",
+    "location_requires_review": "W-001010",
+    "completed_full_closure": "W-001111",
+    "completed_missing_closure": "W-001212",
+    "deterministic_compliance_issue": "W-001313",
+    "multi_signal_high_priority": "W-001937",
+    "legacy_execution_demo": "W-002760"
+  },
+  "ground_truth_path": "evaluation/anomaly_ground_truth_v2.csv",
+  "ground_truth_usage": "evaluation only; prohibited from training features, serving, APIs, and review priority"
+}

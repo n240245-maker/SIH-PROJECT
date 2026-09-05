@@ -13,6 +13,32 @@ class Role(StrEnum):
     STATE = "STATE"
     DISTRICT = "DISTRICT"
     MP = "MP"
+    IA = "IA"
+
+
+class GeoEvidenceSource(StrEnum):
+    LIVE_SITE_CAPTURE = "LIVE_SITE_CAPTURE"
+    UPLOADED_IMAGE = "UPLOADED_IMAGE"
+
+
+class GeoEvidenceCreate(BaseModel):
+    evidence_stage: str
+    reporting_month: str = Field(pattern=r"^\d{4}-\d{2}$")
+    physical_progress_pct: float = Field(ge=0, le=100)
+    latitude: float = Field(ge=-90, le=90)
+    longitude: float = Field(ge=-180, le=180)
+    capture_timestamp: str
+    captured_by_user: str = Field(min_length=2, max_length=120)
+    source_type: GeoEvidenceSource
+    image_base64: str = Field(min_length=8)
+    image_media_type: str = Field(pattern=r"^image/(jpeg|png|webp)$")
+    note: str = Field(default="", max_length=500)
+
+
+class GeoEvidenceVerify(BaseModel):
+    verification_status: str = Field(pattern=r"^(DISTRICT_VERIFIED|REQUIRES_CLARIFICATION|REJECTED)$")
+    verified_by: str = Field(min_length=2, max_length=120)
+    note: str = Field(default="", max_length=500)
 
 
 class ReviewStatus(StrEnum):

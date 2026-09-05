@@ -28,6 +28,7 @@ class Scope:
     state: str | None = None
     district: str | None = None
     mp_id: str | None = None
+    agency_id: str | None = None
 
 
 class ApplicationService:
@@ -71,6 +72,8 @@ class ApplicationService:
             raise ValueError("DISTRICT role requires state and district")
         if scope.role == Role.MP and not scope.mp_id:
             raise ValueError("MP role requires mp_id")
+        if scope.role == Role.IA and not scope.agency_id:
+            raise ValueError("IA role requires agency_id")
 
     def scoped(self, frame: pd.DataFrame, scope: Scope) -> pd.DataFrame:
         self._validate_scope(scope)
@@ -81,6 +84,8 @@ class ApplicationService:
             result = result.loc[result["district"].eq(scope.district)]
         if scope.role == Role.MP:
             result = result.loc[result["mp_id"].eq(scope.mp_id)]
+        if scope.role == Role.IA:
+            result = result.loc[result["implementing_agency_id"].eq(scope.agency_id)]
         return result
 
     def scope_options(self) -> dict[str, Any]:
@@ -91,9 +96,22 @@ class ApplicationService:
             mp = self.artifacts.mp_master.get(str(mp_id), {})
             mps.append({"mp_id": str(mp_id), "mp_name": mp.get("mp_name", str(mp_id)),
                         "state_name": mp.get("state_name"), "constituency": mp.get("constituency")})
-        return {"roles": [role.value for role in Role],
+        agencies = [
+            {"agency_id": str(entity_id), "agency_name": item.get("entity_name", str(entity_id)),
+             "state_name": item.get("state_name"), "district": item.get("district")}
+            for entity_id, item in sorted(self.artifacts.entity_master.items())
+            if str(item.get("entity_type")) == "IMPLEMENTING_AGENCY"
+        ]
+        return {"roles": [Role.MOSPI.value, Role.STATE.value, Role.DISTRICT.value, Role.MP.value],
                 "states": sorted(base["state_name"].dropna().unique().tolist()),
-                "districts": json_safe(districts.to_dict(orient="records")), "mps": mps}
+                "districts": json_safe(districts.to_dict(orient="records")), "mps": mps,
+                "agencies": agencies}
+
+    def authorize_work(self, work_id: str, scope: Scope) -> None:
+        self.artifacts.require_work(work_id)
+        allowed = self.scoped(self.work_view, scope)
+        if work_id not in set(allowed["work_id"].astype(str)):
+            raise KeyError(work_id)
 
     def overview(self, scope: Scope) -> dict[str, Any]:
         frame = self.scoped(self.work_view, scope)

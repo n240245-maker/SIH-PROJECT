@@ -4,7 +4,9 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException
 
+from backend.authorization import request_scope
 from backend.dependencies import (
+    get_application_service,
     get_artifacts,
     get_explanation_service,
     get_validated_explanation_cache,
@@ -13,6 +15,7 @@ from backend.repositories import ApplicationArtifactRepository
 from backend.schemas import ExplainRequest, ExplainResponse
 from backend.serialization import json_safe
 from backend.services.explanation_cache import ValidatedExplanationCache
+from backend.services import ApplicationService, Scope
 
 router = APIRouter(prefix="/api/v1/works", tags=["explanations"])
 
@@ -32,9 +35,13 @@ def _frozen_fallback(work_id: str, artifacts: ApplicationArtifactRepository,
 
 @router.post("/{work_id}/explain", response_model=ExplainResponse)
 def explain_work(payload: ExplainRequest, work_id: str,
+                 scope: Scope = Depends(request_scope),
+                 service: ApplicationService = Depends(get_application_service),
                  artifacts: ApplicationArtifactRepository = Depends(get_artifacts),
                  cache: ValidatedExplanationCache = Depends(get_validated_explanation_cache)) -> dict:
-    if work_id not in artifacts.work_ids:
+    try:
+        service.authorize_work(work_id, scope)
+    except KeyError:
         raise HTTPException(404, "Work was not found")
     if not payload.use_llm:
         return _frozen_fallback(work_id, artifacts)

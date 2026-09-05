@@ -1,0 +1,19 @@
+mp_id,mp_name,state_name,constituency,annual_entitlement_inr,source_type,synthetic_demo_data
+MP-S01-01,Demo MP S01-01,Andhra Pradesh,Andhra Pradesh Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S01-02,Demo MP S01-02,Andhra Pradesh,Andhra Pradesh Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S01-03,Demo MP S01-03,Andhra Pradesh,Andhra Pradesh Demo Constituency 3,50000000,SYNTHETIC_V2,True
+MP-S02-01,Demo MP S02-01,Karnataka,Karnataka Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S02-02,Demo MP S02-02,Karnataka,Karnataka Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S02-03,Demo MP S02-03,Karnataka,Karnataka Demo Constituency 3,50000000,SYNTHETIC_V2,True
+MP-S03-01,Demo MP S03-01,Maharashtra,Maharashtra Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S03-02,Demo MP S03-02,Maharashtra,Maharashtra Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S03-03,Demo MP S03-03,Maharashtra,Maharashtra Demo Constituency 3,50000000,SYNTHETIC_V2,True
+MP-S04-01,Demo MP S04-01,Odisha,Odisha Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S04-02,Demo MP S04-02,Odisha,Odisha Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S04-03,Demo MP S04-03,Odisha,Odisha Demo Constituency 3,50000000,SYNTHETIC_V2,True
+MP-S05-01,Demo MP S05-01,Rajasthan,Rajasthan Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S05-02,Demo MP S05-02,Rajasthan,Rajasthan Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S05-03,Demo MP S05-03,Rajasthan,Rajasthan Demo Constituency 3,50000000,SYNTHETIC_V2,True
+MP-S06-01,Demo MP S06-01,Tamil Nadu,Tamil Nadu Demo Constituency 1,50000000,SYNTHETIC_V2,True
+MP-S06-02,Demo MP S06-02,Tamil Nadu,Tamil Nadu Demo Constituency 2,50000000,SYNTHETIC_V2,True
+MP-S06-03,Demo MP S06-03,Tamil Nadu,Tamil Nadu Demo Constituency 3,50000000,SYNTHETIC_V2,True

@@ -16,6 +16,8 @@ services:
         value: "2026-09-01"
       - key: MPLADS_ENVIRONMENT
         value: production
+      - key: MPLADS_DATASET_PROFILE
+        value: demo_v2
       - key: MPLADS_CORS_ORIGINS
         value: https://mplads-sentinel-one.vercel.app
       - key: MPLADS_RUNTIME_DATA_DIR

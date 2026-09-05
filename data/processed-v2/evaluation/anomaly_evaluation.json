@@ -1,0 +1,49 @@
+{
+  "evaluation_label": "Synthetic Holdout Evaluation",
+  "ground_truth_used_for_training": false,
+  "roc_auc": 0.5340508736710925,
+  "pr_auc": 0.22323397421100238,
+  "label_prevalence": 0.0362,
+  "lifecycle_models": {
+    "PRE_SANCTION": {
+      "rows": 498,
+      "features": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr"
+      ],
+      "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_pre_sanction.joblib"
+    },
+    "EXECUTION": {
+      "rows": 1750,
+      "features": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "released_payments_inr",
+        "current_expenditure_inr",
+        "physical_progress_pct",
+        "financial_progress_pct",
+        "financial_physical_gap_pct",
+        "payment_count",
+        "sanction_revision_count"
+      ],
+      "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_execution.joblib"
+    },
+    "COMPLETION": {
+      "rows": 2752,
+      "features": [
+        "recommended_amount_inr",
+        "technical_estimate_amount_inr",
+        "sanctioned_amount_inr",
+        "released_payments_inr",
+        "current_expenditure_inr",
+        "financial_progress_pct",
+        "financial_physical_gap_pct",
+        "payment_count",
+        "sanction_revision_count"
+      ],
+      "model_path": "C:\\SIH-PROJECT\\models\\v2\\anomaly\\isolation_forest_completion.joblib"
+    }
+  },
+  "limitations": "Synthetic labels evaluate unusualness only and are not production fraud labels."
+}
