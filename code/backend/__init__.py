@@ -1,2 +1,1 @@
-"""FastAPI application layer for MPLADS Sentinel."""
-
+"""FastAPI application layer for TraceX - Kavach."""

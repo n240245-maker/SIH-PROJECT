@@ -105,11 +105,11 @@ def build_v2_case_review_pdf(detail: dict[str, Any], generated_at: datetime) -> 
     doc = SimpleDocTemplate(
         output, pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm,
         topMargin=16 * mm, bottomMargin=20 * mm,
-        title=f"MPLADS Sentinel demo-v2 case review - {header['work_id']}",
-        author="MPLADS Sentinel synthetic prototype",
+        title=f"TraceX - Kavach demo-v2 case review - {header['work_id']}",
+        author="TraceX - Kavach synthetic prototype",
     )
     story: list[Any] = [
-        Paragraph("MPLADS SENTINEL - SYNTHETIC DEMO V2", styles["kicker"]),
+        Paragraph("TRACEX - KAVACH - SYNTHETIC DEMO V2", styles["kicker"]),
         Paragraph("CASE REVIEW SUPPORT REPORT", styles["title"]),
         _p(detail["synthetic_disclaimer"], styles["small"]),
         _table([

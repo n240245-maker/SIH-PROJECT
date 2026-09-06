@@ -20,10 +20,12 @@ def test_health_and_meta_are_governed_and_secret_free(client: TestClient) -> Non
     health = client.get("/health")
     assert health.status_code == 200
     assert health.json()["work_count"] == 3_000
+    assert health.json()["application"] == "TraceX - Kavach"
     meta = client.get("/api/v1/meta")
     assert meta.status_code == 200
     assert meta.json()["risk_fusion_policy_version"] == "REVIEW_PRIORITY_POLICY_V0_1"
     assert "api_key" not in meta.text.casefold()
+    assert client.get("/openapi.json").json()["info"]["title"] == "TraceX - Kavach API"
 
 
 @pytest.mark.parametrize(

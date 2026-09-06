@@ -18,7 +18,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   return <div className="shell">
     <aside className="sidebar">
       <div className="brand"><div className="brand-mark"><Landmark size={21} /></div>
-        <div><strong>MPLADS Sentinel</strong><span>Officer decision support</span></div></div>
+        <div><strong>TraceX - Kavach</strong><span>Officer decision support</span></div></div>
       <nav aria-label="Primary navigation">{links.map(({ href, label, icon: Icon }) =>
         <Link key={href} href={href} className={pathname === href || (href !== "/" && pathname.startsWith(href)) ? "nav-link active" : "nav-link"}>
           <Icon size={18} /><span>{label}</span>

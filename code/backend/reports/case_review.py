@@ -137,17 +137,17 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
     narrative = explanation_bundle.get("explanation") or {}
     styles = _styles()
     work_id = _safe(profile.get("work_id"))
-    report_id = f"MPLADS-SENTINEL-{work_id}-{generated_at:%Y%m%d-%H%M%S}"
+    report_id = f"TRACEX-KAVACH-{work_id}-{generated_at:%Y%m%d-%H%M%S}"
 
     output = BytesIO()
     doc = SimpleDocTemplate(
         output, pagesize=A4, rightMargin=18 * mm, leftMargin=18 * mm,
         topMargin=16 * mm, bottomMargin=20 * mm,
-        title=f"MPLADS Sentinel Case Review Support Report - {work_id}",
-        author="MPLADS Sentinel prototype", subject="Prototype decision-support document",
+        title=f"TraceX - Kavach Case Review Support Report - {work_id}",
+        author="TraceX - Kavach prototype", subject="Prototype decision-support document",
     )
     story: list[Any] = [
-        Paragraph("MPLADS SENTINEL", styles["kicker"]),
+        Paragraph("TRACEX - KAVACH", styles["kicker"]),
         Paragraph("CASE REVIEW SUPPORT REPORT", styles["cover"]),
         Paragraph("Prototype Decision-Support Document", styles["kicker"]),
         _meta_table([

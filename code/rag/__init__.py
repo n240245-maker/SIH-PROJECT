@@ -1,4 +1,4 @@
-"""Guideline-grounded explanation layer for MPLADS Sentinel.
+"""Guideline-grounded explanation layer for TraceX - Kavach.
 
 The package consumes frozen Day 1--7 evidence. It never calculates detector,
 compliance, prediction, or review-priority results.

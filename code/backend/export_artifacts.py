@@ -29,7 +29,7 @@ def main() -> int:
     routes = sorted(openapi["paths"])
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "application": "MPLADS Sentinel",
+        "application": "TraceX - Kavach",
         "as_of_date": "2026-09-01",
         "endpoint_count": sum(len(methods) for methods in openapi["paths"].values()),
         "routes": routes,

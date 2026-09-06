@@ -6,7 +6,7 @@ import type { Scope } from "./types";
 type ScopeContextValue = { scope: Scope; setScope: (value: Scope) => void };
 const ScopeContext = createContext<ScopeContextValue | null>(null);
 const DEFAULT_SCOPE: Scope = { role: "MOSPI" };
-const STORAGE_KEY = "mplads-sentinel-scope";
+const STORAGE_KEY = "tracex-kavach-scope";
 
 function readStoredScope(): Scope {
   const saved = window.localStorage.getItem(STORAGE_KEY);

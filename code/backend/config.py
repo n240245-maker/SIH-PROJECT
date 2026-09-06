@@ -12,7 +12,7 @@ from intelligence.data.paths import ProjectPaths
 
 
 class AppSettings(BaseSettings):
-    app_name: str = "MPLADS Sentinel"
+    app_name: str = "TraceX - Kavach"
     api_prefix: str = "/api/v1"
     as_of_date: str = "2026-09-01"
     cors_origins: str = "http://localhost:3000"

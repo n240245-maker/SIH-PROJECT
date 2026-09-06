@@ -47,7 +47,7 @@ def main() -> int:
 
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "application": "MPLADS Sentinel",
+        "application": "TraceX - Kavach",
         "day": "9.2",
         "as_of_date": overview["as_of_date"],
         "frozen_intelligence_changed": False,

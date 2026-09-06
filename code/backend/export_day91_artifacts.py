@@ -37,7 +37,7 @@ def main() -> int:
     _write(destination / "openapi.json", openapi)
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "application": "MPLADS Sentinel",
+        "application": "TraceX - Kavach",
         "as_of_date": "2026-09-01",
         "day": "9.1",
         "new_or_updated_routes": [

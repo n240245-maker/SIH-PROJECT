@@ -1,4 +1,4 @@
-"""MPLADS Sentinel FastAPI entry point."""
+"""TraceX - Kavach FastAPI entry point."""
 
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ async def lifespan(_: FastAPI):
 
 settings = get_settings()
 app = FastAPI(
-    title="MPLADS Sentinel API",
+    title=f"{settings.app_name} API",
     description="Governed decision-support API over frozen MPLADS prototype intelligence artifacts.",
     version="1.0.0", lifespan=lifespan,
 )
