@@ -225,4 +225,8 @@ def test_v2_api_offline_fallback_and_contract_are_ground_truth_free() -> None:
         assert fallback.status_code == 200
         assert fallback.json()["generation_mode"] == "DETERMINISTIC_FALLBACK"
         assert fallback.json()["fallback_used"] is True
+        report = client.get("/api/v2/works/W-001937/case-report.pdf", params={"role": "MOSPI"})
+        assert report.status_code == 200
+        assert "TraceX_Kavach_W-001937_" in report.headers["content-disposition"]
+        assert "MPLADS_Sentinel" not in report.headers["content-disposition"]
         assert "ground_truth" not in json.dumps(client.get("/openapi.json").json()).casefold()

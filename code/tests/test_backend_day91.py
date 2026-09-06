@@ -81,6 +81,8 @@ def test_case_report_is_valid_nonempty_pdf_with_required_governance(client: Test
     response = client.get("/api/v1/works/W-001937/case-report.pdf")
     assert response.status_code == 200
     assert response.headers["content-type"] == "application/pdf"
+    assert "TraceX_Kavach_Case_W-001937_" in response.headers["content-disposition"]
+    assert "MPLADS_Sentinel" not in response.headers["content-disposition"]
     assert response.content.startswith(b"%PDF")
     assert len(response.content) > 5_000
     text = _pdf_text(response.content)

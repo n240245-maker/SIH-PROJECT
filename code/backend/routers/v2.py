@@ -95,7 +95,7 @@ def case_report(
     content = build_v2_case_review_pdf(detail, generated_at)
     return Response(
         content=content, media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="MPLADS_Sentinel_V2_{work_id}_{generated_at:%Y-%m-%d}.pdf"'},
+        headers={"Content-Disposition": f'attachment; filename="TraceX_Kavach_{work_id}_{generated_at:%Y-%m-%d}.pdf"'},
     )
 
 

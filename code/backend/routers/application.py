@@ -91,7 +91,7 @@ def case_report(
         explanation = cached
     generated_at = datetime.now(ZoneInfo("Asia/Kolkata"))
     content = build_case_review_pdf(detail, explanation, generated_at)
-    filename = f"MPLADS_Sentinel_Case_{work_id}_{generated_at:%Y-%m-%d}.pdf"
+    filename = f"TraceX_Kavach_Case_{work_id}_{generated_at:%Y-%m-%d}.pdf"
     return Response(
         content=content,
         media_type="application/pdf",
