@@ -49,14 +49,14 @@ function metadata(metric: string): MetricMetadata | undefined {
 }
 
 export const FAMILY_LABELS: Record<string, string> = {
-  ANOMALY: "Unusual Pattern Detection",
+  ANOMALY: "Unusual Pattern",
   PEER_DEVIATION: "Peer Comparison",
   DUPLICATE_REVIEW: "Duplicate Work Review",
-  PAYMENT_EXECUTION: "Payments & Fund-Progress",
-  OBSERVED_CONDITIONS: "Observed Cost / Delay Conditions",
-  COMPLIANCE: "MPLADS Compliance Monitoring",
-  COST_PREDICTION: "Cost-Overrun Early Warning",
-  OPERATIONAL_TREND_CONTEXT: "Operational Trend Context",
+  PAYMENT_EXECUTION: "Payment & Progress Gap",
+  OBSERVED_CONDITIONS: "Overdue / Over Budget",
+  COMPLIANCE: "Compliance Review",
+  COST_PREDICTION: "Cost Alert",
+  OPERATIONAL_TREND_CONTEXT: "Area Trend",
 };
 
 export const FAMILY_EXPLANATIONS: Record<string, string> = {
@@ -117,22 +117,22 @@ export const SEVERITY_LABELS: Record<string, string> = {
 };
 
 export const EVIDENCE_LABELS: Record<string, string> = {
-  LIFECYCLE_ANOMALY_PERCENTILE: "Within-lifecycle unusualness",
-  LIFECYCLE_ANOMALY_TOP_DECILE: "High within-lifecycle unusualness",
-  STATISTICAL_PEER_OUTLIER: "Unusual peer comparison",
+  LIFECYCLE_ANOMALY_PERCENTILE: "Unusual Pattern",
+  LIFECYCLE_ANOMALY_TOP_DECILE: "Unusual Pattern",
+  STATISTICAL_PEER_OUTLIER: "Peer Comparison",
   DUPLICATE_REVIEW_CANDIDATE: "Possible duplicate work",
   DAY4_1_CORROBORATED_REVIEW_CANDIDATE: "Corroborated duplicate-review candidate",
-  PERSISTENT_FUND_PROGRESS_REVIEW: "Persistent financial-vs-physical progress mismatch",
-  CURRENT_LARGE_POSITIVE_FUND_GAP: "Current financial-vs-physical progress mismatch",
+  PERSISTENT_FUND_PROGRESS_REVIEW: "Payment & Progress Gap",
+  CURRENT_LARGE_POSITIVE_FUND_GAP: "Payment & Progress Gap",
   PAYMENT_AUTH_BEFORE_REQUEST: "Payment authorization recorded before request",
   RELEASED_TOTAL_EXCEEDS_SANCTION: "Released payments exceed the visible sanction",
-  OBSERVED_OVERDUE: "Observed overdue work",
-  OBSERVED_OVERDUE_AS_OF: "Observed overdue work",
-  OBSERVED_OVER_SANCTION: "Observed amount above sanction",
-  OBSERVED_OVER_SANCTION_AS_OF: "Observed amount above sanction",
-  RAW_XGBOOST_SECONDARY_TOP_DECILE: "Cost-overrun early warning",
-  OPERATIONAL_TREND_DEVIATION: "Operational trend context",
-  SUPPORTED_LATEST_MONTH_OPERATIONAL_TREND: "Operational trend context",
+  OBSERVED_OVERDUE: "Overdue",
+  OBSERVED_OVERDUE_AS_OF: "Overdue",
+  OBSERVED_OVER_SANCTION: "Over Budget",
+  OBSERVED_OVER_SANCTION_AS_OF: "Over Budget",
+  RAW_XGBOOST_SECONDARY_TOP_DECILE: "Cost Alert",
+  OPERATIONAL_TREND_DEVIATION: "Area Trend Alert",
+  SUPPORTED_LATEST_MONTH_OPERATIONAL_TREND: "Area Trend Alert",
   ZERO_VALUE_RELEASED_PAYMENT: "Zero-value released payment record",
 };
 

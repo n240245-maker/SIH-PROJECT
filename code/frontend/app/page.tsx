@@ -1,33 +1,40 @@
 "use client";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { ArrowRight, Bot, CheckCircle2, MapPinned, ShieldCheck } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { ArrowRight, MapPinned } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
 
 import { EmptyState, ErrorState, LoadingState, Section } from "@/components/ui";
 import { api } from "@/lib/api";
 import { inr, number, text } from "@/lib/format";
 import { useScope } from "@/lib/scope";
-import type { Overview } from "@/lib/types";
+import type { Overview, Recommendation } from "@/lib/types";
 
 type Row = Record<string, unknown>;
 
-const ROLE_LABELS = { MOSPI: "Ministry of Statistics and Programme Implementation", STATE: "State Nodal Authority", DISTRICT: "District Authority", IA: "Implementing Agency", MP: "Member of Parliament" };
+const ROLE_LABELS = { MOSPI: "MoSPI", STATE: "State Authority", DISTRICT: "District Authority", IA: "Implementing Agency", MP: "MP Portal" };
 
 function idFor(title: string) { return title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""); }
 function money(value: unknown) { const numeric = Number(value); return Number.isFinite(numeric) ? inr.format(numeric) : "Not available"; }
 function metric(value: unknown, suffix = "") { const numeric = Number(value); return Number.isFinite(numeric) ? `${number.format(numeric)}${suffix}` : "Not available"; }
 
-function Snapshot({ data }: { data: Overview }) {
+function Snapshot({ data, recommendationCount = 0, newRecommendationCount = 0, underReviewCount = 0 }: { data: Overview; recommendationCount?: number; newRecommendationCount?: number; underReviewCount?: number }) {
   const values = data.overview;
-  const cards: [string, unknown][] = [
-    ["Works in scope", values.total_projects], ["Completed", values.completed], ["Ongoing", values.ongoing],
-    ["Observed delayed", values.delayed], ["High-priority review", values.high_priority_review],
-    ["Works requiring review", values.works_requiring_review], ["Site evidence overdue", values.site_evidence_overdue],
-    ["Pending compliance issues", values.pending_compliance_issues],
+  const districtsNeedingAttention = data.comparison.items.filter((item) => Number(item.high_priority_count ?? 0) > 0).length;
+  const cards: [string, unknown][] = data.role === "MP" ? [
+    ["My Recommended Works", Number(values.recommended ?? 0) + recommendationCount],
+    ["Ongoing Works", values.ongoing], ["Completed Works", values.completed], ["Works Needing Attention", values.works_requiring_review],
+  ] : data.role === "DISTRICT" ? [
+    ["New Recommendations", newRecommendationCount], ["Under Review", underReviewCount], ["Ongoing Works", values.ongoing],
+    ["Works Needing Attention", values.works_requiring_review], ["Compliance Issues", values.pending_compliance_issues], ["Overdue Works", values.delayed],
+  ] : data.role === "STATE" ? [
+    ["Total Works", values.total_projects], ["High Priority", values.high_priority_review],
+    ["Districts Needing Attention", districtsNeedingAttention], ["Overdue", values.delayed], ["Compliance Issues", values.pending_compliance_issues],
+  ] : [
+    ["Total Works", values.total_projects], ["Review Queue", values.high_priority_review], ["Overdue", values.delayed],
+    ["Over Budget", values.over_budget], ["Similar Work Candidates", values.duplicate_candidates], ["Compliance Issues", values.pending_compliance_issues],
   ];
-  return <div className="dashboard-kpis">{cards.map(([label, value]) => <article className="dashboard-kpi" key={String(label)}><span>{label}</span><strong>{metric(value)}</strong><small>Within the selected authority scope</small></article>)}</div>;
+  return <div className="dashboard-kpis">{cards.map(([label, value]) => <article className="dashboard-kpi" key={String(label)}><span>{label}</span><strong>{metric(value)}</strong><small>Selected authority scope</small></article>)}</div>;
 }
 
 function FundFlow({ flow }: { flow: Row }) {
@@ -60,9 +67,17 @@ function SectorTable({ rows }: { rows: Row[] }) {
   return <div className="sector-grid">{rows.slice(0, 8).map((row) => <article key={String(row.sector)}><strong>{text(row.sector)}</strong><span>{money(row.sanctioned_amount_inr)}</span><small>{metric(row.share_pct, "%")} of scoped sanction</small></article>)}</div>;
 }
 
-function DashboardSection({ title, data, generatedBrief }: { title: string; data: Overview; generatedBrief?: Row | null }) {
+function RecommendationTable({ rows }: { rows: Recommendation[] }) {
+  if (!rows.length) return <EmptyState label="No recommendations yet." />;
+  return <div className="table-wrap"><table><thead><tr><th>ID</th><th>Work</th><th>Location</th><th>Proposed Cost</th><th>Status</th><th></th></tr></thead><tbody>{rows.slice(0, 8).map((row) => <tr key={row.recommendation_id}><td><strong>{row.recommendation_id}</strong></td><td>{row.title}</td><td>{row.village}, {row.district}</td><td>{money(row.proposed_project_cost_inr)}</td><td>{row.status_label}</td><td><Link className="work-link" href={`/recommendations/${row.recommendation_id}`}>Open</Link></td></tr>)}</tbody></table></div>;
+}
+
+function DashboardSection({ title, data, recommendations }: { title: string; data: Overview; recommendations: Recommendation[] }) {
   const lower = title.toLowerCase();
-  if (lower.includes("brief")) return <div className="morning-brief"><div><span>Deterministic morning brief</span>{data.morning_brief.facts.map((fact) => <p key={fact}><CheckCircle2 size={15} />{fact}</p>)}</div>{generatedBrief && <p className="generated-brief"><Bot size={16} />{text(generatedBrief.message, "Structured brief refreshed from current local evidence.")}</p>}</div>;
+  const recommendedCount = recommendations.filter((item) => !["SANCTIONED", "IN_PROGRESS", "COMPLETED", "CLOSED"].includes(item.status)).length;
+  const newRecommendationCount = recommendations.filter((item) => item.status === "RECOMMENDED").length;
+  const underReviewCount = recommendations.filter((item) => ["UNDER_REVIEW", "NEEDS_CLARIFICATION", "ACCEPTED_FOR_PROCESSING"].includes(item.status)).length;
+  if (lower.includes("recommendation") || lower.includes("recent activity") || lower.includes("recent updates")) return <RecommendationTable rows={recommendations} />;
   if (lower.startsWith("recommended")) return <ol className="recommended-actions">{data.recommended_actions.map((action) => <li key={action}>{action}</li>)}</ol>;
   if (lower.includes("fund") || lower.includes("payment readiness")) return <FundFlow flow={data.fund_flow} />;
   if (lower.includes("map")) return <><div className="map-fallback"><MapPinned size={24} /><div><strong>Accessible monitoring heat table</strong><p>{data.map.license_note}</p></div></div><ComparisonTable data={data} /></>;
@@ -71,24 +86,24 @@ function DashboardSection({ title, data, generatedBrief }: { title: string; data
   if (lower.includes("comparison") || lower.includes("performance") || lower.includes("block &") || lower.includes("fund flow monitoring")) return <ComparisonTable data={data} />;
   if (lower.includes("attention") || lower.includes("intervention") || lower.includes("action") || lower.includes("queue") || lower.includes("due") || lower.includes("issue") || lower.includes("submission") || lower.includes("compliance") || lower.includes("field verification")) return <AttentionTable rows={data.projects_requiring_attention} />;
   if (lower.includes("workflow")) return <ol className="decision-flow">{data.decision_workflow.map((step) => <li key={step}>{step.replaceAll("_", " ")}</li>)}</ol>;
-  if (lower.includes("insight")) return <div className="insight-list"><p>Comparisons are calculated only inside the selected authority scope.</p><p>High-priority overlap is displayed once per work; warning rows do not multiply urgency.</p><p>Geo-evidence availability is operational context and contributes zero Review Priority points.</p></div>;
-  if (lower.includes("overview") || lower.includes("summary")) return <Snapshot data={data} />;
-  return <Snapshot data={data} />;
+  if (lower.includes("trend")) return <ComparisonTable data={data} />;
+  if (lower.includes("overview") || lower.includes("summary") || lower === "my works") return <Snapshot data={data} recommendationCount={recommendedCount} newRecommendationCount={newRecommendationCount} underReviewCount={underReviewCount} />;
+  return <Snapshot data={data} recommendationCount={recommendedCount} newRecommendationCount={newRecommendationCount} underReviewCount={underReviewCount} />;
 }
 
 export default function OverviewPage() {
   const { scope } = useScope();
   const query = useQuery({ queryKey: ["v2-overview", scope], queryFn: () => api.overview(scope) });
-  const brief = useMutation({ mutationFn: () => api.dashboardBrief(scope) });
-  const [layer, setLayer] = useState("Fund Utilization");
-  if (query.isLoading) return <LoadingState label="Loading the local synthetic-demo dashboard…" />;
+  const recommendations = useQuery({ queryKey: ["dashboard-recommendations", scope], queryFn: () => api.recommendations(scope, { page_size: 100 }), enabled: ["MP", "DISTRICT"].includes(scope.role) });
+  if (query.isLoading) return <LoadingState label="Loading your dashboard…" />;
   if (query.error || !query.data) return <ErrorState error={query.error} />;
   const data = query.data;
+  const records = recommendations.data?.items ?? [];
+  const title = { MOSPI: "MPLADS Overview", STATE: "State Overview", DISTRICT: "District Operations", IA: "Agency Operations", MP: "My MPLADS Works" }[data.role];
+  const action = data.role === "MP" ? { href: "/recommend-work", label: "Recommend Work" } : data.role === "DISTRICT" ? { href: "/new-recommendations", label: "New Recommendations" } : { href: "/review-queue", label: "Open Review Queue" };
   return <>
-    <div className="page-title dashboard-title"><div><p className="eyebrow">{ROLE_LABELS[data.role]} dashboard · synthetic demo-v2</p><h1>{data.primary_question}</h1><p>{data.synthetic_disclaimer}</p></div><Link className="button" href="/review-queue">Open review queue <ArrowRight size={15} /></Link></div>
-    <div className="governance-banner"><ShieldCheck size={18} /><p>{data.language_note} All values on this branch use clearly labelled synthetic demonstration data.</p></div>
+    <div className="page-title dashboard-title"><div><p className="eyebrow">{ROLE_LABELS[data.role]}</p><h1>{title}</h1><p>{data.primary_question}</p></div><Link className="button" href={action.href}>{action.label} <ArrowRight size={15} /></Link></div>
     <nav className="dashboard-nav" aria-label="Dashboard sections">{data.section_order.map((title) => <a key={title} href={`#${idFor(title)}`}>{title}</a>)}</nav>
-    <div className="dashboard-controls"><label>Monitoring map layer<select value={layer} onChange={(event) => setLayer(event.target.value)}>{data.map.layer_options.map((item) => <option key={item}>{item}</option>)}</select></label><button className="button secondary" onClick={() => brief.mutate()} disabled={brief.isPending}><Bot size={15} />{brief.isPending ? "Preparing…" : "Generate structured brief"}</button><span>Selected view: {layer}</span></div>
-    {data.section_order.map((title) => <Section key={title} id={idFor(title)} title={title} subtitle={title.toLowerCase().includes("brief") ? "Generated locally from structured evidence; no Groq call is made." : undefined}><DashboardSection title={title} data={data} generatedBrief={brief.data} /></Section>)}
+    {data.section_order.map((section) => <Section key={section} id={idFor(section)} title={section}><DashboardSection title={section} data={data} recommendations={records} /></Section>)}
   </>;
 }

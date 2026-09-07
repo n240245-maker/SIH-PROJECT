@@ -12,7 +12,7 @@ from intelligence.data.paths import ProjectPaths
 
 
 class AppSettings(BaseSettings):
-    app_name: str = "TraceX - Kavach"
+    app_name: str = "TRACE-X KAVACH"
     api_prefix: str = "/api/v1"
     as_of_date: str = "2026-09-01"
     cors_origins: str = "http://localhost:3000"
@@ -21,6 +21,7 @@ class AppSettings(BaseSettings):
     dataset_profile: str = "baseline"
     geo_location_review_threshold_metres: float = 500.0
     geo_max_image_bytes: int = 5_000_000
+    recommendation_max_upload_bytes: int = 10_000_000
 
     model_config = SettingsConfigDict(
         env_prefix="MPLADS_", env_file_encoding="utf-8", extra="ignore"

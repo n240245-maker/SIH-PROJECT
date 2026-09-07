@@ -4,8 +4,8 @@ import { Providers } from "./providers";
 import { AppShell } from "@/components/app-shell";
 
 export const metadata: Metadata = {
-  title: "TraceX - Kavach",
-  description: "TraceX - Kavach synthetic demonstration of AI-powered MPLADS monitoring and human decision support",
+  title: "TRACE-X KAVACH",
+  description: "MPLADS Monitoring & Management Platform",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

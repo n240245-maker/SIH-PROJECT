@@ -1,12 +1,14 @@
-# SIH26102 MPLADS AI Risk Intelligence
+# TRACE-X KAVACH
+
+MPLADS Monitoring & Management Platform
 
 ## Problem
 
 MPLADS implementation spans work recommendations, sanctions, execution, payments, progress, completion, assets, and compliance. The prototype must identify unusual, inefficient, or non-compliant patterns for authorized review without treating an anomaly as proof of fraud.
 
-## Prototype Goal
+## Product Goal
 
-Build an explainable, lifecycle-aware decision-support prototype that prioritizes cases for human verification while preserving evidence, provenance, and clear governance boundaries.
+Provide a role-aware operational portal for monitoring MPLADS works, recommending new works, reviewing evidence, and recording authorized follow-up while preserving provenance and governance boundaries.
 
 ## Architecture Summary
 
@@ -56,6 +58,7 @@ These are planned components. No model performance metrics are claimed.
 - `code/tests/`: future tests
 - `Demo-data/`: read-only source CSVs
 - `data/processed/`: generated CSV/JSON outputs
+- `data/runtime/`: isolated append-only recommendation, review, activity, and upload state
 - `guidelines/`: guideline source documents
 - `docs/reference/`: supporting reference documents
 
@@ -70,7 +73,15 @@ These are planned components. No model performance metrics are claimed.
 
 ## Current Development Status
 
-Day 0 through Day 10, including deployment and the intermediate safety and provider audits, are completed. The post-deployment P0 officer-usability phase is documented in [POST_DEPLOYMENT_IMPROVEMENTS.md](POST_DEPLOYMENT_IMPROVEMENTS.md); P1 and P2 remain deferred pending the P0 hosted checkpoint.
+Day 0 through Day 9 and the intermediate safety audits are complete. The current local-only pre-Day-10 upgrade adds the operational MP-to-District recommendation workflow and role-specific officer navigation. This worktree has not been deployed as part of the upgrade.
+
+### Operational Recommendation Workflow
+
+- MPs can draft a recommendation, record its location and proposed cost, upload supporting evidence, run a bounded pre-check, submit it, and track its status.
+- District Authorities can review scoped recommendations, request clarification, accept them for processing, add sanction details, record progress and payments, and mark work completion.
+- Recommendation IDs are assigned sequentially and lifecycle activity is append-only.
+- Runtime records and uploads stay under `data/runtime`; frozen analytical CSVs, models, rules, and evaluation artifacts remain read-only.
+- Similar-work and cost comparisons are review support only. They never confirm duplication, approve a work, or replace authorized human decisions.
 
 The local `feature/sih-final-enhancements` branch adds a fresh synthetic demo-v2
 profile without changing the reproducible P0 baseline. It includes versioned

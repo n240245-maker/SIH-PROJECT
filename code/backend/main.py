@@ -9,7 +9,14 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.config import get_settings
 from backend.dependencies import get_artifacts, get_v2_artifacts
-from backend.routers import application_router, explanations_router, reviews_router, system_router, v2_router
+from backend.routers import (
+    application_router,
+    explanations_router,
+    recommendations_router,
+    reviews_router,
+    system_router,
+    v2_router,
+)
 
 
 @asynccontextmanager
@@ -31,6 +38,7 @@ app.add_middleware(CORSMiddleware, allow_origins=settings.cors_origin_list,
                    allow_credentials=True, allow_methods=["GET", "POST"],
                    allow_headers=["Content-Type", "Authorization"])
 app.include_router(system_router)
+app.include_router(recommendations_router)
 if settings.dataset_profile == "baseline":
     app.include_router(application_router)
     app.include_router(explanations_router)

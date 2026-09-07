@@ -88,9 +88,9 @@ def test_case_report_is_valid_nonempty_pdf_with_required_governance(client: Test
     text = _pdf_text(response.content)
     assert "W-001937" in text
     assert "Review Priority" in text
-    assert "Prototype Decision-Support Document" in text
-    assert "requires authorized human verification" in text
-    assert "DETERMINISTIC_FALLBACK" in text
+    assert "MPLADS Monitoring & Management Platform" in text
+    assert "authorized human verification required" in text
+    assert "DETERMINISTIC_FALLBACK" not in text
     assert "GROQ_API_KEY" not in text
     assert "gsk_" not in text
     assert "SELECTED:semantic" not in text
@@ -129,7 +129,7 @@ def test_report_uses_only_already_validated_cached_groq_output(client: TestClien
     })
     try:
         text = _pdf_text(client.get("/api/v1/works/W-001937/case-report.pdf").content)
-        assert "GROQ_GROUNDED" in text
+        assert "GROQ_GROUNDED" not in text
         assert "Validated cached narrative" in text
     finally:
         cache.clear()

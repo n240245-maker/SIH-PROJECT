@@ -42,7 +42,7 @@ export function GeoEvidenceActions({ workId, items }: { workId: string; items: R
     onSuccess: async () => { setFile(null); setNote(""); await queryClient.invalidateQueries({ queryKey: ["v2-work", workId] }); },
   });
   const verify = useMutation({
-    mutationFn: (evidenceId: string) => api.verifyGeoEvidence(evidenceId, scope, { verification_status: "DISTRICT_VERIFIED", verified_by: officer, note: "Verified in the local demonstration workflow." }),
+    mutationFn: (evidenceId: string) => api.verifyGeoEvidence(evidenceId, scope, { verification_status: "DISTRICT_VERIFIED", verified_by: officer, note: "Verified by the District Authority." }),
     onSuccess: async () => { await queryClient.invalidateQueries({ queryKey: ["v2-work", workId] }); },
   });
 
@@ -57,7 +57,7 @@ export function GeoEvidenceActions({ workId, items }: { workId: string; items: R
   }
 
   if (scope.role === "DISTRICT") {
-    const pending = items.filter((item) => String(item.source_type) !== "SEEDED_SYNTHETIC_DEMO_EVIDENCE" && String(item.verification_status) !== "DISTRICT_VERIFIED");
+    const pending = items.filter((item) => !String(item.source_type).startsWith("SEEDED_") && String(item.verification_status) !== "DISTRICT_VERIFIED");
     return <div className="district-verification"><label>District verifier name<input value={officer} minLength={2} onChange={(event) => setOfficer(event.target.value)} placeholder="Required to verify" /></label>{pending.map((item) => <button key={String(item.evidence_id)} className="button secondary" disabled={officer.trim().length < 2 || verify.isPending} onClick={() => verify.mutate(String(item.evidence_id))}><CheckCircle2 size={15} />Verify {String(item.evidence_id)}</button>)}{!pending.length && <p>No unverified local submissions are in this work.</p>}{verify.error && <p className="inline-error" role="alert">{verify.error.message}</p>}</div>;
   }
   return null;

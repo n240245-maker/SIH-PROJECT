@@ -1,0 +1,54 @@
+{
+  "application": "TRACE-X KAVACH",
+  "subtitle": "MPLADS Monitoring & Management Platform",
+  "upgrade_status": "DEPLOYMENT_APPROVED_AFTER_LOCAL_REVIEW",
+  "frozen_analytical_work_count": 3000,
+  "runtime_records_are_additional": true,
+  "recommendation_workflow": "MP_TO_DISTRICT_OPERATIONAL",
+  "new_backend_routes": [
+    "/api/v1/recommendations",
+    "/api/v1/recommendations/my-works",
+    "/api/v1/recommendations/{recommendation_id}",
+    "/api/v1/recommendations/{recommendation_id}/actions",
+    "/api/v1/recommendations/{recommendation_id}/activity",
+    "/api/v1/recommendations/{recommendation_id}/documents",
+    "/api/v1/recommendations/{recommendation_id}/precheck"
+  ],
+  "new_frontend_routes": [
+    "/recommend-work",
+    "/my-works",
+    "/new-recommendations",
+    "/recommendations/{recommendation_id}"
+  ],
+  "removed_frontend_routes": [
+    "/methodology"
+  ],
+  "runtime_paths": [
+    "data/runtime/recommendations.json",
+    "data/runtime/recommendation_events.jsonl",
+    "data/runtime/uploads/"
+  ],
+  "verification": {
+    "focused_backend": "15 PASSED",
+    "existing_day9_backend": "39 PASSED",
+    "full_python": "243 PASSED; 1 DEPENDENCY DEPRECATION WARNING",
+    "frontend_tests": "11 PASSED",
+    "frontend_lint": "PASSED",
+    "frontend_build": "PASSED",
+    "browser_smoke": "PASSED",
+    "browser_responsive_widths": [
+      1280,
+      1024,
+      768
+    ],
+    "recent_activity_timeline_visual_check": "PASSED",
+    "local_pdf_generation": "PASSED",
+    "automatic_explanation_calls_during_browser_smoke": 0,
+    "ground_truth_isolation": "VERIFIED",
+    "secret_audit": "0 MATCHES IN FRONTEND, RUNTIME, AND GENERATED APPLICATION ARTIFACTS",
+    "visible_ui_string_audit": "PASSED",
+    "frozen_artifact_integrity": "VERIFIED_UNCHANGED",
+    "demo_data_hashes": "12 OF 12 VERIFIED UNCHANGED"
+  },
+  "deployment_performed": true
+}

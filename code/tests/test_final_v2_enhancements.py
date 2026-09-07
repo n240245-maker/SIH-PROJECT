@@ -210,7 +210,7 @@ def test_v2_pdf_is_deterministic_evidence_only_and_secret_free(v2_service: V2App
     assert b"groq_api_key" not in lowered
     with fitz.open(stream=pdf, filetype="pdf") as document:
         visible_text = "\n".join(page.get_text() for page in document)
-    assert "TRACEX - KAVACH" in visible_text
+    assert "TRACE-X KAVACH" in visible_text
     assert "MPLADS SENTINEL" not in visible_text
     assert not re.search(r"\b(?:nan|none|null)\b", visible_text, flags=re.IGNORECASE)
 

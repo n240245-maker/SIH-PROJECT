@@ -115,7 +115,7 @@ def _page_frame(canvas, doc) -> None:
     canvas.line(18 * mm, 15 * mm, A4[0] - 18 * mm, 15 * mm)
     canvas.setFont("Helvetica", 6.5)
     canvas.setFillColor(MUTED)
-    canvas.drawString(18 * mm, 10 * mm, "Prototype decision-support document - requires authorized human verification.")
+    canvas.drawString(18 * mm, 10 * mm, "Decision-support report - authorized human verification required.")
     canvas.drawRightString(A4[0] - 18 * mm, 10 * mm, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -143,13 +143,13 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
     doc = SimpleDocTemplate(
         output, pagesize=A4, rightMargin=18 * mm, leftMargin=18 * mm,
         topMargin=16 * mm, bottomMargin=20 * mm,
-        title=f"TraceX - Kavach Case Review Support Report - {work_id}",
-        author="TraceX - Kavach prototype", subject="Prototype decision-support document",
+        title=f"TRACE-X KAVACH Case Review Support Report - {work_id}",
+        author="TRACE-X KAVACH", subject="Officer decision-support report",
     )
     story: list[Any] = [
-        Paragraph("TRACEX - KAVACH", styles["kicker"]),
+        Paragraph("TRACE-X KAVACH", styles["kicker"]),
         Paragraph("CASE REVIEW SUPPORT REPORT", styles["cover"]),
-        Paragraph("Prototype Decision-Support Document", styles["kicker"]),
+        Paragraph("MPLADS Monitoring & Management Platform", styles["kicker"]),
         _meta_table([
             ("Report ID", report_id), ("Work ID", work_id),
             ("Work title", profile.get("work_description")),
@@ -160,7 +160,7 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
             ("Review Priority", f"{_decimal(priority.get('review_priority_score_0_100'))} / 100"),
             ("Review Priority band", priority.get("review_priority_band")),
             ("Officer case status", detail.get("current_review_status")),
-            ("Explanation mode", explanation_bundle.get("generation_mode", "DETERMINISTIC_FALLBACK")),
+            ("Report purpose", "Officer review support"),
         ], styles), Spacer(1, 4 * mm),
     ]
 
@@ -238,8 +238,8 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
             _paragraph(f"Clause {rule.get('guideline_clause')}; page {rule.get('guideline_page')}; technical rule {rule.get('rule_id')}", styles["small"]),
         ]))
     if not actionable_rules:
-        story.append(_paragraph("No actionable deterministic compliance issue is present.", styles["body"]))
-    story.append(_paragraph("Requires Review and Non-Compliant remain distinct deterministic states.", styles["small"]))
+        story.append(_paragraph("No actionable compliance issue is present.", styles["body"]))
+    story.append(_paragraph("Requires Review and Non-Compliant remain distinct states.", styles["small"]))
 
     _section(story, 8, "Duplicate and Similar-Work Comparison", styles)
     if duplicates:
@@ -259,7 +259,7 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
     if prediction.get("cost_overrun_serving_percentile_0_100") is not None:
         story.append(_paragraph(f"Cost-overrun early-warning percentile: {_decimal(prediction.get('cost_overrun_serving_percentile_0_100'))}. Reliability: Limited; secondary context only.", styles["body"]))
 
-    _section(story, 10, "AI-Assisted Case Explanation", styles)
+    _section(story, 10, "Case Summary", styles)
     assessment = presentation.get("case_assessment") or {}
     project = assessment.get("project") or {}
     story.append(Paragraph("About this work", styles["h2"]))
@@ -273,7 +273,7 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
     for signal in warnings[:3]:
         _bullet(story, humanize_narrative(signal.get("summary")), styles)
     if not warnings:
-        story.append(_paragraph("No current governed issue requires an AI-generated interpretation.", styles["body"]))
+        story.append(_paragraph("No current recorded issue requires additional interpretation.", styles["body"]))
 
     _section(story, 11, "Officer Verification and Follow-up", styles)
     for item in presentation.get("officer_verification_checklist", []):
@@ -283,7 +283,7 @@ def build_case_review_pdf(detail: dict[str, Any], explanation_bundle: dict[str, 
     story.append(KeepTogether([
         Paragraph("12. Review Note", styles["h1"]),
         _paragraph(REVIEW_NOTE, styles["body"]),
-        _paragraph("Prototype Decision-Support Document - not an official sanction order, audit finding, adjudication, certificate, or legal conclusion.", styles["warning"]),
+        _paragraph("Decision-support report - not an official sanction order, audit finding, adjudication, certificate, or legal conclusion.", styles["warning"]),
     ]))
 
     doc.build(story, onFirstPage=_page_frame, onLaterPages=_page_frame)

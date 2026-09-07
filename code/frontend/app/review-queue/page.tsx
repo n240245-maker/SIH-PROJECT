@@ -26,10 +26,10 @@ export default function ReviewQueuePage() {
     const columns = ["work_id", "state_name", "district", "sector", "lifecycle_stage", "attention_level", "requires_review", "review_priority_score_0_100", "review_priority_band", "monthly_evidence_status"] as const;
     const escape = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
     const csv = [columns.join(","), ...query.data.items.map((item) => columns.map((key) => escape(item[key])).join(","))].join("\n");
-    const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); link.download = `synthetic-demo-v2-review-queue-${page}.csv`; link.click(); URL.revokeObjectURL(link.href);
+    const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); link.download = `trace-x-kavach-review-queue-${page}.csv`; link.click(); URL.revokeObjectURL(link.href);
   };
   return <>
-    <div className="page-title"><div><p className="eyebrow">Authority-scoped human review · synthetic demo-v2</p><h1>Review queue</h1><p>One row per work, ordered by the governed Review Priority policy. Statistical signals are not findings of fraud.</p></div><button className="button secondary" onClick={exportPage} disabled={!query.data?.items.length}><Download size={15} />Export current page</button></div>
+    <div className="page-title"><div><p className="eyebrow">Officer Review</p><h1>Review Queue</h1><p>Works are ordered by Review Priority to help authorized officers plan verification.</p></div><button className="button secondary" onClick={exportPage} disabled={!query.data?.items.length}><Download size={15} />Export Current Page</button></div>
     <div className="filter-panel queue-filters">
       <label className="filter-group"><strong>Review need</strong><select aria-label="Review need" value={reviewNeed} onChange={(event) => { setReviewNeed(event.target.value); setPage(1); }}><option value="ALL">All works</option><option value="REQUIRES_REVIEW">Requires Review</option></select></label>
       <label className="filter-group"><strong>Priority band</strong><select aria-label="Priority band" value={band} onChange={(event) => { setBand(event.target.value); setPage(1); }}><option value="">All bands</option>{["LOW", "MEDIUM", "HIGH", "CRITICAL"].map((value) => <option key={value}>{value}</option>)}</select></label>

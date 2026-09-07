@@ -91,7 +91,7 @@ def _frame(canvas, doc) -> None:
     canvas.line(18 * mm, 15 * mm, A4[0] - 18 * mm, 15 * mm)
     canvas.setFont("Helvetica", 6.5)
     canvas.setFillColor(MUTED)
-    canvas.drawString(18 * mm, 10 * mm, "Synthetic prototype decision support - authorized human verification required.")
+    canvas.drawString(18 * mm, 10 * mm, "Decision-support report - authorized human verification required.")
     canvas.drawRightString(A4[0] - 18 * mm, 10 * mm, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -105,20 +105,20 @@ def build_v2_case_review_pdf(detail: dict[str, Any], generated_at: datetime) -> 
     doc = SimpleDocTemplate(
         output, pagesize=A4, leftMargin=18 * mm, rightMargin=18 * mm,
         topMargin=16 * mm, bottomMargin=20 * mm,
-        title=f"TraceX - Kavach demo-v2 case review - {header['work_id']}",
-        author="TraceX - Kavach synthetic prototype",
+        title=f"TRACE-X KAVACH case review - {header['work_id']}",
+        author="TRACE-X KAVACH",
     )
     story: list[Any] = [
-        Paragraph("TRACEX - KAVACH - SYNTHETIC DEMO V2", styles["kicker"]),
+        Paragraph("TRACE-X KAVACH", styles["kicker"]),
         Paragraph("CASE REVIEW SUPPORT REPORT", styles["title"]),
-        _p(detail["synthetic_disclaimer"], styles["small"]),
+        _p("MPLADS Monitoring & Management Platform", styles["small"]),
         _table([
             ("Work ID", header["work_id"]), ("Project", header["project_title"]),
             ("Location", header["location"]), ("Generated", generated_at.isoformat()),
             ("Attention", header["attention_level"]),
             ("Review Priority", f"{float(header['review_priority_score_0_100']):.1f} / 100"),
             ("Officer case status", project["officer_case_status"]),
-            ("Explanation mode", "Deterministic local fallback"),
+            ("Report purpose", "Officer review support"),
         ], styles), Spacer(1, 2 * mm),
     ]
 
@@ -176,18 +176,12 @@ def build_v2_case_review_pdf(detail: dict[str, Any], generated_at: datetime) -> 
     for name, status in records["statuses"].items():
         _bullet(story, f"{name.replace('_', ' ').title()}: {status}", styles)
 
-    _section(story, 8, "AI-Assisted Case Explanation", styles)
+    _section(story, 8, "Case Summary", styles)
     explanation = detail["ai_explanation"]["explanation"]
     story.append(_p(explanation["what_the_work_is"], styles["body"]))
     for issue in explanation["main_issues"]:
         _bullet(story, issue, styles)
-    story.append(_p("This report uses the deterministic fallback and does not call Groq. Groq can explain supplied evidence only after an explicit user action.", styles["small"]))
-    story.append(_table([
-        ("Method", detail["ai_explanation"]["method"]),
-        ("Guideline retrieval", detail["ai_explanation"]["retrieval"]),
-        ("Provider behavior", "Explicit user action only; safe local fallback on any provider failure"),
-        ("Decision boundary", "Generated wording cannot change structured evidence or deterministic rule results"),
-    ], styles))
+    story.append(_p("The case summary cannot change recorded evidence, rule results or the officer's decision.", styles["small"]))
 
     _section(story, 9, "Officer Review & Corrective Action", styles)
     review = detail["officer_review"]

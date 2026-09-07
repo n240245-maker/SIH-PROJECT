@@ -36,7 +36,7 @@ test("primary values are rounded to one decimal", () => {
 
 test("priority contributions reconcile without changing governed points", () => {
   assert.equal(contributionSum([{ contribution_points: 7.900415 }, { contribution_points: 81.541486 }]), 89.441901);
-  assert.equal(familyLabel("PAYMENT_EXECUTION"), "Payments & Fund-Progress");
+  assert.equal(familyLabel("PAYMENT_EXECUTION"), "Payment & Progress Gap");
 });
 
 test("review, non-compliance, and analytical semantics remain distinct", () => {
@@ -80,7 +80,7 @@ test("mocked grounded explanation fields use officer-facing evidence language", 
     summary: "Review PERSISTENT_FUND_PROGRESS_REVIEW for W-002760.",
     why_flagged: [{ finding: "PAYMENT_AUTH_BEFORE_REQUEST requires source verification." }],
   };
-  assert.equal(humanizeNarrative(grounded.summary), "Review Persistent financial-vs-physical progress mismatch for W-002760.");
+  assert.equal(humanizeNarrative(grounded.summary), "Review Payment & Progress Gap for W-002760.");
   assert.equal(humanizeNarrative(grounded.why_flagged[0].finding), "Payment authorization recorded before request requires source verification.");
 });
 

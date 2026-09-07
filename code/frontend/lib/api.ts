@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { Overview, Page, QueueItem, Scope, ScopeOptions, WorkDetail } from "./types";
+import type { MyWorkItem, Overview, Page, QueueItem, Recommendation, Scope, ScopeOptions, WorkDetail } from "./types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 const DATASET_PROFILE = process.env.NEXT_PUBLIC_MPLADS_DATASET_PROFILE ?? "demo_v2";
@@ -10,8 +10,9 @@ const scopeOptionsSchema = z.object({
   roles: z.array(z.enum(["MOSPI", "STATE", "DISTRICT", "IA", "MP"])),
   states: z.array(z.string()),
   districts: z.array(z.object({ state_name: z.string(), district: z.string() })),
-  mps: z.array(z.object({ mp_id: z.string(), mp_name: z.string(), state_name: z.string().nullish(), constituency: z.string().nullish() })),
+  mps: z.array(z.object({ mp_id: z.string(), mp_name: z.string(), state_name: z.string().nullish(), constituency: z.string().nullish(), districts: z.array(z.string()).optional() })),
   agencies: z.array(z.object({ agency_id: z.string(), agency_name: z.string(), state_name: z.string().nullish(), district: z.string().nullish() })).default([]),
+  sectors: z.array(z.string()).optional(), sub_sectors: z.array(z.string()).optional(),
   dataset_profile: z.string().optional(), synthetic_demo_data: z.boolean().optional(),
 });
 
@@ -35,6 +36,15 @@ const workSchema = z.object({
   progress_schedule: looseRecord, geo_evidence: looseRecord, records_completion: looseRecord,
   ai_explanation: looseRecord, officer_review: looseRecord, technical_details: looseRecord,
 });
+const recommendationSchema = looseRecord as unknown as z.ZodType<Recommendation>;
+const recommendationPageSchema = z.object({
+  items: z.array(recommendationSchema), page: z.number(), page_size: z.number(),
+  total: z.number(), total_pages: z.number(),
+}) as z.ZodType<Page<Recommendation>>;
+const myWorksPageSchema = z.object({
+  items: z.array(looseRecord), page: z.number(), page_size: z.number(),
+  total: z.number(), total_pages: z.number(),
+}) as unknown as z.ZodType<Page<MyWorkItem>>;
 
 export class ApiError extends Error {
   constructor(message: string, public status: number) { super(message); }
@@ -63,7 +73,13 @@ async function request<T>(path: string, schema: z.ZodType<T>, init?: RequestInit
   }
   if (!response.ok) {
     const body = await response.json().catch(() => ({}));
-    throw new ApiError(typeof body.detail === "string" ? body.detail : `Request failed (${response.status})`, response.status);
+    const detail = body.detail;
+    const message = typeof detail === "string"
+      ? detail
+      : Array.isArray(detail) && detail[0] && typeof detail[0].msg === "string"
+        ? detail[0].msg.replace(/^Value error, /, "")
+        : `Request failed (${response.status})`;
+    throw new ApiError(message, response.status);
   }
   return schema.parse(await response.json());
 }
@@ -86,4 +102,22 @@ export const api = {
   createGeoEvidence: (workId: string, scope: Scope, payload: Record<string, unknown>) => request<Record<string, unknown>>(`${API_PREFIX}/works/${encodeURIComponent(workId)}/geo-evidence?${scopeParams(scope)}`, looseRecord, { method: "POST", body: JSON.stringify(payload) }),
   verifyGeoEvidence: (evidenceId: string, scope: Scope, payload: Record<string, unknown>) => request<Record<string, unknown>>(`${API_PREFIX}/geo-evidence/${encodeURIComponent(evidenceId)}/verify?${scopeParams(scope)}`, looseRecord, { method: "POST", body: JSON.stringify(payload) }),
   imageUrl: (path: unknown, scope: Scope) => `${API_BASE}${String(path ?? "")}?${scopeParams(scope)}`,
+  recommendations: (scope: Scope, filters: { page?: number; page_size?: number; search?: string; status?: string } = {}) => {
+    const params = scopeParams(scope);
+    Object.entries(filters).forEach(([key, value]) => { if (value !== undefined && value !== "") params.set(key, String(value)); });
+    return request<Page<Recommendation>>(`/api/v1/recommendations?${params}`, recommendationPageSchema);
+  },
+  recommendation: (recommendationId: string, scope: Scope) => request<Recommendation>(`/api/v1/recommendations/${encodeURIComponent(recommendationId)}?${scopeParams(scope)}`, recommendationSchema),
+  createRecommendation: (scope: Scope, payload: Record<string, unknown>) => request<Recommendation>(`/api/v1/recommendations?${scopeParams(scope)}`, recommendationSchema, { method: "POST", body: JSON.stringify(payload) }),
+  precheckRecommendation: (recommendationId: string, scope: Scope) => request<Record<string, unknown>>(`/api/v1/recommendations/${encodeURIComponent(recommendationId)}/precheck?${scopeParams(scope)}`, looseRecord, { method: "POST", body: "{}" }),
+  recommendationAction: (recommendationId: string, scope: Scope, payload: Record<string, unknown>) => request<Recommendation>(`/api/v1/recommendations/${encodeURIComponent(recommendationId)}/actions?${scopeParams(scope)}`, recommendationSchema, { method: "POST", body: JSON.stringify(payload) }),
+  uploadRecommendationDocument: (recommendationId: string, scope: Scope, actorLabel: string, payload: Record<string, unknown>) => {
+    const params = scopeParams(scope); params.set("actor_label", actorLabel);
+    return request<Record<string, unknown>>(`/api/v1/recommendations/${encodeURIComponent(recommendationId)}/documents?${params}`, looseRecord, { method: "POST", body: JSON.stringify(payload) });
+  },
+  myWorks: (scope: Scope, filters: { page?: number; page_size?: number; category?: string; search?: string } = {}) => {
+    const params = scopeParams(scope);
+    Object.entries(filters).forEach(([key, value]) => { if (value !== undefined && value !== "") params.set(key, String(value)); });
+    return request<Page<MyWorkItem>>(`/api/v1/recommendations/my-works?${params}`, myWorksPageSchema);
+  },
 };

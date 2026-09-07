@@ -25,6 +25,8 @@ node_modules/
 
 # Runtime review state (local and append-only)
 data/runtime/*.jsonl
+data/runtime/recommendations.json
+data/runtime/uploads/
 
 # IDE / OS
 .vscode/

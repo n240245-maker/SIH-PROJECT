@@ -3,7 +3,13 @@
 from fastapi import APIRouter, Depends
 
 from backend.config import AppSettings, get_settings
-from backend.dependencies import get_application_service, get_artifacts, get_v2_artifacts
+from backend.dependencies import (
+    get_application_service,
+    get_artifacts,
+    get_recommendation_repository,
+    get_v2_artifacts,
+)
+from backend.repositories import RecommendationRepository
 from backend.repositories import ApplicationArtifactRepository
 from backend.repositories.v2_artifacts import V2ArtifactRepository
 from backend.schemas import HealthResponse
@@ -13,10 +19,15 @@ router = APIRouter(tags=["system"])
 
 
 @router.get("/health", response_model=HealthResponse)
-def health(settings: AppSettings = Depends(get_settings)) -> HealthResponse:
+def health(
+    settings: AppSettings = Depends(get_settings),
+    recommendations: RecommendationRepository = Depends(get_recommendation_repository),
+) -> HealthResponse:
     artifacts = get_v2_artifacts() if settings.dataset_profile == "demo_v2" else get_artifacts()
     return HealthResponse(status="ok", application=settings.app_name,
                           artifact_status="validated", work_count=len(artifacts.work_ids),
+                          analytical_work_count=len(artifacts.work_ids),
+                          runtime_recommendation_count=recommendations.count(),
                           as_of_date=settings.as_of_date)
 
 
@@ -24,7 +35,7 @@ def health(settings: AppSettings = Depends(get_settings)) -> HealthResponse:
 def meta(artifacts: ApplicationArtifactRepository = Depends(get_artifacts),
          settings: AppSettings = Depends(get_settings)) -> dict:
     return {"application": settings.app_name,
-            "subtitle": "AI-Powered Monitoring & Decision Support",
+            "subtitle": "MPLADS Monitoring & Management Platform",
             "api_version": "v1", "as_of_date": settings.as_of_date,
             "work_count": len(artifacts.work_ids),
             "risk_fusion_policy_version": artifacts.policy["policy_version"],

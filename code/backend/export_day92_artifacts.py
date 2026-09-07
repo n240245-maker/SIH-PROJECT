@@ -47,7 +47,7 @@ def main() -> int:
 
     summary = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "application": "TraceX - Kavach",
+        "application": "TRACE-X KAVACH",
         "day": "9.2",
         "as_of_date": overview["as_of_date"],
         "frozen_intelligence_changed": False,

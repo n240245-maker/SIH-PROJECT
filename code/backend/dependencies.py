@@ -5,10 +5,10 @@ from __future__ import annotations
 from functools import lru_cache
 
 from backend.config import get_settings
-from backend.repositories import ApplicationArtifactRepository, ReviewRepository
+from backend.repositories import ApplicationArtifactRepository, RecommendationRepository, ReviewRepository
 from backend.repositories.geo_evidence import GeoEvidenceRepository
 from backend.repositories.v2_artifacts import V2ArtifactRepository
-from backend.services import ApplicationService
+from backend.services import ApplicationService, RecommendationService
 from backend.services.v2_application import V2ApplicationService
 from backend.services.explanation_cache import ValidatedExplanationCache
 from intelligence.data.paths import ProjectPaths
@@ -49,6 +49,21 @@ def get_geo_evidence_repository() -> GeoEvidenceRepository:
         settings.runtime_data_dir,
         max_image_bytes=settings.geo_max_image_bytes,
     )
+
+
+@lru_cache(maxsize=1)
+def get_recommendation_repository() -> RecommendationRepository:
+    settings = get_settings()
+    assert settings.runtime_data_dir is not None
+    return RecommendationRepository(
+        settings.runtime_data_dir,
+        max_upload_bytes=settings.recommendation_max_upload_bytes,
+    )
+
+
+@lru_cache(maxsize=1)
+def get_recommendation_service() -> RecommendationService:
+    return RecommendationService(get_v2_artifacts(), get_recommendation_repository())
 
 
 @lru_cache(maxsize=1)

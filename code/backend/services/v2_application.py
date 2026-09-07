@@ -19,11 +19,11 @@ from intelligence.v2.geo import first_working_days, location_status
 
 
 ROLE_ORDERS = {
-    "MOSPI": ["National Overview", "Morning Ministry Brief", "State Performance", "India Monitoring Map", "Fund Flow Monitoring", "National Project Health", "Top Critical Alerts", "Compliance Monitoring", "State Comparison", "National Analytical Insights", "Recommended Ministry Actions"],
-    "STATE": ["State Overview", "Morning State Brief", "Needs State Intervention", "District Performance", "District Monitoring Map", "State Fund Flow", "Project Health", "Compliance Monitoring", "State Analytical Insights", "Recommended State Actions"],
-    "DISTRICT": ["District Overview", "Morning District Brief", "Needs District Action", "Block & Implementing Agency Performance", "Project Execution Map", "Fund & Payment Control", "Field Verification & Progress", "Compliance & Escalation Queue", "District Analytical Insights", "Recommended District Actions", "District Decision Workflow"],
-    "IA": ["Agency Overview", "Morning IA Brief", "Geo-Tagged Evidence Due", "My Work Execution Queue", "Progress & Milestones", "Fund & Payment Readiness", "Records & Compliance Tasks", "Geo-Evidence History", "Issues Requiring District Support", "Agency Performance", "Recent Submissions & Responses"],
-    "MP": ["Constituency Summary", "Morning Brief", "Project Status", "Fund Utilization Flow", "Development by Sector", "Projects Requiring Attention"],
+    "MOSPI": ["National Overview", "Works Needing Attention", "State Comparison", "Compliance Issues", "National Trends"],
+    "STATE": ["State Overview", "Priority Works", "District Comparison", "Compliance Issues", "Area Trends"],
+    "DISTRICT": ["District Overview", "New Recommendations", "Priority Works", "Compliance Issues", "Recent Updates"],
+    "IA": ["Agency Overview", "Works Needing Attention", "Progress", "Payments", "Compliance"],
+    "MP": ["My Works", "Recent Recommendations", "Works Needing Attention", "Recent Activity"],
 }
 
 
@@ -93,13 +93,24 @@ class V2ApplicationService:
             "states": sorted(self.work_view["state_name"].dropna().unique().tolist()),
             "districts": json_safe(districts.to_dict(orient="records")),
             "mps": [
-                {"mp_id": key, "mp_name": value["mp_name"], "state_name": value["state_name"], "constituency": value["constituency"]}
+                {
+                    "mp_id": key,
+                    "mp_name": value["mp_name"],
+                    "state_name": value["state_name"],
+                    "constituency": value["constituency"],
+                    "districts": sorted(
+                        self.work_view.loc[self.work_view["mp_id"].eq(key), "district"]
+                        .dropna().astype(str).unique().tolist()
+                    ),
+                }
                 for key, value in sorted(self.artifacts.mp_index.items())
             ],
             "agencies": [
                 {"agency_id": key, "agency_name": value["entity_name"], "state_name": value["state_name"], "district": value["district"]}
                 for key, value in sorted(self.artifacts.entity_index.items())
             ],
+            "sectors": sorted(self.work_view["sector"].dropna().astype(str).unique().tolist()),
+            "sub_sectors": sorted(self.work_view["sub_sector"].dropna().astype(str).unique().tolist()),
             "dataset_profile": "demo_v2",
             "synthetic_demo_data": True,
         }
@@ -161,6 +172,9 @@ class V2ApplicationService:
         actionable = frame["requires_review"].astype(str).str.casefold().eq("true")
         geo_due = frame["monthly_evidence_status"].eq("OVERDUE")
         closure = frame["closure_requires_review"].astype(str).str.casefold().eq("true")
+        recommended = frame["lifecycle_stage"].eq("PRE_SANCTION")
+        over_budget = frame["observed_cost_overrun"].astype(str).str.casefold().eq("true")
+        duplicate_candidates = frame["has_duplicate_candidate"].astype(str).str.casefold().eq("true")
         role_name = "Ministry" if scope.role == Role.MOSPI else scope.role.value
         brief = [
             f"{len(frame):,} scoped works are available for {role_name} review.",
@@ -192,11 +206,11 @@ class V2ApplicationService:
             "scope": asdict(scope), "role": scope.role.value,
             "section_order": ROLE_ORDERS[scope.role.value],
             "primary_question": {
-                "MOSPI": "How is MPLADS performing nationally and which states require national-level intervention?",
-                "STATE": "Which districts, projects and compliance issues need state-level intervention today?",
-                "DISTRICT": "Which works, agencies, payments and field issues need district-level action today?",
-                "IA": "Which works must my agency update, photograph, document, or resolve today?",
-                "MP": "What is happening in my constituency and what needs my attention?",
+                "MOSPI": "National MPLADS overview",
+                "STATE": "State MPLADS overview",
+                "DISTRICT": "District operations",
+                "IA": "Works needing attention",
+                "MP": "My MPLADS works",
             }[scope.role.value],
             "overview": {
                 "mplads_locations": int(frame[["district", "block", "village"]].drop_duplicates().shape[0]),
@@ -205,9 +219,11 @@ class V2ApplicationService:
                 "utilized_amount_inr": utilized, "remaining_balance_inr": released - utilized,
                 "utilization_pct_of_sanction": round(utilized / sanctioned * 100, 1) if sanctioned else None,
                 "completed": int(masks["COMPLETED"].sum()), "ongoing": int(masks["ONGOING"].sum()),
+                "recommended": int(recommended.sum()),
                 "delayed": int(masks["DELAYED"].sum()), "high_priority_review": int(high.sum()),
                 "works_requiring_review": int(actionable.sum()), "site_evidence_overdue": int(geo_due.sum()),
-                "pending_compliance_issues": int(closure.sum()),
+                "pending_compliance_issues": int(closure.sum()), "over_budget": int(over_budget.sum()),
+                "duplicate_candidates": int(duplicate_candidates.sum()),
             },
             "morning_brief": {"generation_mode": "DETERMINISTIC_STRUCTURED", "facts": brief, "ai_explicit_action_only": True},
             "project_status": {key: int(mask.sum()) for key, mask in masks.items()},
@@ -398,7 +414,7 @@ class V2ApplicationService:
             "anomalies_irregularities": anomalies,
             "key_risk_areas": {
                 "fund_utilization": {"status": monitoring[0]["status"], "sanctioned_amount_inr": sanctioned, "released_amount_inr": released, "recorded_expenditure_inr": work.get("current_expenditure_inr"), "difference_inr": difference, "release_above_sanction_pct": exceed_pct, "physical_progress_pct": work.get("physical_progress_pct"), "financial_progress_pct": work.get("financial_progress_pct"), "financial_physical_gap_pct": gap, "payment_count": work.get("payment_count"), "evidence": payments[-20:]},
-                "delays": {"status": monitoring[2]["status"], "expected_start": work.get("expected_start_date"), "actual_start": work.get("actual_start_date"), "expected_completion": work.get("expected_completion_date"), "recorded_completion": work.get("actual_completion_date"), "progress_history": progress[-18:]},
+                "delays": {"status": monitoring[2]["status"], "expected_start": work.get("expected_start_date"), "actual_start": work.get("actual_start_date"), "expected_completion": work.get("expected_completion_date"), "recorded_completion": work.get("actual_completion_date"), "overdue_days": work.get("overdue_days_as_of"), "progress_history": progress[-18:]},
                 "cost_overrun": {"observed_status": "OBSERVED_COST_OVERRUN" if _bool(work.get("observed_cost_overrun")) else "NO_OBSERVED_COST_OVERRUN", "early_warning_status": work.get("early_warning_status") or "UNAVAILABLE", "technical": {"model": work.get("model_name"), "version": work.get("model_version"), "quality": work.get("model_quality_status"), "evaluation_label": self.artifacts.cost_evaluation["evaluation_label"], "test_metrics": self.artifacts.cost_evaluation["candidate_metrics"][self.artifacts.cost_evaluation["selected_model"]]["test"], "limitations": self.artifacts.cost_evaluation["limitations"]}},
                 "duplicate_works": {"status": "CANDIDATE_FOUND" if duplicate_pairs else "NO_CANDIDATE", "candidates": duplicate_pairs, "disclaimer": "This is a duplicate-work candidate for review. It is not confirmation that the works are duplicates.", "technical": {"model": "sentence-transformers/all-MiniLM-L6-v2", "retrieval": "local top-5 nearest neighbours", "candidate_threshold": self.artifacts.duplicate_evaluation["candidate_threshold"], "corroboration": self.artifacts.duplicate_evaluation["corroboration"], "candidate_is_not_confirmation": True}},
             },
