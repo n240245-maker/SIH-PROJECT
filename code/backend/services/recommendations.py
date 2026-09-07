@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import date
 from functools import lru_cache
+import math
 from pathlib import Path
 from typing import Any
 
@@ -15,7 +16,47 @@ from backend.repositories.v2_artifacts import V2ArtifactRepository
 from backend.schemas import RecommendationAction, Role
 from backend.serialization import json_safe
 from backend.services.application import Scope
-from intelligence.duplicates.similarity import amount_similarity, geographic_distance_km
+
+
+def _amount_similarity(first: object, second: object) -> float | None:
+    """Compare usable amounts without importing the offline detector stack."""
+
+    if first is None or second is None or pd.isna(first) or pd.isna(second):
+        return None
+    first_value = float(first)
+    second_value = float(second)
+    denominator = max(abs(first_value), abs(second_value))
+    if denominator <= 0:
+        return 1.0 if first_value == second_value else None
+    return float(np.clip(1.0 - abs(first_value - second_value) / denominator, 0.0, 1.0))
+
+
+def _geographic_distance_km(
+    latitude_a: object,
+    longitude_a: object,
+    latitude_b: object,
+    longitude_b: object,
+) -> float | None:
+    """Return a bounded great-circle distance for the online pre-check."""
+
+    coordinates = (latitude_a, longitude_a, latitude_b, longitude_b)
+    if any(value is None or pd.isna(value) for value in coordinates):
+        return None
+    lat_a, lon_a, lat_b, lon_b = map(float, coordinates)
+    if not (-90 <= lat_a <= 90 and -90 <= lat_b <= 90):
+        return None
+    if not (-180 <= lon_a <= 180 and -180 <= lon_b <= 180):
+        return None
+    lat_a_r, lon_a_r, lat_b_r, lon_b_r = map(
+        math.radians, (lat_a, lon_a, lat_b, lon_b)
+    )
+    delta_lat = lat_b_r - lat_a_r
+    delta_lon = lon_b_r - lon_a_r
+    haversine = (
+        math.sin(delta_lat / 2) ** 2
+        + math.cos(lat_a_r) * math.cos(lat_b_r) * math.sin(delta_lon / 2) ** 2
+    )
+    return 6371.0088 * 2 * math.asin(math.sqrt(min(1.0, haversine)))
 
 
 @lru_cache(maxsize=1)
@@ -196,7 +237,12 @@ class RecommendationService:
         embeddings = np.load(self._embedding_path, mmap_mode="r")
         if embeddings.shape[0] != len(self.profile):
             return []
-        model = _duplicate_query_model(str(self._model_cache))
+        try:
+            model = _duplicate_query_model(str(self._model_cache))
+        except (ImportError, ModuleNotFoundError, OSError):
+            # Hosted serving deliberately excludes the heavyweight local embedding
+            # runtime. The pre-check remains deterministic and operational without it.
+            return []
         query_text = f"{record['title']}. {record['description']}"
         query_embedding = model.encode(
             [query_text], normalize_embeddings=True, convert_to_numpy=True, show_progress_bar=False
@@ -208,11 +254,11 @@ class RecommendationService:
         results: list[dict[str, Any]] = []
         for index in indexes:
             work = self.profile.iloc[int(index)]
-            distance = geographic_distance_km(
+            distance = _geographic_distance_km(
                 record.get("latitude"), record.get("longitude"),
                 work.get("registered_latitude"), work.get("registered_longitude"),
             )
-            amount = amount_similarity(record["proposed_project_cost_inr"], work.get("recommended_amount_inr"))
+            amount = _amount_similarity(record["proposed_project_cost_inr"], work.get("recommended_amount_inr"))
             same_sector = str(work.get("sector", "")).casefold() == str(record["sector"]).casefold()
             same_sub_sector = str(work.get("sub_sector", "")).casefold() == str(record["sub_sector"]).casefold()
             same_district = str(work.get("district", "")).casefold() == str(record["district"]).casefold()
@@ -462,7 +508,7 @@ class RecommendationService:
             actor_label=actor_label,
         )
         document = updated["documents"][-1]
-        photo_distance = geographic_distance_km(
+        photo_distance = _geographic_distance_km(
             record.get("latitude"), record.get("longitude"),
             document.get("photo_latitude"), document.get("photo_longitude"),
         )
